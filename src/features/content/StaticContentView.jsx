@@ -1,127 +1,218 @@
-function parseSections(title, body) {
-  const text = String(body || "").trim();
-  if (!text) return [];
+import { FEEDBACK_URL } from "../../data/feedback";
 
-  const lines = text
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean);
+const WARNING_HEADINGS = new Set(["WARNING", "IMPORTANT", "REFERENCE ONLY"]);
 
-  const sections = [];
-  let current = null;
+function isNumberedLine(line) {
+  return /^\d+\.\s+/.test(line);
+}
 
-  const pushCurrent = () => {
-    if (current) sections.push(current);
-    current = null;
-  };
+function stripNumber(line) {
+  return line.replace(/^\d+\.\s+/, "").trim();
+}
 
-  const isHeadingLine = (line) => {
-    const normalized = line.toUpperCase();
+function parseBody(body) {
+  const groups = String(body || "")
+    .split(/\n\s*\n/)
+    .map((group) =>
+      group
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean)
+    )
+    .filter((group) => group.length > 0);
 
-    if (
-      normalized.includes("AUTOMATIC COREBOX LOADING") ||
-      normalized.includes("MANUAL COREBOX LOAD") ||
-      normalized.includes("HIGH-RISK MISTAKES") ||
-      normalized.includes("COMMON COREBOX ISSUES")
-    ) {
-      return true;
-    }
+  return groups.map((group, index) => {
+    const [first, ...rest] = group;
 
-    return [
-      "SUMMARY",
-      "STEPS",
-      "OPERATOR NOTES",
-      "RETURN TO SERVICE",
-      "WARNING",
-    ].includes(normalized);
-  };
-
-  const isWarnHeading = (line) => {
-    const normalized = line.toUpperCase();
-    return normalized === "WARNING" || normalized.includes("HIGH-RISK MISTAKES");
-  };
-
-  for (const line of lines) {
-    const numberedMatch = line.match(/^(\d+)\.\s*(.*)$/);
-
-    if (isHeadingLine(line)) {
-      pushCurrent();
-      current = {
-        kind: isWarnHeading(line) ? "warn" : "normal",
-        heading: line,
-        items: [],
-        notes: [],
-      };
-      continue;
-    }
-
-    if (!current) {
-      current = {
-        kind: "normal",
-        heading: title,
-        items: [],
-        notes: [],
+    if (WARNING_HEADINGS.has(first.toUpperCase())) {
+      return {
+        id: `warning-${index}`,
+        type: "warning",
+        heading: first.toUpperCase(),
+        paragraphs: rest,
       };
     }
 
-    if (numberedMatch) {
-      current.items.push({
-        number: numberedMatch[1],
-        text: numberedMatch[2],
-      });
-    } else {
-      current.notes.push(line);
+    if (rest.length > 0 && rest.every(isNumberedLine)) {
+      return {
+        id: `steps-${index}`,
+        type: "steps",
+        heading: first,
+        items: rest.map(stripNumber),
+      };
     }
-  }
 
-  pushCurrent();
-  return sections;
+    return {
+      id: `text-${index}`,
+      type: "text",
+      heading: first,
+      paragraphs: rest,
+    };
+  });
+}
+
+function WarningCard({ heading, paragraphs }) {
+  return (
+    <div
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(125, 28, 28, 0.28) 0%, rgba(18, 24, 38, 1) 55%, rgba(10, 15, 26, 1) 100%)",
+        border: "1px solid rgba(239, 68, 68, 0.35)",
+        borderLeft: "6px solid #DC2626",
+        borderRadius: "16px",
+        padding: "18px 20px",
+      }}
+    >
+      <div
+        className="sectionLabel"
+        style={{
+          color: "#E5E7EB",
+          marginBottom: "14px",
+        }}
+      >
+        {heading}
+      </div>
+
+      <div
+        style={{
+          display: "grid",
+          gap: "14px",
+          color: "#E5E7EB",
+          lineHeight: 1.7,
+        }}
+      >
+        {paragraphs.map((paragraph, index) => (
+          <p
+            key={`${heading}-${index}`}
+            style={{
+              margin: 0,
+              color: index === 0 ? "#F8FAFC" : "#D1D5DB",
+              fontWeight: index === 0 ? 600 : 500,
+            }}
+          >
+            {paragraph}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function StepsCard({ heading, items }) {
+  return (
+    <div className="card">
+      <div className="sectionLabel">{heading}</div>
+
+      <div className="stepsWrap">
+        {items.map((item, index) => (
+          <div key={`${heading}-${index}`} className="stepRow">
+            <div className="stepNum">{index + 1}</div>
+            <div className="stepText">{item}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TextCard({ heading, paragraphs }) {
+  return (
+    <div className="card">
+      <div
+        style={{
+          fontSize: "18px",
+          fontWeight: 700,
+          color: "#F1F5F9",
+          marginBottom: paragraphs.length ? "12px" : "0",
+        }}
+      >
+        {heading}
+      </div>
+
+      {paragraphs.length > 0 && (
+        <div
+          style={{
+            display: "grid",
+            gap: "12px",
+            color: "#9CA3AF",
+            lineHeight: 1.7,
+          }}
+        >
+          {paragraphs.map((paragraph, index) => (
+            <p key={`${heading}-${index}`} style={{ margin: 0 }}>
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function StaticContentView({
   title,
   body = "Content placeholder.",
 }) {
-  const sections = parseSections(title, body);
+  const isFeedbackPage = title === "Operator Feedback";
+  const sections = parseBody(body);
 
   return (
-    <div className="stack">
-      {sections.map((section, index) => (
-        <div
-          key={`${section.heading}-${index}`}
-          className={`card ${section.kind === "warn" ? "card--warn" : ""}`}
+    <div
+      style={{
+        display: "grid",
+        gap: "12px",
+      }}
+    >
+      {sections.map((section) => {
+        if (section.type === "warning") {
+          return (
+            <WarningCard
+              key={section.id}
+              heading={section.heading}
+              paragraphs={section.paragraphs}
+            />
+          );
+        }
+
+        if (section.type === "steps") {
+          return (
+            <StepsCard
+              key={section.id}
+              heading={section.heading}
+              items={section.items}
+            />
+          );
+        }
+
+        return (
+          <TextCard
+            key={section.id}
+            heading={section.heading}
+            paragraphs={section.paragraphs}
+          />
+        );
+      })}
+
+      {isFeedbackPage && (
+        <a
+          href={FEEDBACK_URL}
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            display: "inline-block",
+            background: "#1A2235",
+            color: "#F1F5F9",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: "16px",
+            padding: "14px 16px",
+            textDecoration: "none",
+            fontWeight: "600",
+            textAlign: "center",
+          }}
         >
-          <div className="sectionLabel">{section.heading}</div>
-
-          {section.notes.length > 0 && (
-            <div
-              style={{
-                display: "grid",
-                gap: "10px",
-                marginBottom: section.items.length ? "14px" : 0,
-              }}
-            >
-              {section.notes.map((note, noteIndex) => (
-                <p key={`${section.heading}-note-${noteIndex}`}>{note}</p>
-              ))}
-            </div>
-          )}
-
-          {section.items.length > 0 && (
-            <div className="stepsWrap">
-              {section.items.map((item) => (
-                <div
-                  key={`${section.heading}-${item.number}`}
-                  className="stepRow"
-                >
-                  <div className="stepNum">{item.number}</div>
-                  <div className="stepText">{item.text}</div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
+          Open Feedback Form
+        </a>
+      )}
     </div>
   );
 }

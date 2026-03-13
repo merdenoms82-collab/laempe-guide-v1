@@ -1,36 +1,35 @@
-const SAFETY_ITEMS = [
-  {
-    key: "safety/box-changes-and-cleaning",
-    icon: "🔒",
-    title: "Box Changes and Cleaning",
-    sub: "LOTO reference",
-  },
-  {
-    key: "safety/repairs-and-preventive-maintenance",
-    icon: "🛠️",
-    title: "Repairs and Preventive Maintenance",
-    sub: "LOTO reference",
-  },
-];
-
 export default function SafetyMenu({ onNavigate }) {
   return (
-    <div className="screens-list">
-      {SAFETY_ITEMS.map((item) => (
-        <button
-          key={item.key}
-          type="button"
-          className="screen-item"
-          onClick={() => onNavigate(item.key)}
-        >
-          <div className="screen-icon">{item.icon}</div>
-          <div className="screen-info">
-            <div className="screen-name">{item.title}</div>
-            <div className="screen-desc">{item.sub}</div>
-          </div>
-          <div className="screen-arrow">›</div>
-        </button>
-      ))}
+    <div className="stack">
+      <button
+        type="button"
+        className="card"
+        onClick={() => onNavigate("safety/box-changes-and-cleaning")}
+        style={{ textAlign: "left", cursor: "pointer", color: "inherit" }}
+      >
+        <h3>Box Changes and Cleaning</h3>
+        <p>LOTO reference</p>
+      </button>
+
+      <button
+        type="button"
+        className="card"
+        onClick={() => onNavigate("safety/laempe-cleaning-safety")}
+        style={{ textAlign: "left", cursor: "pointer", color: "inherit" }}
+      >
+        <h3>Laempe Cleaning Safety</h3>
+        <p>Detailed cleaning safety reference</p>
+      </button>
+
+      <button
+        type="button"
+        className="card"
+        onClick={() => onNavigate("safety/repairs-and-preventive-maintenance")}
+        style={{ textAlign: "left", cursor: "pointer", color: "inherit" }}
+      >
+        <h3>Repairs and Preventive Maintenance</h3>
+        <p>LOTO reference</p>
+      </button>
     </div>
   );
 }

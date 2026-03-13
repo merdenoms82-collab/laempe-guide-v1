@@ -103,6 +103,75 @@ This page is a training/reference version.
 Operators must still follow the approved plant LOTO procedure.`,
   },
 
+  "safety/laempe-cleaning-safety": {
+  title: "Laempe Cleaning Safety",
+  subtitle: "Detailed safety reference",
+  body: `REFERENCE ONLY
+
+Always follow the official plant JSA and the approved safety procedure before performing this task.
+
+Summary
+Purpose: Provide operators with a detailed quick-reference for Laempe cleaning.
+
+Before Cleaning
+1. Verify the machine is out of operation.
+2. Verify the safety pin is installed.
+3. Verify required lockout / isolation is complete before cleaning.
+4. Place cardboard under the chute before cleaning begins.
+5. Make sure the area is clear of loose sand and trip hazards.
+6. Confirm the task is understood before starting.
+7. Do not begin cleaning if the machine condition or sequence is unclear.
+
+Required PPE
+1. Safety glasses
+2. Hearing protection
+3. Safety toe shoes
+4. Hard hat
+5. Gloves
+6. Face shield
+7. Tyvek suit if required for the task or area
+
+Main Hazards
+1. Slip and trip hazards from sand and debris
+2. Pinch points around shell, eject, and moving areas
+3. Falling core or shell
+4. Strain from lifting or handling material
+5. Dust and debris exposure during blowdown and cleaning
+6. Hand and finger injury during handling
+7. Injury risk if cleaning starts before the machine is properly prepared
+
+Safe Work Requirements
+1. Use a proper grip before lifting.
+2. Lift carefully and use two hands when needed.
+3. Keep hands and fingers clear when lowering shells or working near pinch points.
+4. Lower parts slowly and under control.
+5. Maintain safe footing while moving around sand and debris.
+6. Do not clean unless the machine is in a safe state and approved for cleaning.
+7. Stop immediately if the task becomes unsafe or conditions change.
+
+Cleaning Task Reminders
+1. Blow down and clean approved areas only.
+2. Remove sand buildup before it hardens.
+3. Clean carefully around the chute and other buildup points as required by procedure.
+4. Use approved tools for cleaning and buildup removal.
+5. Recheck the area before returning the machine to normal condition.
+
+Stop and Escalate
+1. The safety pin is missing or cannot be confirmed.
+2. Required lockout / isolation has not been confirmed.
+3. Machine condition is unclear.
+4. Buildup makes the task unsafe.
+5. A part, shell, or core appears unstable.
+6. The cleaning area cannot be reached safely.
+7. You are unsure which approved procedure applies.
+
+IMPORTANT
+
+This page is a quick operator reference only.
+
+Always check and follow the official plant JSA / approved safety document before performing Laempe cleaning.`,
+},
+
   "safety/repairs-and-preventive-maintenance": {
     title: "Repairs and Preventive Maintenance",
     subtitle: "LOTO reference",
