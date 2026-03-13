@@ -1,0 +1,42 @@
+export const GASSING_PARAMS = [
+  {
+    key: "numGassings",
+    name: "Number of gassings",
+    what: "How many times amine gas is injected during one curing cycle.",
+    increase: "May improve cure penetration on complex cores. Increases total cycle time.",
+    decrease: "May reduce cure strength on thicker sections. Shorter cycle.",
+    note: "Pending confirmation on best practice by job.",
+  },
+  {
+    key: "gassingPressure",
+    name: "Gassing pressure [bar]",
+    what: "Pressure used to inject gas into the core during curing.",
+    increase: "Stronger penetration, but can be too aggressive.",
+    decrease: "Reduced penetration, with risk of under-cure.",
+    note: "Pending confirmation.",
+  },
+  {
+    key: "gassingTime",
+    name: "Gassing time [s]",
+    what: "How long gas flows into the core.",
+    increase: "Harder cure and longer cycle.",
+    decrease: "Risk of under-cure and soft cores.",
+    note: "",
+  },
+  {
+    key: "gasExhaust",
+    name: "Gas exhaust time valve [s]",
+    what: "How long the exhaust valve remains open after gassing to clear residual gas.",
+    increase: "More clearing time, but longer cycle time.",
+    decrease: "Faster cycle, but may leave residual gas.",
+    note: "Observed on the floor as a smell / clearing adjustment.",
+  },
+  {
+    key: "preHeating",
+    name: "Pre-heating time [s]",
+    what: "Controls preheating time before the gassing cycle begins.",
+    increase: "Extends preheating time before gassing.",
+    decrease: "Reduces preheating time.",
+    note: "Observed on the floor to help with a cold box. Exact effect pending confirmation.",
+  },
+];

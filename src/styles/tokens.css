@@ -1,0 +1,19 @@
+:root{
+  --bg:#0B0F1A;
+  --text:#F1F5F9;
+  --muted:#9CA3AF;
+  --stroke:rgba(255,255,255,.08);
+  --surface:rgba(18,24,38,.95);
+
+  --r:22px;
+  --shadow:0 20px 70px rgba(0,0,0,.55);
+  --shadow2:0 12px 30px rgba(0,0,0,.35);
+
+  --blue:#3B82F6;
+  --violet:#8B5CF6;
+  --amber:#FBBF24;
+  --orange:#F59E0B;
+  --green:#22C55E;
+  --red:#EF4444;
+  --teal:#14B8A6;
+}

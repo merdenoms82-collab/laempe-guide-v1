@@ -1,0 +1,42 @@
+export const MACHINE_PARAMS = [
+  {
+    key: "numberOfShots",
+    name: "Number of shots",
+    what: "How many sand blows occur per cycle.",
+    increase: "Longer cycle and may improve fill on some shapes.",
+    decrease: "Shorter cycle with risk of incomplete fill.",
+    note: "Pending confirmation.",
+  },
+  {
+    key: "shootingPressure",
+    name: "Shooting pressure [bar]",
+    what: "Air pressure used to blow sand into the corebox.",
+    increase: "May pack harder, but can create venting or flashing issues.",
+    decrease: "May reduce fill quality if too low.",
+    note: "Pending confirmation.",
+  },
+  {
+    key: "shootingTime",
+    name: "Shooting time [s]",
+    what: "How long the sand blow runs.",
+    increase: "Longer fill time and longer cycle.",
+    decrease: "Faster cycle with risk of incomplete fill.",
+    note: "Pending confirmation.",
+  },
+  {
+    key: "exhaustTimeCorebox",
+    name: "Exhaust time corebox [s]",
+    what: "How long the corebox exhaust remains open after shooting.",
+    increase: "More venting time, but longer cycle.",
+    decrease: "Less venting time, with possible trapped air issues.",
+    note: "Pending confirmation.",
+  },
+  {
+    key: "exhaustTimeValve",
+    name: "Exhaust time valve [s]",
+    what: "How long the valve exhaust remains open after shooting.",
+    increase: "More clearing time, but longer cycle.",
+    decrease: "Shorter cycle with risk of incomplete venting.",
+    note: "Pending confirmation.",
+  },
+];
