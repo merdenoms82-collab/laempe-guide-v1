@@ -152,6 +152,8 @@ function TextCard({ heading, paragraphs }) {
 export default function StaticContentView({
   title,
   body = "Content placeholder.",
+  actionLabel,
+  onAction,
 }) {
   const isFeedbackPage = title === "Operator Feedback";
   const sections = parseBody(body);
@@ -163,6 +165,22 @@ export default function StaticContentView({
         gap: "12px",
       }}
     >
+      {actionLabel && onAction && (
+        <button
+          type="button"
+          className="card"
+          onClick={onAction}
+          style={{
+            textAlign: "left",
+            cursor: "pointer",
+            color: "inherit",
+          }}
+        >
+          <h3 style={{ marginBottom: "6px" }}>{actionLabel}</h3>
+          <p style={{ margin: 0 }}>Open related safety reference</p>
+        </button>
+      )}
+
       {sections.map((section) => {
         if (section.type === "warning") {
           return (
