@@ -41,46 +41,52 @@ export default function App() {
   };
 
   const handleOpenIssue = (issueId) => {
-    setView(`troubleshooting/${issueId}`);
+    const suffix = view === "search" ? "?from=search" : "";
+    setView(`troubleshooting/${issueId}${suffix}`);
   };
 
   const handleOpenErrorCode = (codeId) => {
-    setView(`troubleshooting/error-codes/${codeId}`);
+    const suffix = view === "search" ? "?from=search" : "";
+    setView(`troubleshooting/error-codes/${codeId}${suffix}`);
   };
 
   const startChecklist = CHECKLISTS.find((item) => item.key === "startShift");
   const endChecklist = CHECKLISTS.find((item) => item.key === "endShift");
 
+  const cameFromSearch = view.includes("?from=search");
+
+  const cleanView = view.split("?")[0];
+
   const issueId =
-    view.startsWith("troubleshooting/") &&
-    !view.startsWith("troubleshooting/error-codes")
-      ? view.replace("troubleshooting/", "")
+    cleanView.startsWith("troubleshooting/") &&
+    !cleanView.startsWith("troubleshooting/error-codes")
+      ? cleanView.replace("troubleshooting/", "")
       : null;
 
   const activeIssue = issueId
     ? KB_TROUBLESHOOT.find((item) => item.id === issueId)
     : null;
 
-  const errorCodeId = view.startsWith("troubleshooting/error-codes/")
-    ? view.replace("troubleshooting/error-codes/", "")
+  const errorCodeId = cleanView.startsWith("troubleshooting/error-codes/")
+    ? cleanView.replace("troubleshooting/error-codes/", "")
     : null;
 
   const activeErrorCode = errorCodeId
     ? ERROR_CODES.find((item) => item.id === errorCodeId)
     : null;
 
-  const coreId = view.startsWith("loadbox/core-reference/")
-    ? view.replace("loadbox/core-reference/", "")
+  const coreId = cleanView.startsWith("loadbox/core-reference/")
+    ? cleanView.replace("loadbox/core-reference/", "")
     : null;
 
   const activeCore = coreId
     ? CORES.find((item) => item.id === coreId)
     : null;
 
-  const staticPage = CONTENT_PAGES[view];
+  const staticPage = CONTENT_PAGES[cleanView];
 
   const staticPageAction =
-    view === "loadbox/load-unload/automatic"
+    cleanView === "loadbox/load-unload/automatic"
       ? {
           label: "Open Corebox Loading Safety",
           route: "safety/corebox-loading-safety",
@@ -89,9 +95,9 @@ export default function App() {
 
   return (
     <AppShell onNavigate={setView} onOpenSearch={() => setView("search")}>
-      {view === "home" && <HomeGrid onNavigate={setView} />}
+      {cleanView === "home" && <HomeGrid onNavigate={setView} />}
 
-      {view === "search" && (
+      {cleanView === "search" && (
         <DetailView
           title="Search"
           subtitle="Troubleshooting knowledge search"
@@ -107,7 +113,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "screens" && (
+      {cleanView === "screens" && (
         <DetailView
           title="Control Screens"
           subtitle="Parameter & status reference"
@@ -121,7 +127,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "screens/gassing" && (
+      {cleanView === "screens/gassing" && (
         <DetailView
           title="Gassing Parameters"
           subtitle="Tap a parameter to open details"
@@ -131,7 +137,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "screens/machine" && (
+      {cleanView === "screens/machine" && (
         <DetailView
           title="Machine Shot Parameters"
           subtitle="Tap a parameter to open details"
@@ -141,7 +147,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "checklists" && (
+      {cleanView === "checklists" && (
         <DetailView
           title="Shift Checklists"
           subtitle="Start and end of shift reference"
@@ -171,7 +177,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "checklists/start" && startChecklist && (
+      {cleanView === "checklists/start" && startChecklist && (
         <DetailView
           title={startChecklist.title}
           subtitle="Step-by-step reference"
@@ -181,7 +187,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "checklists/end" && endChecklist && (
+      {cleanView === "checklists/end" && endChecklist && (
         <DetailView
           title={endChecklist.title}
           subtitle="Step-by-step reference"
@@ -191,7 +197,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "mixer" && (
+      {cleanView === "mixer" && (
         <DetailView
           title="Sand Mixer"
           subtitle="Mixer settings & checks"
@@ -201,7 +207,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "safety" && (
+      {cleanView === "safety" && (
         <DetailView
           title="Emergency & Safety"
           subtitle="LOTO and critical procedures"
@@ -211,7 +217,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "loadbox" && (
+      {cleanView === "loadbox" && (
         <DetailView
           title="Corebox Setup"
           subtitle="Changeover & configuration"
@@ -221,7 +227,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "loadbox/core-reference" && (
+      {cleanView === "loadbox/core-reference" && (
         <DetailView
           title="Core Reference"
           subtitle="Core settings and floor notes"
@@ -231,7 +237,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view.startsWith("loadbox/core-reference/") && activeCore && (
+      {cleanView.startsWith("loadbox/core-reference/") && activeCore && (
         <DetailView
           title={activeCore.title}
           subtitle={activeCore.machineName}
@@ -241,7 +247,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "loadbox/auto-recovery" && (
+      {cleanView === "loadbox/auto-recovery" && (
         <DetailView
           title="Auto Load Recovery (Manual)"
           subtitle="Pick the machine state"
@@ -272,7 +278,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "troubleshooting" && (
+      {cleanView === "troubleshooting" && (
         <DetailView
           title="Troubleshooting"
           subtitle="Common issues and error code lookup"
@@ -302,7 +308,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "troubleshooting/issues" && (
+      {cleanView === "troubleshooting/issues" && (
         <DetailView
           title="Common Issues"
           subtitle="Symptoms → checks"
@@ -315,7 +321,7 @@ export default function App() {
         </DetailView>
       )}
 
-      {view === "troubleshooting/error-codes" && (
+      {cleanView === "troubleshooting/error-codes" && (
         <DetailView
           title="Error Code Lookup"
           subtitle="Grouped by machine area"
@@ -325,21 +331,25 @@ export default function App() {
         </DetailView>
       )}
 
-      {view.startsWith("troubleshooting/error-codes/") && activeErrorCode && (
+      {cleanView.startsWith("troubleshooting/error-codes/") && activeErrorCode && (
         <DetailView
           title={activeErrorCode.code}
           subtitle={activeErrorCode.area}
-          onBack={() => setView("troubleshooting/error-codes")}
+          onBack={() =>
+            setView(cameFromSearch ? "search" : "troubleshooting/error-codes")
+          }
         >
           <ErrorCodeDetail item={activeErrorCode} />
         </DetailView>
       )}
 
-      {view.startsWith("troubleshooting/") && activeIssue && (
+      {cleanView.startsWith("troubleshooting/") && activeIssue && (
         <DetailView
           title={activeIssue.title}
           subtitle="Troubleshooting issue detail"
-          onBack={() => setView("troubleshooting/issues")}
+          onBack={() =>
+            setView(cameFromSearch ? "search" : "troubleshooting/issues")
+          }
         >
           <TroubleshootingIssue issue={activeIssue} />
         </DetailView>
@@ -350,23 +360,23 @@ export default function App() {
           title={staticPage.title}
           subtitle={staticPage.subtitle}
           onBack={() => {
-            if (view.startsWith("mixer/")) {
+            if (cleanView.startsWith("mixer/")) {
               setView("mixer");
               return;
             }
-            if (view.startsWith("safety/")) {
+            if (cleanView.startsWith("safety/")) {
               setView("safety");
               return;
             }
-            if (view.startsWith("loadbox/auto-recovery/")) {
+            if (cleanView.startsWith("loadbox/auto-recovery/")) {
               setView("loadbox/auto-recovery");
               return;
             }
-            if (view.startsWith("loadbox/load-unload/")) {
+            if (cleanView.startsWith("loadbox/load-unload/")) {
               setView("loadbox");
               return;
             }
-            if (view.startsWith("loadbox/")) {
+            if (cleanView.startsWith("loadbox/")) {
               setView("loadbox");
               return;
             }
