@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { matchKB } from "./search-utils";
 
-function collectRelatedPages(matches) {
+function collectRelatedPages(matches, limit = 4) {
   const seen = new Set();
   const pages = [];
 
@@ -10,6 +10,7 @@ function collectRelatedPages(matches) {
       if (!page?.route || seen.has(page.route)) continue;
       seen.add(page.route);
       pages.push(page);
+      if (pages.length >= limit) return pages;
     }
   }
 
@@ -24,32 +25,111 @@ function normalizeText(value) {
     .trim();
 }
 
+function tokenize(value) {
+  return normalizeText(value).split(" ").filter(Boolean);
+}
+
+function isRecoveryBridge(entry) {
+  return String(entry?.id || "").endsWith("-search");
+}
+
+function scoreIssueEntry(query, entry) {
+  const q = normalizeText(query);
+  if (!q) return 0;
+
+  const title = normalizeText(entry.title);
+  const symptom = normalizeText(entry.symptom);
+  const triggers = (entry.triggers || []).map(normalizeText);
+  const causes = normalizeText((entry.likelyCauses || []).join(" "));
+  const checks = normalizeText((entry.firstChecks || []).join(" "));
+  const relatedLabels = normalizeText(
+    (entry.relatedPages || []).map((page) => page.label).join(" ")
+  );
+
+  let score = 0;
+
+  if (title === q) score += 400;
+  if (symptom === q) score += 320;
+
+  for (const trigger of triggers) {
+    if (trigger === q) score += 500;
+    else if (trigger.includes(q)) score += 220;
+    else if (q.includes(trigger) && trigger.length > 4) score += 180;
+  }
+
+  if (title.includes(q)) score += 260;
+  if (symptom.includes(q)) score += 180;
+  if (causes.includes(q)) score += 70;
+  if (checks.includes(q)) score += 60;
+  if (relatedLabels.includes(q)) score += 20;
+
+  const words = tokenize(q);
+  for (const word of words) {
+    if (!word) continue;
+    if (title.includes(word)) score += 35;
+    if (symptom.includes(word)) score += 25;
+    if (triggers.some((trigger) => trigger.includes(word))) score += 30;
+    if (causes.includes(word)) score += 10;
+    if (checks.includes(word)) score += 8;
+  }
+
+  if (isRecoveryBridge(entry)) {
+    score -= 30;
+    if (title.includes(q)) score += 50;
+    if (triggers.some((trigger) => trigger === q)) score += 60;
+  } else {
+    score += 20;
+  }
+
+  if (entry.priority === "high") score += 10;
+  if (entry.priority === "medium") score += 4;
+
+  return score;
+}
+
+function matchIssues(query, issues) {
+  const q = query.trim();
+  if (!q) return [];
+
+  return issues
+    .map((entry) => ({
+      entry,
+      score: scoreIssueEntry(q, entry),
+    }))
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5);
+}
+
 function matchErrorCodes(query, codes) {
   const q = normalizeText(query);
   if (!q) return [];
 
   return codes
     .map((item) => {
+      const code = normalizeText(item.code);
       const hay = normalizeText(
         `${item.code} ${item.area} ${item.message} ${item.operatorMeaning || ""} ${item.status} ${(item.firstChecks || []).join(" ")} ${item.whenCallMaint || ""}`
       );
 
       let score = 0;
 
-      if (normalizeText(item.code) === q) score += 300;
-      if (normalizeText(item.code).includes(q)) score += 220;
-      if (hay.includes(q)) score += 100;
+      if (code === q) score += 500;
+      if (code.includes(q)) score += 320;
+      if (hay.includes(q)) score += 120;
 
-      const words = q.split(" ");
+      const words = tokenize(q);
       for (const word of words) {
-        if (word && hay.includes(word)) score += 20;
+        if (!word) continue;
+        if (code.includes(word)) score += 45;
+        if (hay.includes(word)) score += 18;
       }
 
       return { item, score };
     })
     .filter((entry) => entry.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 8);
+    .slice(0, 5);
 }
 
 function buildQuickHelper({ topIssue, topCode, query }) {
@@ -58,7 +138,7 @@ function buildQuickHelper({ topIssue, topCode, query }) {
       title: "Search Helper",
       summary: "Type a symptom, machine message, or error code.",
       firstChecks: [
-        "Try a symptom like vacuum, gas smell, or light curtain.",
+        "Try a symptom like vacuum, light curtain, or shot not full.",
         "Try an error code like MCT0326.",
         "Use short phrases first.",
       ],
@@ -98,7 +178,7 @@ function buildQuickHelper({ topIssue, topCode, query }) {
     firstChecks: [
       "Try a shorter symptom or simpler wording.",
       "Try the exact code if you have one.",
-      "Try related terms like vacuum, carriage, table, or light curtain.",
+      "Try related terms like vacuum, clamp, carriage, or light curtain.",
     ],
     escalate: "If the machine is unsafe or repeatedly faulting, stop and escalate.",
     type: "none",
@@ -168,19 +248,12 @@ export default function SearchView({
   const [query, setQuery] = useState("");
 
   const issueMatches = useMemo(() => {
-    const trimmed = query.trim();
-    if (!trimmed) return [];
-    return matchKB(trimmed, issues, { limit: 3, minScore: 70 });
+    return matchIssues(query, issues);
   }, [issues, query]);
 
   const codeMatches = useMemo(() => {
     return matchErrorCodes(query, errorCodes);
   }, [query, errorCodes]);
-
-  const relatedPages = useMemo(
-    () => collectRelatedPages(issueMatches),
-    [issueMatches]
-  );
 
   const topIssue = issueMatches[0]?.entry || null;
   const topCode = codeMatches[0]?.item || null;
@@ -188,6 +261,15 @@ export default function SearchView({
   const helper = useMemo(() => {
     return buildQuickHelper({ topIssue, topCode, query });
   }, [topIssue, topCode, query]);
+
+  const relatedIssueMatches = useMemo(() => {
+    if (!issueMatches.length) return [];
+    return issueMatches.slice(1, 3);
+  }, [issueMatches]);
+
+  const relatedPages = useMemo(() => {
+    return collectRelatedPages(issueMatches, 4);
+  }, [issueMatches]);
 
   return (
     <div className="stack">
@@ -231,13 +313,13 @@ export default function SearchView({
             "Call maintenance if the code repeats or blocks production."
           }
           footer={{
-            title: "Browse All Error Codes",
+            title: "Open Full Error Code Detail",
             sub: topCode.code,
           }}
           footerTone="tile--violet"
           footerIcon="📟"
           onHeaderClick={() => onOpenErrorCode(topCode.id)}
-          onFooterClick={() => onOpenPage("troubleshooting/error-codes")}
+          onFooterClick={() => onOpenErrorCode(topCode.id)}
         />
       )}
 
@@ -282,11 +364,11 @@ export default function SearchView({
         </>
       )}
 
-      {issueMatches.length > 1 && (
+      {relatedIssueMatches.length > 0 && (
         <div className="card">
           <h3>Related Troubleshooting</h3>
           <div className="stack" style={{ marginTop: "12px" }}>
-            {issueMatches.slice(1).map(({ entry }) => (
+            {relatedIssueMatches.map(({ entry }) => (
               <button
                 key={entry.id}
                 type="button"
@@ -313,7 +395,9 @@ export default function SearchView({
               style={{ textAlign: "left", cursor: "pointer", color: "inherit" }}
             >
               <h3>{topCode.code}</h3>
-              <p><strong>Area:</strong> {topCode.area}</p>
+              <p>
+                <strong>Area:</strong> {topCode.area}
+              </p>
               <p style={{ marginTop: "6px" }}>
                 {topCode.operatorMeaning || topCode.message}
               </p>
