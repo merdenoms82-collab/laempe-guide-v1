@@ -2,9 +2,85 @@ export const CONTENT_PAGES = {
   basics: {
     title: "Machine Operation",
     subtitle: "Start • Run • Shutdown",
-    body: `Machine operation content placeholder.
+    body: `REFERENCE ONLY
 
-This section will hold structured startup, run, and shutdown guidance.`,
+Always follow the approved work instruction, F.I.C. card, and plant procedure before operating the machine.
+
+Summary
+Purpose: Give operators a clear quick-reference for normal machine operation.
+
+Before Starting
+1. Read and understand the work instruction for the job.
+2. Read and understand the F.I.C. card for the job.
+3. Make sure all guarding is in place before starting the shift.
+4. Make sure partial buggies are available if needed for the run.
+5. Sign in on the MES terminal.
+6. Make sure machine and gassing screens match the F.I.C. card.
+7. If the machine fails to operate or is not acting right, stop and notify setup, supervisor, or maintenance.
+
+Startup
+1. Push in the control power switch to power up the machine.
+2. Start the machine using the auto start button.
+3. Dry cycle the machine without making sand for 2 to 5 cycles.
+4. Use the dry cycle to make sure the machine starts correctly and is not wasting sand.
+5. Push the sand mixer button to turn the mixer on.
+6. Turn the sand demand switch on.
+7. Make sure the required indicator lights come on for sand demand and mixer running.
+
+Machine Ready Checks
+1. Enter the cage only as allowed by procedure.
+2. Make sure machine control power is on.
+3. Put operation mode in Manual when needed for setup checks.
+4. Highlight the required sand gate and function buttons as required by procedure.
+5. Make sure the sand demand cycle responds correctly.
+6. Make sure all machine functions show green on panel view.
+7. Make sure clamps show green in the correct closed positions.
+8. Make sure the light / camera pole is in the correct position above the core box if needed.
+9. Put operation mode back in Auto when checks are complete.
+10. Exit the cage, close it, and lock the cage door.
+
+Running Production
+1. Push entry request, complete required resets, and start the cycle as required by procedure.
+2. Make sure machine and gassing screens still match the F.I.C. card.
+3. Start the machine with the green auto start button.
+4. Watch cycle operation and robot core removal.
+5. If the robot or camera is not working correctly, notify setup and supervisor.
+6. Remove cores only as required and keep the area clear for continued operation.
+
+Core Inspection and Quality
+1. Remove, inspect, and rework cores to F.I.C. card and Quality Alert requirements.
+2. Use approved tools only for rework and cleanup.
+3. If cores do not meet standard, make the required correction if allowed.
+4. If you cannot make acceptable cores, notify setup or supervisor.
+5. Report all downtime over 20 minutes to supervision.
+
+End of Shift / Shutdown
+1. Place acceptable cores on the correct buggy to F.I.C. card standard.
+2. Make accurate tags and place them on the buggy with the cores.
+3. About 45 minutes before end of shift, get ready to run the sand out.
+4. Turn off the mixer sand demand switch.
+5. Keep running until the machine runs out of sand.
+6. Clean the machine if it will be down for an extended period.
+7. Clean the work area, including the mixer area, binder pails, and floor, as required.
+
+Documentation and Handoff
+1. Fill in required production and downtime information.
+2. Complete scrap and related paperwork as required.
+3. Move buggies to the correct staging area for retrieval.
+4. Follow safe buggy handling practices and use tugger equipment when possible.
+5. Ask for help when hand-moving or positioning buggies.
+
+Operating Limits
+1. Gassing time: plus or minus 5 seconds
+2. Exhaust time: plus or minus 2 seconds
+3. Gassing stroke time: plus or minus 10 seconds
+4. Blow time: plus or minus 2 seconds
+
+IMPORTANT
+
+This page is a quick operator reference only.
+
+Always follow the approved work instruction, F.I.C. card, and plant procedure during machine operation.`,
   },
 
   feedback: {
