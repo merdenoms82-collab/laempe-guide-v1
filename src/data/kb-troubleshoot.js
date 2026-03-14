@@ -974,4 +974,187 @@ export const KB_TROUBLESHOOT = [
       { label: "Troubleshooting", route: "troubleshooting" },
     ],
   },
+
+  {
+    id: "clamp-wont-turn-green-search",
+    title: "Clamp won’t turn green",
+    priority: "high",
+    triggers: [
+      "clamp wont turn green",
+      "clamp won't turn green",
+      "clamp not green",
+      "wont clamp",
+      "won't clamp",
+      "clamp issue",
+      "clamp not making",
+    ],
+    symptom:
+      "Clamp step does not complete and the required green confirmation does not make.",
+    firstChecks: [
+      "Check whether the box is fully seated and aligned.",
+      "Check for sand, debris, or buildup on seating or contact surfaces.",
+      "Check whether the machine is in the correct step and mode.",
+      "Check whether another required condition has not been made first.",
+    ],
+    nextSteps: [
+      "Use the Auto Load Recovery page for the exact recovery steps from this machine state.",
+      "Do not guess the recovery sequence from memory.",
+      "Document the exact point where the clamp step stops if the issue repeats.",
+    ],
+    likelyCauses: [
+      "Box not seated correctly",
+      "Debris or buildup affecting clamp/seating",
+      "Required condition not made before clamp step",
+      "Mechanical or sensor-side clamp issue",
+    ],
+    whenCallMaint:
+      "Call maintenance if the clamp still will not turn green after following the correct recovery path, or if the same clamp step fails repeatedly.",
+    safetyNotes: [
+      "Keep clear of pinch points while checking clamp-related conditions.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Auto Load Recovery (Manual)", route: "loadbox/auto-recovery" },
+      {
+        label: "Clamp won’t turn green",
+        route: "loadbox/auto-recovery/clamp-wont-turn-green",
+      },
+      { label: "Corebox Setup", route: "loadbox" },
+    ],
+  },
+  {
+    id: "carriage-wont-move-search",
+    title: "Carriage won’t move",
+    priority: "high",
+    triggers: [
+      "carriage wont move",
+      "carriage won't move",
+      "gas carriage wont move",
+      "gas carriage won't move",
+      "carriage stuck",
+      "carriage issue",
+    ],
+    symptom:
+      "The carriage does not move when it should during load or recovery.",
+    firstChecks: [
+      "Check whether the machine is in the correct mode for the move.",
+      "Check whether another required condition has not been made first.",
+      "Check whether the table or another motion is still in the wrong position.",
+      "Check for an active fault or stop message on the screen.",
+    ],
+    nextSteps: [
+      "Use the Auto Load Recovery page for the exact recovery steps from this state.",
+      "Verify the machine sequence before retrying the move.",
+      "Document the exact step where the carriage stops responding if it repeats.",
+    ],
+    likelyCauses: [
+      "Required sequence condition not made",
+      "Table or related motion not in correct position",
+      "Active fault blocking carriage movement",
+      "Mechanical or pneumatic issue affecting the carriage",
+    ],
+    whenCallMaint:
+      "Call maintenance if the carriage still will not move after following the correct recovery path, or if the same move is blocked repeatedly.",
+    safetyNotes: [
+      "Keep clear of moving areas and do not force the carriage path.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Auto Load Recovery (Manual)", route: "loadbox/auto-recovery" },
+      {
+        label: "Carriage won’t move",
+        route: "loadbox/auto-recovery/carriage-wont-move",
+      },
+      { label: "Corebox Setup", route: "loadbox" },
+    ],
+  },
+  {
+    id: "table-lifted-auto-stopped-search",
+    title: "Table lifted but auto stopped",
+    priority: "high",
+    triggers: [
+      "table lifted auto stopped",
+      "table lifted but stopped",
+      "auto stopped after table lifted",
+      "table stopped short",
+      "table close but not there",
+    ],
+    symptom:
+      "Auto load stops after the table lifts close to position, but the required position does not fully make.",
+    firstChecks: [
+      "Check whether the table is close to position but not fully there.",
+      "Check whether the required green confirmation has not been made.",
+      "Do not guess the final position.",
+      "Check whether the machine must now be finished manually.",
+    ],
+    nextSteps: [
+      "Use the Auto Load Recovery page for the exact manual finish from this point.",
+      "Move the table only as required by the recovery page.",
+      "Document the recovery point if the issue repeats.",
+    ],
+    likelyCauses: [
+      "Table stopped short of the required position",
+      "Required position confirmation not made",
+      "Auto sequence interrupted before the step fully completed",
+    ],
+    whenCallMaint:
+      "Call maintenance if the table will not make the required position, if the same stop repeats, or if the correct confirmation still will not turn green.",
+    safetyNotes: [
+      "Do not guess position. Use the required confirmation before continuing.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Auto Load Recovery (Manual)", route: "loadbox/auto-recovery" },
+      {
+        label: "Table lifted but auto stopped",
+        route: "loadbox/auto-recovery/table-lifted-auto-stopped",
+      },
+      { label: "Corebox Setup", route: "loadbox" },
+    ],
+  },
+  {
+    id: "corebox-wont-lock-in-out-search",
+    title: "Corebox won’t lock in / lock out",
+    priority: "high",
+    triggers: [
+      "corebox wont lock in",
+      "corebox won't lock in",
+      "corebox wont lock out",
+      "corebox won't lock out",
+      "lock in issue",
+      "lock out issue",
+      "box wont lock",
+      "box won't lock",
+    ],
+    symptom:
+      "Corebox will not complete the lock-in or lock-out step correctly.",
+    firstChecks: [
+      "Check whether the box is seated and aligned correctly.",
+      "Check whether the machine is in the correct step and mode.",
+      "Check for buildup or obstruction affecting the locking step.",
+      "Check whether another required condition has not been made first.",
+    ],
+    nextSteps: [
+      "Use the Corebox Setup and Auto Load Recovery pages for the correct next step from this machine state.",
+      "Do not guess the lock sequence from memory.",
+      "Document whether the problem happens on lock-in, lock-out, or both.",
+    ],
+    likelyCauses: [
+      "Box not seated correctly",
+      "Obstruction or buildup in the locking path",
+      "Required sequence condition not made",
+      "Mechanical or sensor-side lock issue",
+    ],
+    whenCallMaint:
+      "Call maintenance if the corebox still will not lock in or out after following the correct recovery path, or if the locking step repeatedly fails.",
+    safetyNotes: [
+      "Keep clear of pinch points and moving areas during lock steps.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Corebox Setup", route: "loadbox" },
+      { label: "Auto Load Recovery (Manual)", route: "loadbox/auto-recovery" },
+      { label: "Corebox Removal Safety", route: "safety/corebox-removal-safety" },
+    ],
+  },
 ];
