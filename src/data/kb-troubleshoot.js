@@ -627,4 +627,351 @@ export const KB_TROUBLESHOOT = [
       { label: "Core Reference", route: "loadbox/core-reference" },
     ],
   },
+  {
+    id: "dosing-pump-not-running",
+    title: "Dosing pump not running",
+    priority: "high",
+    triggers: [
+      "dosing pump not running",
+      "pump not running",
+      "dosing pump",
+      "pump fault",
+      "hardening pump",
+      "dosing fault",
+    ],
+    symptom:
+      "The hardening process shows a dosing pump problem or the pump does not appear to run.",
+    firstChecks: [
+      "Check the screen for the exact dosing pump or hardening-related message.",
+      "Check whether the fault happens every cycle or only once.",
+      "Verify the machine reached the hardening step.",
+      "Check whether another related hardening fault is also active.",
+    ],
+    nextSteps: [
+      "Record the exact fault message and when it happens in the cycle.",
+      "Retry only if the machine condition is understood and site procedure allows it.",
+      "If the fault returns immediately, stop repeated retries.",
+      "Document whether the problem started after a change, reset, or restart.",
+    ],
+    likelyCauses: [
+      "Dosing pump did not run correctly",
+      "Hardening system fault",
+      "Related control or supply issue",
+    ],
+    whenCallMaint:
+      "Call maintenance if the dosing pump fault repeats, if the hardening step cannot run, or if the core quality is affected and the cause is not obvious.",
+    safetyNotes: [
+      "Do not keep cycling the machine if the hardening system is not working correctly.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Gassing parameters", route: "screens/gassing" },
+      { label: "Machine Operation", route: "basics" },
+      { label: "Core Reference", route: "loadbox/core-reference" },
+    ],
+  },
+  {
+    id: "no-medium-at-ex-flow-heater",
+    title: "No medium at ex-flow heater",
+    priority: "high",
+    triggers: [
+      "no medium at ex-flow heater",
+      "ex-flow heater",
+      "no medium heater",
+      "heater medium fault",
+      "hardening heater fault",
+    ],
+    symptom:
+      "The machine shows a no-medium or heater-related hardening fault.",
+    firstChecks: [
+      "Check the exact fault text on the screen.",
+      "Check whether the hardening step is failing every cycle.",
+      "Check whether another heater or hardening-related fault is active at the same time.",
+      "Document where in the cycle the fault appears.",
+    ],
+    nextSteps: [
+      "Do not keep restarting the cycle without understanding the fault.",
+      "Record the exact message and whether the problem is repeatable.",
+      "If allowed, compare the current condition to the last known good run.",
+      "Escalate with the fault text and cycle step information.",
+    ],
+    likelyCauses: [
+      "Heater-related medium/supply condition is not being met",
+      "Hardening system fault",
+      "Related control or process issue",
+    ],
+    whenCallMaint:
+      "Call maintenance if the fault repeats, if the hardening step cannot complete, or if heater-related faults remain active.",
+    safetyNotes: [
+      "Do not guess through repeated runs when a heater/hardening supply fault is active.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Gassing parameters", route: "screens/gassing" },
+      { label: "Machine Operation", route: "basics" },
+    ],
+  },
+  {
+    id: "pneumatic-fault",
+    title: "Pneumatic fault / air system issue",
+    priority: "high",
+    triggers: [
+      "pneumatic fault",
+      "pneu",
+      "air fault",
+      "air issue",
+      "pneumatic issue",
+      "air pressure problem",
+    ],
+    symptom:
+      "Machine shows a pneumatic fault, air-related issue, or air functions do not respond correctly.",
+    firstChecks: [
+      "Check the screen for the exact pneumatic fault text.",
+      "Confirm plant air supply is present and stable.",
+      "Check whether the problem is tied to one motion or function.",
+      "Look for obvious loose airlines or audible leaks if safe.",
+      "Check whether Reset Air is appropriate and allowed for the stopped condition.",
+    ],
+    nextSteps: [
+      "If safe and allowed, perform the normal reset practice once.",
+      "Watch whether the same pneumatic fault returns at the same step.",
+      "Record the exact message, machine step, and any gauge condition.",
+      "Stop repeated resets if the same fault keeps coming back.",
+    ],
+    likelyCauses: [
+      "Air supply condition is not stable",
+      "Pneumatic valve or actuator issue",
+      "Air leak or line problem",
+      "Required air-driven condition is not being made",
+    ],
+    whenCallMaint:
+      "Call maintenance if the pneumatic fault repeats after a normal reset, if air supply looks unstable, if a leak is obvious, or if a motion will not make correctly.",
+    safetyNotes: [
+      "Do not keep forcing cycles through repeated resets when the air system is not making correctly.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Control Screens", route: "screens" },
+      { label: "Machine Operation", route: "basics" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
+    id: "electrical-fault",
+    title: "Electrical fault / control power issue",
+    priority: "high",
+    triggers: [
+      "electrical fault",
+      "control power issue",
+      "cpu fault",
+      "24v fault",
+      "motor protection",
+      "limit switch fault",
+      "electrical issue",
+    ],
+    symptom:
+      "Machine shows an electrical or control fault, or a control power-related function will not run.",
+    firstChecks: [
+      "Read the exact fault text on the screen.",
+      "Check whether the issue happened during startup or during a specific cycle step.",
+      "Check whether control power and normal machine indications are present.",
+      "Check whether the same electrical message returns immediately after reset.",
+    ],
+    nextSteps: [
+      "Record the exact message and when it happens.",
+      "Do not guess through repeated resets if the same fault comes right back.",
+      "If the machine lost control power or has a repeated electrical fault, stop and escalate.",
+      "Document whether the issue affects all functions or one specific area.",
+    ],
+    likelyCauses: [
+      "Electrical/control fault is active",
+      "Control supply issue",
+      "Motor protection or limit-switch-related issue",
+      "CPU/control-side fault",
+    ],
+    whenCallMaint:
+      "Call maintenance if an electrical fault remains active, if control power is lost, if the same message returns immediately, or if a control-related function will not recover normally.",
+    safetyNotes: [
+      "Do not bypass electrical faults or open electrical areas unless you are authorized and following procedure.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Control Screens", route: "screens" },
+      { label: "Machine Operation", route: "basics" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
+    id: "excessive-noise-vibration",
+    title: "Excessive noise / vibration",
+    priority: "high",
+    triggers: [
+      "noise",
+      "vibration",
+      "machine shaking",
+      "loud machine",
+      "excessive noise",
+      "excessive vibration",
+      "rattling",
+      "vibrating",
+    ],
+    symptom:
+      "Machine makes unusual noise, rattles, or vibrates more than normal during operation.",
+    firstChecks: [
+      "Check whether the noise happens at the same step every cycle.",
+      "Check whether the vibration started after a setup, box change, or restart.",
+      "Look for obvious loose material, loose parts, or abnormal movement if safe to observe.",
+      "Check whether the noise is coming from one area only or the whole machine.",
+    ],
+    nextSteps: [
+      "Stop and observe which motion or step causes the noise.",
+      "Do not keep cycling the machine just to see if it gets better.",
+      "Document the step, area, and whether the sound is constant or only during one motion.",
+      "Escalate with the exact cycle point where the vibration starts.",
+    ],
+    likelyCauses: [
+      "Abnormal machine movement",
+      "Loose or unstable component",
+      "Hydraulic or mechanical issue",
+      "Problem tied to one motion or load condition",
+    ],
+    whenCallMaint:
+      "Call maintenance if the noise or vibration is new, severe, getting worse, or tied to a repeated machine motion.",
+    safetyNotes: [
+      "Do not continue running a machine that is vibrating abnormally or sounds unsafe.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Machine Operation", route: "basics" },
+      { label: "Control Screens", route: "screens" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
+    id: "jerky-movement-oscillation",
+    title: "Jerky movement / oscillation",
+    priority: "high",
+    triggers: [
+      "jerky movement",
+      "oscillation",
+      "shaking movement",
+      "unstable motion",
+      "jumps during movement",
+      "stuttering motion",
+      "not smooth",
+    ],
+    symptom:
+      "One machine motion is not smooth and appears jerky, unstable, or oscillating.",
+    firstChecks: [
+      "Check which motion is affected and whether it happens every cycle.",
+      "Check whether the issue started after a restart, setup, or recovery action.",
+      "Check whether another fault message is active at the same time.",
+      "Watch whether the motion improves, stays the same, or gets worse on the next safe attempt.",
+    ],
+    nextSteps: [
+      "Document which movement is affected.",
+      "Stop repeated retries if the motion remains unstable.",
+      "Record whether the motion binds, jumps, or hesitates at the same point each time.",
+      "Escalate with the exact machine movement and step where it happens.",
+    ],
+    likelyCauses: [
+      "Hydraulic or pneumatic movement issue",
+      "Binding or unstable motion condition",
+      "Control or position issue tied to one axis or function",
+    ],
+    whenCallMaint:
+      "Call maintenance if a motion is jerky, oscillating, or not controllable in a normal smooth way.",
+    safetyNotes: [
+      "Keep clear of moving areas. Do not try to work around unstable movement.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Control Screens", route: "screens" },
+      { label: "Corebox Setup", route: "loadbox" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
+    id: "foaming-oil-condition",
+    title: "Foaming / oil condition issue",
+    priority: "medium",
+    triggers: [
+      "foaming",
+      "oil foaming",
+      "hydraulic oil foam",
+      "oil condition",
+      "foam in oil",
+      "oil looks bad",
+    ],
+    symptom:
+      "Hydraulic oil condition looks abnormal or foaming is suspected along with machine performance issues.",
+    firstChecks: [
+      "Check whether the machine is also showing unstable movement, noise, or pressure-related behavior.",
+      "Check whether the issue appeared with another hydraulic-related symptom.",
+      "Do not open or service hydraulic components unless authorized.",
+      "Record what operator-visible condition or machine behavior was observed.",
+    ],
+    nextSteps: [
+      "Stop and document the related machine symptoms.",
+      "Report whether the problem is tied to heat, noise, or unstable motion.",
+      "Do not keep running the machine if performance is getting worse.",
+    ],
+    likelyCauses: [
+      "Hydraulic oil condition issue",
+      "Hydraulic system condition out of normal range",
+      "Related heat, air, or flow issue in the hydraulic system",
+    ],
+    whenCallMaint:
+      "Call maintenance if oil-related abnormal condition is suspected or if hydraulic performance is affected.",
+    safetyNotes: [
+      "Hydraulic system inspection beyond normal operator checks should be left to authorized personnel.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Control Screens", route: "screens" },
+      { label: "Machine Operation", route: "basics" },
+    ],
+  },
+  {
+    id: "oil-temperature-too-high",
+    title: "Oil temperature too high",
+    priority: "high",
+    triggers: [
+      "oil temperature",
+      "oil too hot",
+      "hydraulic oil hot",
+      "high oil temperature",
+      "oil temp high",
+      "overheating oil",
+    ],
+    symptom:
+      "Machine shows signs of high oil temperature or an oil-temperature-related fault.",
+    firstChecks: [
+      "Check the screen for the exact temperature or hydraulic-related message.",
+      "Check whether the machine is also showing noise, vibration, or unstable movement.",
+      "Check whether the issue gets worse the longer the machine runs.",
+      "Record when the temperature-related issue appears in the shift or run.",
+    ],
+    nextSteps: [
+      "Stop repeated running if the machine appears to be overheating.",
+      "Document the exact message and related machine behavior.",
+      "Report whether the issue is tied to longer runtime, repeated cycling, or other hydraulic symptoms.",
+    ],
+    likelyCauses: [
+      "Hydraulic oil temperature out of normal range",
+      "Related hydraulic system condition",
+      "Heat-related performance issue in the hydraulic system",
+    ],
+    whenCallMaint:
+      "Call maintenance if oil temperature is too high, if the fault repeats, or if the machine shows related hydraulic performance problems.",
+    safetyNotes: [
+      "Do not continue pushing the machine if overheating is suspected.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Control Screens", route: "screens" },
+      { label: "Machine Operation", route: "basics" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
 ];
