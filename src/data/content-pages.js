@@ -104,9 +104,9 @@ Operators must still follow the approved plant LOTO procedure.`,
   },
 
   "safety/laempe-cleaning-safety": {
-  title: "Laempe Cleaning Safety",
-  subtitle: "Detailed safety reference",
-  body: `REFERENCE ONLY
+    title: "Laempe Cleaning Safety",
+    subtitle: "Detailed safety reference",
+    body: `REFERENCE ONLY
 
 Always follow the official plant JSA and the approved safety procedure before performing this task.
 
@@ -170,7 +170,157 @@ IMPORTANT
 This page is a quick operator reference only.
 
 Always check and follow the official plant JSA / approved safety document before performing Laempe cleaning.`,
-},
+  },
+
+  "safety/corebox-loading-safety": {
+    title: "Corebox Loading Safety",
+    subtitle: "Detailed safety reference",
+    body: `REFERENCE ONLY
+
+Always follow the official plant JSA and the approved safety procedure before performing this task.
+
+Summary
+Purpose: Provide operators with a detailed quick-reference for corebox loading and installation on the Laempe.
+
+Before Loading
+1. Verify the correct core box is being moved for the job.
+2. Verify the hoist is the required lifting device for the task.
+3. Confirm the hoist and lifting components are in safe working condition.
+4. Bring the core box into position on the cart so it can be hooked safely.
+5. Make sure the travel path and work area are clear before lifting.
+6. Confirm all required personnel are clear of the lift area.
+7. Do not begin if the load is unstable or the setup is unclear.
+
+Required PPE
+1. Safety glasses
+2. Hearing protection
+3. Safety toe shoes
+4. Gloves
+5. Hard hat
+6. Fire-retardant clothing if required for the task or area
+
+Main Hazards
+1. Struck-by hazard from hoist movement or shifting load
+2. Falling part or dropped core box
+3. Hand and finger pinch points during hook-up, alignment, and loading
+4. Strain from handling equipment or guiding the load
+5. Burns or skin contact from hot core box surfaces
+6. Contact with moving core box during positioning
+7. Injury risk from standing under or too close to a suspended load
+
+Safe Work Requirements
+1. Use the hoist for all required core box lifting.
+2. Attach hoist hooks correctly at all four corners as required by procedure.
+3. Maintain control of the hoist pendant and load movement at all times.
+4. Keep lifting device legs, chains, and hooks from twisting or tangling.
+5. Never stand under a suspended load.
+6. Keep hands and fingers clear of latch points, clamps, and pinch areas.
+7. Keep all extremities clear while the core box is being moved or aligned.
+8. Avoid skin contact if the core box is hot.
+9. Stop immediately if the load shifts, binds, or becomes unstable.
+
+Loading Task Reminders
+1. Move the core box into position so it can be hooked safely to the hoist.
+2. Hook the hoist to the core box at all required points.
+3. Lift slowly and under control.
+4. Stop movement immediately if the box begins moving unsafely toward a person or machine surface.
+5. Align the box carefully before separating or positioning the required sections.
+6. Use the control panel to place ejectors in the required position.
+7. Use the control panel to lock the top part and move the core box into position as required by procedure.
+8. With the access area open and safe, use the hoist to place the remaining section into the machine.
+9. Verify alignment and positioning before continuing.
+
+Stop and Escalate
+1. The hoist or lifting hardware is damaged or not operating correctly.
+2. The load cannot be controlled safely.
+3. The core box shifts, twists, or becomes unstable.
+4. A hook, chain, or lifting leg is not seated correctly.
+5. The box is too hot to handle safely.
+6. Alignment cannot be made safely.
+7. You are unsure which approved procedure applies.
+
+IMPORTANT
+
+This page is a quick operator reference only.
+
+Always check and follow the official plant JSA / approved safety document before performing corebox loading.`,
+  },
+
+  "safety/corebox-removal-safety": {
+    title: "Corebox Removal Safety",
+    subtitle: "Detailed safety reference",
+    body: `REFERENCE ONLY
+
+Always follow the official plant JSA and the approved safety procedure before performing this task.
+
+Summary
+Purpose: Provide operators with a detailed quick-reference for corebox removal on the Laempe.
+
+Before Removal
+1. Verify the correct core box is being removed.
+2. Verify the hoist is the required lifting device for the task.
+3. Confirm the hoist and lifting components are in safe working condition.
+4. Make sure the work area and travel path are clear before removal begins.
+5. Confirm the receiving cart is available and positioned safely.
+6. Confirm all required personnel are clear of the lift area.
+7. Do not begin if the load is unstable or the removal sequence is unclear.
+
+Required PPE
+1. Safety glasses
+2. Hearing protection
+3. Safety toe shoes
+4. Gloves
+5. Hard hat
+6. Fire-retardant uniform if required for the task or area
+
+Main Hazards
+1. Pinch points during movement, alignment, and hook-up
+2. Strain to wrist, elbow, shoulder, and back
+3. Eye or face hazard from air nozzle use
+4. Struck-by hazard from falling part or tool
+5. Hand and finger pinch points during handling
+6. Struck-by hazard from hoist movement or suspended load
+7. Burns or skin contact from hot core box surfaces
+8. Contact with moving core box during removal
+
+Safe Work Requirements
+1. Use the hoist for all required core box lifting.
+2. Maintain control of the hoist hook and pendant at all times.
+3. Keep lifting device legs, chains, and hooks from twisting or tangling.
+4. Never stand under a suspended load.
+5. Keep hands and fingers clear of clamps, pinch points, and moving areas.
+6. Keep all extremities clear while the core box is being moved or aligned.
+7. Do not use the air nozzle unless it has a clear intended target.
+8. Avoid skin contact if the core box is hot.
+9. Stop immediately if the load shifts, binds, or becomes unstable.
+
+Removal Task Reminders
+1. Open the access door as required by procedure.
+2. Use the control panel to move the core box down out of the top of the machine.
+3. Once accessible, blow away sand buildup and loose material only as required by procedure.
+4. Use the control panel to slide the core box out from under the drag clamp.
+5. Install box stops as required before continuing.
+6. Bring the hoist into the removal area in a controlled manner.
+7. Position the receiving cart safely to accept the core box.
+8. Attach hoist hooks correctly at all required corners.
+9. Lift the core box slowly and move it to the receiving cart under control.
+10. Once clear, remove hooks and return the hoist to the proper area.
+
+Stop and Escalate
+1. The hoist or lifting hardware is damaged or not operating correctly.
+2. The load cannot be controlled safely.
+3. The core box shifts, twists, or becomes unstable.
+4. A hook, chain, or lifting leg is not seated correctly.
+5. The box is too hot to handle safely.
+6. The receiving cart cannot be positioned safely.
+7. You are unsure which approved procedure applies.
+
+IMPORTANT
+
+This page is a quick operator reference only.
+
+Always check and follow the official plant JSA / approved safety document before performing corebox removal.`,
+  },
 
   "safety/repairs-and-preventive-maintenance": {
     title: "Repairs and Preventive Maintenance",

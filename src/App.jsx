@@ -79,6 +79,14 @@ export default function App() {
 
   const staticPage = CONTENT_PAGES[view];
 
+  const staticPageAction =
+    view === "loadbox/load-unload/automatic"
+      ? {
+          label: "Open Corebox Loading Safety",
+          route: "safety/corebox-loading-safety",
+        }
+      : null;
+
   return (
     <AppShell onNavigate={setView} onOpenSearch={() => setView("search")}>
       {view === "home" && <HomeGrid onNavigate={setView} />}
@@ -239,7 +247,28 @@ export default function App() {
           subtitle="Pick the machine state"
           onBack={() => setView("loadbox")}
         >
-          <AutoRecoveryMenu onNavigate={setView} />
+          <div
+            style={{
+              display: "grid",
+              gap: "12px",
+            }}
+          >
+            <button
+              type="button"
+              className="card"
+              onClick={() => setView("safety/corebox-removal-safety")}
+              style={{
+                textAlign: "left",
+                cursor: "pointer",
+                color: "inherit",
+              }}
+            >
+              <h3 style={{ marginBottom: "6px" }}>Open Corebox Removal Safety</h3>
+              <p style={{ margin: 0 }}>Open related safety reference</p>
+            </button>
+
+            <AutoRecoveryMenu onNavigate={setView} />
+          </div>
         </DetailView>
       )}
 
@@ -344,7 +373,16 @@ export default function App() {
             setView("home");
           }}
         >
-          <StaticContentView title={staticPage.title} body={staticPage.body} />
+          <StaticContentView
+            title={staticPage.title}
+            body={staticPage.body}
+            actionLabel={staticPageAction?.label}
+            onAction={
+              staticPageAction
+                ? () => setView(staticPageAction.route)
+                : undefined
+            }
+          />
         </DetailView>
       )}
 
