@@ -384,39 +384,6 @@ export default function SearchView({
         </div>
       )}
 
-      {helper.type !== "code" && topCode && (
-        <div className="card">
-          <h3>Closest Related Error Code</h3>
-          <div className="stack" style={{ marginTop: "12px" }}>
-            <button
-              type="button"
-              className="card"
-              onClick={() => onOpenErrorCode(topCode.id)}
-              style={{ textAlign: "left", cursor: "pointer", color: "inherit" }}
-            >
-              <h3>{topCode.code}</h3>
-              <p>
-                <strong>Area:</strong> {topCode.area}
-              </p>
-              <p style={{ marginTop: "6px" }}>
-                {topCode.operatorMeaning || topCode.message}
-              </p>
-            </button>
-
-            <button
-              type="button"
-              className="tile tile--violet"
-              onClick={() => onOpenPage("troubleshooting/error-codes")}
-              style={{ minHeight: "84px", width: "100%", textAlign: "left" }}
-            >
-              <div className="tile__icon">📟</div>
-              <div className="tile__title">Open Error Code Lookup</div>
-              <div className="tile__sub">Browse all captured codes</div>
-            </button>
-          </div>
-        </div>
-      )}
-
       {relatedPages.length > 0 && (
         <div className="card">
           <h3>Related Pages</h3>
