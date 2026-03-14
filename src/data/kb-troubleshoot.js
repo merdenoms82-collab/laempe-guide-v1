@@ -543,6 +543,49 @@ export const KB_TROUBLESHOOT = [
     ],
   },
   {
+    id: "shot-not-full",
+    title: "Shot not full",
+    priority: "high",
+    triggers: [
+      "shot not full",
+      "not full shot",
+      "incomplete shot",
+      "weak fill",
+      "partial shot",
+      "shot incomplete",
+      "core not full",
+    ],
+    symptom:
+      "Shot is incomplete and the core does not fill out the way it should.",
+    firstChecks: [
+      "Check whether shooting pressure looks reduced.",
+      "Check for buildup or restriction in the shoot area if safe.",
+      "Check whether the problem is happening every cycle or only sometimes.",
+      "Check whether the setup still matches the correct job conditions.",
+    ],
+    nextSteps: [
+      "Compare current machine behavior to the last known good run.",
+      "Clear obvious buildup if procedure allows.",
+      "Retry only after confirming the machine is safe and the setup looks correct.",
+      "If the shot stays incomplete, document whether it is weak in the same area each time.",
+    ],
+    likelyCauses: [
+      "Reduced shooting pressure",
+      "Restriction or buildup in the shoot path",
+      "Material movement issue",
+      "Incorrect process/setup condition",
+    ],
+    whenCallMaint:
+      "Call maintenance or setup if shots continue to be incomplete after basic checks, or if the machine repeatedly produces weak shots.",
+    safetyNotes: [],
+    pending: [],
+    relatedPages: [
+      { label: "Reduced shooting pressure", route: "troubleshooting/reduced-shooting-pressure" },
+      { label: "Corebox Setup", route: "loadbox" },
+      { label: "Core Reference", route: "loadbox/core-reference" },
+    ],
+  },
+  {
     id: "core-not-gassed",
     title: "Core is not gassed",
     priority: "high",
@@ -1155,6 +1198,137 @@ export const KB_TROUBLESHOOT = [
       { label: "Corebox Setup", route: "loadbox" },
       { label: "Auto Load Recovery (Manual)", route: "loadbox/auto-recovery" },
       { label: "Corebox Removal Safety", route: "safety/corebox-removal-safety" },
+    ],
+  },
+  {
+    id: "robot-not-removing-core",
+    title: "Robot not removing core",
+    priority: "high",
+    triggers: [
+      "robot not removing core",
+      "robot wont remove core",
+      "robot won't remove core",
+      "robot issue",
+      "robot not picking core",
+      "core not removed by robot",
+    ],
+    symptom:
+      "Robot does not remove the core correctly or the removal step does not complete the way it should.",
+    firstChecks: [
+      "Check whether the robot problem happens every cycle or only once.",
+      "Check whether the machine completed the related cycle step before the robot move.",
+      "Check whether the core is positioned normally for pickup/removal.",
+      "Look for an active message tied to robot or cycle interruption.",
+    ],
+    nextSteps: [
+      "Stop and document the exact step where the robot fails.",
+      "Do not keep retrying if the same removal failure repeats.",
+      "Record whether the issue is paired with camera, pickoff, or placement problems.",
+      "Escalate with the exact cycle point and what the robot did or did not do.",
+    ],
+    likelyCauses: [
+      "Robot removal step not completing correctly",
+      "Core position or cycle condition not normal before robot pickup",
+      "Related robot/camera/pickoff issue",
+    ],
+    whenCallMaint:
+      "Call setup or maintenance if the robot repeatedly fails to remove the core, or if the machine cannot continue normal production.",
+    safetyNotes: [
+      "Do not enter robot or machine movement areas unless the machine is in the correct safe condition.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Machine Operation", route: "basics" },
+      { label: "Corebox Setup", route: "loadbox" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
+    id: "pickoff-camera-issue",
+    title: "Pickoff / camera issue",
+    priority: "high",
+    triggers: [
+      "pickoff issue",
+      "camera issue",
+      "camera not working",
+      "pickoff not working",
+      "robot camera",
+      "camera fault",
+      "pickoff fault",
+    ],
+    symptom:
+      "Pickoff or camera-related function is not working correctly during production.",
+    firstChecks: [
+      "Check whether the issue is happening every cycle or only sometimes.",
+      "Check whether the machine and core position look normal before the camera/pickoff step.",
+      "Check for an active message tied to robot, pickoff, or camera operation.",
+      "Check whether the issue started after a restart, setup, or changeover.",
+    ],
+    nextSteps: [
+      "Record the exact cycle point where the pickoff or camera problem happens.",
+      "Do not keep retrying if the same function fails the same way each cycle.",
+      "Escalate with the message shown and what the robot/camera did or did not do.",
+    ],
+    likelyCauses: [
+      "Camera or pickoff condition not being made correctly",
+      "Robot-related process interruption",
+      "Cycle state not normal before pickoff/camera action",
+    ],
+    whenCallMaint:
+      "Call setup or maintenance if the camera or pickoff issue repeats or stops normal production.",
+    safetyNotes: [
+      "Keep clear of robot and moving equipment areas unless the machine is in the correct safe condition.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Machine Operation", route: "basics" },
+      { label: "Control Screens", route: "screens" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
+    id: "vacuum-wont-make-during-load-search",
+    title: "Vacuum won’t make during load",
+    priority: "high",
+    triggers: [
+      "vacuum wont make during load",
+      "vacuum won't make during load",
+      "vacuum load issue",
+      "load vacuum issue",
+      "vacuum not making during auto load",
+      "vacuum during load",
+    ],
+    symptom:
+      "Auto load reaches the vacuum step, but vacuum does not make.",
+    firstChecks: [
+      "Check whether the machine reached the vacuum step during auto load.",
+      "Check whether the related positions made correctly before the vacuum step.",
+      "Check for obvious seating or sealing issues if safe to observe.",
+      "Do not continue guessing through repeated auto attempts.",
+    ],
+    nextSteps: [
+      "Use the Auto Load Recovery page for the exact manual recovery from this point.",
+      "Document whether the vacuum failure happens at the same place every time.",
+      "If vacuum still does not make after the correct retry path, escalate.",
+    ],
+    likelyCauses: [
+      "Vacuum step not making during auto load",
+      "Related position or seating condition not fully made",
+      "Seal or vacuum-side issue affecting the load step",
+    ],
+    whenCallMaint:
+      "Call maintenance if vacuum still will not make after following the correct recovery path, or if the same load interruption repeats.",
+    safetyNotes: [
+      "Do not force the load sequence when vacuum will not make.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Auto Load Recovery (Manual)", route: "loadbox/auto-recovery" },
+      {
+        label: "Vacuum won’t make",
+        route: "loadbox/auto-recovery/vacuum-wont-make",
+      },
+      { label: "Corebox Setup", route: "loadbox" },
     ],
   },
 ];
