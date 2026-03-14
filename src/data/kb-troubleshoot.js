@@ -14,34 +14,82 @@ export const KB_TROUBLESHOOT = [
       "vac leak",
       "won't hold vacuum",
       "wont hold vacuum",
+      "vacuum wont hold",
+      "vacuum won't hold",
+      "low vacuum",
     ],
-    symptom: "Vacuum will not reach target or drops during/after clamp.",
+    symptom: "Vacuum will not reach target or will not hold during the vacuum or clamp step.",
     firstChecks: [
       "Confirm air supply is stable at the normal bar setting.",
-      "Watch gauge pattern: steady low vs. slowly falling vs. sudden 0.",
-      "Check obvious leaks: loose hoses, cracked lines, fittings not seated.",
-      "Check sealing surfaces for sand/debris; clean if allowed.",
-      "If allowed: verify vacuum filter/line is not blocked.",
+      "Check whether vacuum is steady low, slowly falling, or dropping suddenly to 0.",
+      "Check for obvious leaks such as loose hoses, cracked lines, or fittings not seated.",
+      "Check sealing surfaces for sand or debris and clean if allowed.",
+      "Check whether the vacuum filter or line is blocked if procedure allows.",
     ],
     nextSteps: [
-      "If it drops only after clamp: suspect seal seating/alignment (see “Cope eject seal issue”).",
-      "If low even while idle: suspect upstream leak or valve not sealing.",
-      "If it drops to 0 suddenly: check disconnected line / valve not actuating.",
-      "Record: gauge value + step where it fails for maintenance.",
+      "If vacuum drops after clamp or seating, suspect seal seating or alignment.",
+      "If vacuum is low before the main step, suspect an upstream leak or valve issue.",
+      "If vacuum drops suddenly to 0, check for a disconnected line or valve problem.",
+      "Record the gauge behavior and the exact cycle step where it fails.",
     ],
     likelyCauses: [
-      "Seal not seated / dirty sealing surface",
-      "Loose/cracked vacuum line or fitting",
-      "Restriction/blockage in vacuum path",
-      "Valve not sealing (pneumatic issue)",
+      "Seal not seated or dirty sealing surface",
+      "Loose or cracked vacuum line or fitting",
+      "Restriction or blockage in the vacuum path",
+      "Valve not sealing correctly",
     ],
     whenCallMaint:
-      "Call maintenance if you cannot reach minimum vacuum to run after basic checks, if it repeatedly drops to 0 suddenly, or if there is a constant leak you cannot locate quickly.",
+      "Call maintenance if minimum vacuum cannot be reached after basic checks, if vacuum repeatedly drops to 0 suddenly, or if there is a constant leak you cannot locate quickly.",
     safetyNotes: ["Do not bypass interlocks or run below minimum vacuum."],
     pending: [],
     relatedPages: [
       { label: "Control Screens", route: "screens" },
       { label: "Gassing parameters", route: "screens/gassing" },
+    ],
+  },
+  {
+    id: "vacuum-pressure-too-low",
+    title: "Vacuum pressure too low",
+    priority: "medium",
+    triggers: [
+      "vacuum pressure too low",
+      "vacuum too low",
+      "vacuum message",
+      "vacuum fault",
+      "vacuum reading low",
+      "vacuum gauge low",
+      "low vacuum pressure",
+    ],
+    symptom: "The machine shows a low-vacuum condition or the vacuum reading stays below the required range.",
+    firstChecks: [
+      "Check the visible vacuum reading if a gauge or screen value is available.",
+      "Check whether the low reading stays steady or drops during the step.",
+      "Check for obvious leaks, poor seating, or debris if safe to inspect.",
+      "Check whether the related position fully made before the vacuum step.",
+      "Check for an active message or fault tied to the vacuum condition.",
+    ],
+    nextSteps: [
+      "If the issue is a general vacuum loss pattern, use Vacuum drops / won’t hold vacuum as the main troubleshooting path.",
+      "Confirm the related part is fully seated and in the correct position.",
+      "Clean obvious debris from the seal area if procedure allows.",
+      "Retry only if the machine condition is understood and safe.",
+    ],
+    likelyCauses: [
+      "Vacuum below the required operating range",
+      "Leak or poor seal",
+      "Poor seating or machine position",
+      "Machine-side vacuum problem",
+    ],
+    whenCallMaint:
+      "Call maintenance if the vacuum reading remains too low after basic checks, if the message repeats, or if you suspect a damaged seal, leak, or machine-side fault.",
+    safetyNotes: ["Do not continue guessing if vacuum is unstable."],
+    pending: [],
+    relatedPages: [
+      {
+        label: "Troubleshooting — Vacuum drops",
+        route: "troubleshooting/vacuum-drops",
+      },
+      { label: "Control Screens", route: "screens" },
     ],
   },
   {
@@ -59,25 +107,25 @@ export const KB_TROUBLESHOOT = [
       "fault",
       "error",
     ],
-    symptom: "Cycle halts unexpectedly without a clear operator command.",
+    symptom: "The machine stops during the cycle without a clear operator command.",
     firstChecks: [
-      "Read the HMI message / fault text first—capture exact wording if possible.",
-      "Check whether one sensor/state is not being made (see PNEU screen).",
-      "Use Reset Air if the machine is in a safe stopped state and site practice allows it.",
-      "Check if the stop repeats at the same step every cycle.",
+      "Check the HMI message or fault text first and capture the exact wording if possible.",
+      "Check whether a required sensor or machine state is not being made.",
+      "Check whether the stop repeats at the same step every cycle.",
+      "Use Reset Air only if the machine is safely stopped and site practice allows it.",
     ],
     nextSteps: [
-      "If it repeats at the same step: suspect a missing condition/sensor/state.",
-      "If it clears with Reset Air but returns: document the repeating condition for maintenance.",
-      "If it is paired with vacuum loss: troubleshoot vacuum first.",
+      "If it repeats at the same step, suspect a missing condition, sensor, or state.",
+      "If it clears with Reset Air but returns, document the repeating condition.",
+      "If it is paired with vacuum loss, troubleshoot vacuum first.",
     ],
     likelyCauses: [
-      "Required sensor/state not made",
+      "Required sensor or state not made",
       "Air logic did not reset cleanly",
       "Underlying pneumatic issue",
     ],
     whenCallMaint:
-      "Call maintenance if the same stop repeats after a safe reset, if a sensor/state will not make, or if a fault text indicates hardware/service action.",
+      "Call maintenance if the same stop repeats after a safe reset, if a sensor or state will not make, or if a fault text indicates hardware or service action.",
     safetyNotes: [
       "Do not repeatedly reset and run without identifying the repeating condition.",
     ],
@@ -99,27 +147,30 @@ export const KB_TROUBLESHOOT = [
       "won't eject",
       "eject issue",
       "sticking",
+      "won't come out",
+      "wont come out",
+      "not ejecting",
     ],
-    symptom: "Core does not release/eject cleanly from the box.",
+    symptom: "The core does not release or eject cleanly after the process step is complete.",
     firstChecks: [
-      "Confirm vacuum/clamp state is normal before the eject step.",
-      "Check if the issue is one side only or both sides.",
-      "Look for sand buildup / debris on accessible surfaces.",
-      "Check whether the problem started after a setup/corebox change.",
+      "Confirm vacuum and clamp state are normal before the eject step.",
+      "Check whether the issue is on one side only or both sides.",
+      "Check for sand buildup or debris on accessible surfaces.",
+      "Check whether the problem started after a setup or corebox change.",
     ],
     nextSteps: [
-      "Compare to the last known good box/job condition.",
-      "If paired with clamp/seat issues, check the seal/alignment path.",
+      "Compare to the last known good box or job condition.",
+      "If paired with clamp or seating issues, check the seal and alignment path.",
       "If paired with cure problems, review gassing settings and core condition.",
     ],
     likelyCauses: [
-      "Mechanical sticking / buildup",
+      "Mechanical sticking or buildup",
       "Alignment or seating issue",
       "Cure-related release issue",
     ],
     whenCallMaint:
-      "Call maintenance if it becomes a repeated mechanical hang-up or risks damage during removal/eject.",
-    safetyNotes: ["Do not put hands in unsafe areas to free a stuck part/core."],
+      "Call maintenance if it becomes a repeated mechanical hang-up or risks damage during removal or eject.",
+    safetyNotes: ["Do not put hands in unsafe areas to free a stuck part or core."],
     pending: [],
     relatedPages: [
       { label: "Corebox Setup", route: "loadbox" },
@@ -139,16 +190,16 @@ export const KB_TROUBLESHOOT = [
       "wont clamp",
       "won't clamp",
     ],
-    symptom: "Cope side appears not to seal/seat correctly, affecting clamp or vacuum behavior.",
+    symptom: "The cope side does not appear to seal or seat correctly, affecting clamp or vacuum behavior.",
     firstChecks: [
-      "Check for sand/debris on sealing surfaces.",
-      "Check visible alignment/seating condition if safely observable.",
-      "Watch whether vacuum behavior changes exactly when clamp/seal should make.",
+      "Check for sand or debris on sealing surfaces.",
+      "Check visible alignment or seating condition if safely observable.",
+      "Check whether vacuum behavior changes exactly when clamp or seal should make.",
     ],
     nextSteps: [
       "Clean accessible surfaces if allowed.",
-      "Compare current seating/alignment to normal condition.",
-      "If repeated after cleaning/reset: document exact step where sealing fails.",
+      "Compare current seating and alignment to normal condition.",
+      "If it repeats after cleaning or reset, document the exact step where sealing fails.",
     ],
     likelyCauses: [
       "Dirty sealing surface",
@@ -156,7 +207,7 @@ export const KB_TROUBLESHOOT = [
       "Alignment issue on cope eject side",
     ],
     whenCallMaint:
-      "Call maintenance if the seal will not seat correctly after basic cleaning/reset or if clamp/vacuum depends on that failed seating condition.",
+      "Call maintenance if the seal will not seat correctly after basic cleaning or reset, or if clamp or vacuum depends on that failed seating condition.",
     safetyNotes: ["Keep hands clear of pinch points during seating attempts."],
     pending: [
       "Pending confirmation: exact HMI indicator/state that permits clamp.",
@@ -185,14 +236,14 @@ export const KB_TROUBLESHOOT = [
     ],
     symptom: "Operators notice gas odor during or after the gassing cycle.",
     firstChecks: [
-      "Confirm the area is safe and ventilation is functioning (follow site policy).",
-      "Check for obvious leaks in accessible lines/fittings (visual + audible).",
-      "Verify exhaust-related setting is not set too low for clearing residual gas.",
+      "Confirm the area is safe and ventilation is functioning per site policy.",
+      "Check for obvious leaks in accessible lines or fittings using normal safe observation.",
+      "Check whether the exhaust-related setting is too low for clearing residual gas.",
     ],
     nextSteps: [
-      "If odor increased after changes: revert last setting change if allowed and document.",
-      "Increase Gas Exhaust Time slightly to clear residual gas (cycle time increases).",
-      "If odor persists or leak suspected: stop and escalate—do not normalize it.",
+      "If odor increased after changes, revert the last approved setting change if allowed and document it.",
+      "Increase Gas Exhaust Time slightly if procedure allows.",
+      "If odor persists or a leak is suspected, stop and escalate.",
     ],
     likelyCauses: [
       "Exhaust duration too short",
@@ -200,14 +251,17 @@ export const KB_TROUBLESHOOT = [
       "Ventilation issue in the area",
     ],
     whenCallMaint:
-      "Suspected leak you cannot identify/stop safely. Persistent odor despite exhaust adjustments. Any safety alarm/exposure concern.",
+      "Call maintenance if a suspected leak cannot be identified or stopped safely, if odor persists despite approved exhaust adjustment, or if there is any alarm or exposure concern.",
     safetyNotes: [
-      "Treat unusual odor as a safety issue first. Follow site PPE/vent rules.",
+      "Treat unusual odor as a safety issue first. Follow site PPE and ventilation rules.",
     ],
     pending: [
       "Pending confirmation: exact adjustment increment and site policy for exhaust changes.",
     ],
-    relatedPages: [{ label: "Gassing parameters", route: "screens/gassing" }],
+    relatedPages: [
+      { label: "Gassing parameters", route: "screens/gassing" },
+      { label: "Core Reference", route: "loadbox/core-reference" },
+    ],
   },
   {
     id: "vent-marks-holes",
@@ -223,30 +277,35 @@ export const KB_TROUBLESHOOT = [
       "gas too much",
       "holes",
       "vents",
+      "holes in cores",
+      "marks in cores",
     ],
-    symptom: "Visible defects concentrated near vents (holes/marks).",
+    symptom: "Core defects are concentrated near vents, such as holes or marks.",
     firstChecks: [
-      "Confirm the pattern is consistently near vents (pattern matters).",
-      "Check for recent changes in gassing time/pressure or ramp settings.",
-      "Inspect vents for blockage or sand buildup (if allowed).",
+      "Check whether the pattern is consistently near vents.",
+      "Check for recent changes in gassing time, pressure, or ramp settings.",
+      "Check vents for blockage or sand buildup if allowed.",
     ],
     nextSteps: [
-      "If settings changed recently: move back toward baseline if allowed and document effect.",
-      "If vents are partially blocked: clean/clear per approved practice.",
+      "If settings changed recently, move back toward baseline if allowed and document the effect.",
+      "If vents are partially blocked, clean or clear them per approved practice.",
       "Escalate with photos, box ID, and what settings changed.",
     ],
     likelyCauses: [
-      "Process imbalance linked to gassing/exhaust timing (symptom-linked)",
+      "Process imbalance linked to gassing or exhaust timing",
       "Vent blockage causing localized effects",
       "Corebox condition at vent features",
     ],
     whenCallMaint:
-      "Defects persist after baseline re-check and approved cleaning. Suspected damage to vent features or corebox surfaces.",
+      "Call maintenance if defects persist after baseline re-check and approved cleaning, or if vent features or corebox surfaces appear damaged.",
     safetyNotes: [],
     pending: [
       "Pending confirmation: exact relationship between this defect pattern and gassing settings for this process.",
     ],
-    relatedPages: [{ label: "Gassing parameters", route: "screens/gassing" }],
+    relatedPages: [
+      { label: "Gassing parameters", route: "screens/gassing" },
+      { label: "Core Reference", route: "loadbox/core-reference" },
+    ],
   },
   {
     id: "cold-box-preheat",
@@ -261,27 +320,30 @@ export const KB_TROUBLESHOOT = [
       "startup curing",
       "initial curing",
     ],
-    symptom: "Early runs on a cold corebox show poor curing/consistency until the box warms.",
+    symptom: "Early runs on a cold corebox show poor curing or poor consistency until the box warms.",
     firstChecks: [
-      "Confirm it happens mainly at start of shift or after long downtime.",
-      "Check if Pre-heating is available and operator-accessible on this machine.",
-      "Compare first-run vs later-run outcomes (does it stabilize after warming?).",
+      "Check whether it happens mainly at start of shift or after long downtime.",
+      "Check whether Pre-heating is available and operator-accessible on this machine.",
+      "Check whether first-run quality improves after the box warms up.",
     ],
     nextSteps: [
-      "If preheating is used on the floor: increase preheat time modestly to stabilize startup (cycle time increases).",
-      "Document the preheat time used and whether it improved first run.",
-      "Escalate if you need a baseline preheat standard for the box/process.",
+      "If preheating is used on the floor, increase preheat time modestly if procedure allows.",
+      "Document the preheat time used and whether it improved the first run.",
+      "Escalate if you need a baseline preheat standard for the box or process.",
     ],
     likelyCauses: [
-      "Corebox temperature too low at startup affecting early curing/consistency",
+      "Corebox temperature too low at startup affecting early curing or consistency",
     ],
     whenCallMaint:
       "Call maintenance if the preheat setting exists but has no noticeable effect, or if startup issues persist beyond the initial warmup period.",
     safetyNotes: [],
     pending: [
-      "Pending confirmation: exact startup/preheat guidance by box and process.",
+      "Pending confirmation: exact startup and preheat guidance by box and process.",
     ],
-    relatedPages: [{ label: "Gassing parameters", route: "screens/gassing" }],
+    relatedPages: [
+      { label: "Gassing parameters", route: "screens/gassing" },
+      { label: "Core Reference", route: "loadbox/core-reference" },
+    ],
   },
   {
     id: "machine-cannot-be-started",
@@ -298,17 +360,17 @@ export const KB_TROUBLESHOOT = [
       "machine not starting",
       "machine fault startup",
     ],
-    symptom: "Machine will not start when you try to run it.",
+    symptom: "The machine will not start when you try to run it.",
     firstChecks: [
-      "Make sure the machine is in the correct operating mode.",
-      "Make sure required guards, doors, and safety conditions are made.",
+      "Confirm the machine is in the correct operating mode.",
+      "Confirm required guards, doors, and safety conditions are made.",
       "Check whether the machine is reset and ready to run.",
-      "Look for any active warning or fault message on the screen.",
-      "Make sure required green conditions are made before trying again.",
+      "Check for any active warning or fault message on the screen.",
+      "Check whether required green conditions are made before trying again.",
     ],
     nextSteps: [
       "Check the screen for the exact active message or fault.",
-      "Verify the machine is actually ready for startup and not waiting on a condition.",
+      "Confirm the machine is ready for startup and not waiting on a condition.",
       "Retry only if the machine state is understood and safe.",
       "Record what message is showing and what step the machine stopped at.",
     ],
@@ -329,52 +391,6 @@ export const KB_TROUBLESHOOT = [
     ],
   },
   {
-    id: "vacuum-pressure-too-low",
-    title: "Vacuum pressure too low",
-    priority: "high",
-    triggers: [
-      "vacuum pressure too low",
-      "vacuum low",
-      "vacuum wont make",
-      "vacuum won't make",
-      "vacuum drops",
-      "losing vacuum",
-      "low vacuum",
-      "vacuum fault",
-    ],
-    symptom: "Vacuum will not make correctly or drops too low during the cycle.",
-    firstChecks: [
-      "Check the visible vacuum reading if the gauge is available.",
-      "Check for obvious leaks, loose lines, or poor seating if safe to inspect.",
-      "Check whether the related position step fully made before the vacuum step.",
-      "Check for debris or buildup affecting the sealing area.",
-      "Look for an active fault or message tied to the vacuum step.",
-    ],
-    nextSteps: [
-      "Verify the related part is fully seated and in the correct position.",
-      "Clean obvious debris or buildup from the seal area if procedure allows.",
-      "Retry only if the machine condition is understood and safe.",
-      "Watch whether vacuum makes and holds steady on the retry.",
-    ],
-    likelyCauses: [
-      "Vacuum is not being made or held correctly",
-      "Leak or poor seal",
-      "Poor seating or poor machine position",
-      "Machine-side vacuum problem",
-    ],
-    whenCallMaint:
-      "Call maintenance if vacuum still will not make, if vacuum drops again after retry, or if you suspect a damaged seal, leak, or machine-side fault.",
-    safetyNotes: ["Do not continue guessing if vacuum is unstable."],
-    pending: [],
-    relatedPages: [
-      { label: "Control Screens", route: "screens" },
-      {
-        label: "Troubleshooting — Vacuum drops",
-        route: "troubleshooting/vacuum-drops",
-      },
-    ],
-  },
-  {
     id: "light-curtain-interrupted",
     title: "Light curtain interrupted",
     priority: "high",
@@ -386,13 +402,12 @@ export const KB_TROUBLESHOOT = [
       "machine wont run light curtain",
       "light barrier",
     ],
-    symptom:
-      "Machine will not run or stops because the light curtain is interrupted.",
+    symptom: "The machine will not run or stops because the light curtain is interrupted.",
     firstChecks: [
-      "Make sure no person, part, cart, or tool is in the light curtain area.",
+      "Check that no person, part, cart, or tool is in the light curtain area.",
       "Check for anything breaking the curtain path.",
-      "Make sure the area is clear before trying again.",
-      "Look for anything hanging or sitting in the safety zone.",
+      "Check that the area is clear before trying again.",
+      "Check for anything hanging or sitting in the safety zone.",
     ],
     nextSteps: [
       "Clear the area completely.",
@@ -406,7 +421,7 @@ export const KB_TROUBLESHOOT = [
       "Possible curtain alignment or sensor problem",
     ],
     whenCallMaint:
-      "Call maintenance if the light curtain fault remains after the area is clear, if the curtain appears clear but the machine still shows interruption, or if you suspect a sensor/alignment problem.",
+      "Call maintenance if the light curtain fault remains after the area is clear, if the curtain appears clear but the machine still shows interruption, or if you suspect a sensor or alignment problem.",
     safetyNotes: ["Do not bypass or defeat the light curtain."],
     pending: [],
     relatedPages: [
@@ -427,8 +442,7 @@ export const KB_TROUBLESHOOT = [
       "sand build up shoot",
       "shoot blocked",
     ],
-    symptom:
-      "Sand binds in the shooting area or the shoot area does not clear correctly.",
+    symptom: "Sand binds in the shooting area or the shoot area does not clear correctly.",
     firstChecks: [
       "Check for visible buildup in the shoot area if safe.",
       "Check for dirty or restricted shoot components.",
@@ -438,7 +452,7 @@ export const KB_TROUBLESHOOT = [
     nextSteps: [
       "Clean the affected area only if procedure allows.",
       "Remove buildup carefully using approved cleaning steps.",
-      "Make sure the area is clear before restarting.",
+      "Check that the area is clear before restarting.",
       "Document where the buildup is happening if the problem returns.",
     ],
     likelyCauses: [
@@ -453,93 +467,9 @@ export const KB_TROUBLESHOOT = [
     ],
     pending: [],
     relatedPages: [
+      { label: "Corebox Setup", route: "loadbox" },
+      { label: "Core Reference", route: "loadbox/core-reference" },
       { label: "Mixer Cleaning", route: "mixer/cleaning" },
-      { label: "Corebox Setup", route: "loadbox" },
-      { label: "Core Reference", route: "loadbox/core-reference" },
-    ],
-  },
-  {
-    id: "core-not-shot-out",
-    title: "Core is not shot out",
-    priority: "high",
-    triggers: [
-      "core not shot out",
-      "wont shoot",
-      "won't shoot",
-      "shooting fault",
-      "incomplete shot",
-      "core shooting problem",
-      "core not filling",
-    ],
-    symptom: "Core does not shoot out correctly or the shot is incomplete.",
-    firstChecks: [
-      "Check for sand bind or restriction in the shoot area.",
-      "Check whether shooting pressure looks reduced.",
-      "Check whether the machine completed the shooting step correctly.",
-      "Check whether the problem is repeatable on the next cycle.",
-    ],
-    nextSteps: [
-      "Check the shoot area for buildup if safe.",
-      "Verify the machine made the required shooting condition.",
-      "Retry only if the cause is understood and the machine is safe to run.",
-      "Record whether the fault happens the same way each cycle.",
-    ],
-    likelyCauses: [
-      "Shooting step not completing correctly",
-      "Restriction or buildup in the shooting area",
-      "Low or reduced shooting pressure",
-      "Material movement problem",
-    ],
-    whenCallMaint:
-      "Call maintenance if the core still does not shoot out correctly after checks, if repeated incomplete shots continue, or if you suspect a pressure, blockage, or machine-side failure.",
-    safetyNotes: [],
-    pending: [],
-    relatedPages: [
-      { label: "Corebox Setup", route: "loadbox" },
-      { label: "Control Screens", route: "screens" },
-      { label: "Core Reference", route: "loadbox/core-reference" },
-    ],
-  },
-  {
-    id: "reduced-shooting-pressure",
-    title: "Reduced shooting pressure",
-    priority: "high",
-    triggers: [
-      "reduced shooting pressure",
-      "low shooting pressure",
-      "weak shot",
-      "shot not full",
-      "shooting pressure",
-      "low shot pressure",
-    ],
-    symptom:
-      "Shot looks weak or incomplete and the machine appears to have low shooting force.",
-    firstChecks: [
-      "Check for visible restriction or buildup in the shooting area if safe.",
-      "Check whether material flow looks normal.",
-      "Check whether the problem happens every cycle or only sometimes.",
-      "Check whether the job settings still match the expected setup.",
-    ],
-    nextSteps: [
-      "Check the shooting area for buildup or blockage.",
-      "Verify the process is set to the correct job conditions.",
-      "Retry only after obvious issues are cleared and the machine is safe.",
-      "Document whether the shot improves, stays weak, or gets worse.",
-    ],
-    likelyCauses: [
-      "Shooting pressure is lower than needed",
-      "Restriction or blockage",
-      "Flow issue",
-      "Machine-side pressure issue",
-    ],
-    whenCallMaint:
-      "Call maintenance if pressure still appears low after basic checks, if incomplete shots continue, or if you suspect a pressure supply or machine-side problem.",
-    safetyNotes: [],
-    pending: [],
-    relatedPages: [
-      { label: "Control Screens", route: "screens" },
-      { label: "Corebox Setup", route: "loadbox" },
-      { label: "Core Reference", route: "loadbox/core-reference" },
     ],
   },
   {
@@ -554,35 +484,127 @@ export const KB_TROUBLESHOOT = [
       "partial shot",
       "shot incomplete",
       "core not full",
+      "core not filling",
+      "weak core fill",
     ],
-    symptom:
-      "Shot is incomplete and the core does not fill out the way it should.",
+    symptom: "The shot is incomplete and the core does not fill out the way it should.",
     firstChecks: [
       "Check whether shooting pressure looks reduced.",
       "Check for buildup or restriction in the shoot area if safe.",
-      "Check whether the problem is happening every cycle or only sometimes.",
+      "Check whether the problem happens every cycle or only sometimes.",
       "Check whether the setup still matches the correct job conditions.",
     ],
     nextSteps: [
       "Compare current machine behavior to the last known good run.",
       "Clear obvious buildup if procedure allows.",
       "Retry only after confirming the machine is safe and the setup looks correct.",
-      "If the shot stays incomplete, document whether it is weak in the same area each time.",
+      "Document whether the shot stays weak in the same area each time.",
     ],
     likelyCauses: [
       "Reduced shooting pressure",
       "Restriction or buildup in the shoot path",
       "Material movement issue",
-      "Incorrect process/setup condition",
+      "Incorrect process or setup condition",
     ],
     whenCallMaint:
       "Call maintenance or setup if shots continue to be incomplete after basic checks, or if the machine repeatedly produces weak shots.",
     safetyNotes: [],
     pending: [],
     relatedPages: [
-      { label: "Reduced shooting pressure", route: "troubleshooting/reduced-shooting-pressure" },
-      { label: "Corebox Setup", route: "loadbox" },
       { label: "Core Reference", route: "loadbox/core-reference" },
+      {
+        label: "Reduced shooting pressure",
+        route: "troubleshooting/reduced-shooting-pressure",
+      },
+      { label: "Corebox Setup", route: "loadbox" },
+    ],
+  },
+  {
+    id: "reduced-shooting-pressure",
+    title: "Reduced shooting pressure",
+    priority: "medium",
+    triggers: [
+      "reduced shooting pressure",
+      "low shooting pressure",
+      "shooting pressure low",
+      "low shot pressure",
+      "shoot pressure",
+    ],
+    symptom: "The machine appears to have low shooting force or a low-pressure shooting condition.",
+    firstChecks: [
+      "Check whether the shooting pressure indication or job setting looks lower than expected.",
+      "Check for visible restriction or buildup in the shooting area if safe.",
+      "Check whether material flow looks normal.",
+      "Check whether the problem happens every cycle or only sometimes.",
+    ],
+    nextSteps: [
+      "If the main symptom is incomplete fill, use Shot not full as the main troubleshooting path.",
+      "Check the shooting area for buildup or blockage.",
+      "Confirm the process is set to the correct job conditions.",
+      "Retry only after obvious issues are cleared and the machine is safe.",
+    ],
+    likelyCauses: [
+      "Shooting pressure lower than needed",
+      "Restriction or blockage",
+      "Flow issue",
+      "Machine-side pressure issue",
+    ],
+    whenCallMaint:
+      "Call maintenance if pressure still appears low after basic checks, if the condition repeats, or if you suspect a pressure supply or machine-side problem.",
+    safetyNotes: [],
+    pending: [],
+    relatedPages: [
+      { label: "Core Reference", route: "loadbox/core-reference" },
+      {
+        label: "Shot not full",
+        route: "troubleshooting/shot-not-full",
+      },
+      { label: "Control Screens", route: "screens" },
+    ],
+  },
+  {
+    id: "core-not-shot-out",
+    title: "Core is not shot out",
+    priority: "medium",
+    triggers: [
+      "core not shot out",
+      "wont shoot out",
+      "won't shoot out",
+      "did not shoot out",
+      "shooting fault",
+      "core didnt come out",
+      "core didn't come out",
+    ],
+    symptom: "The shooting step does not complete correctly and the core does not discharge or shoot out the way it should.",
+    firstChecks: [
+      "Check whether the machine completed the shooting step correctly.",
+      "Check for sand bind or restriction in the shooting area.",
+      "Check whether the issue is repeatable on the next cycle.",
+      "Check whether the problem is a full discharge problem rather than just a weak fill.",
+    ],
+    nextSteps: [
+      "If the main symptom is incomplete fill, use Shot not full as the main troubleshooting path.",
+      "Check the shoot area for buildup if safe.",
+      "Confirm the machine made the required shooting condition.",
+      "Record whether the fault happens the same way each cycle.",
+    ],
+    likelyCauses: [
+      "Shooting step not completing correctly",
+      "Restriction or buildup in the shooting area",
+      "Low or unstable shooting force",
+      "Material movement problem",
+    ],
+    whenCallMaint:
+      "Call maintenance if the core still does not shoot out correctly after checks, if repeated shooting failures continue, or if you suspect a blockage or machine-side failure.",
+    safetyNotes: [],
+    pending: [],
+    relatedPages: [
+      { label: "Core Reference", route: "loadbox/core-reference" },
+      {
+        label: "Shot not full",
+        route: "troubleshooting/shot-not-full",
+      },
+      { label: "Corebox Setup", route: "loadbox" },
     ],
   },
   {
@@ -597,18 +619,17 @@ export const KB_TROUBLESHOOT = [
       "core won't gas",
       "gassing fault",
     ],
-    symptom:
-      "Core does not appear to gas correctly or the hardening step does not happen.",
+    symptom: "The core does not appear to gas correctly or the hardening step does not happen.",
     firstChecks: [
       "Check whether the gassing step actually ran.",
       "Check the screen for a hardening or gassing-related message.",
       "Check whether the correct job settings are loaded.",
-      "Check whether this is happening every cycle or only sometimes.",
+      "Check whether this happens every cycle or only sometimes.",
     ],
     nextSteps: [
-      "Verify the machine reached the gassing step.",
+      "Confirm the machine reached the gassing step.",
       "Document the exact point where the cycle fails.",
-      "If allowed, compare current settings to the correct job setup.",
+      "Compare current settings to the correct job setup if allowed.",
       "Retry only if the machine condition is understood and safe.",
     ],
     likelyCauses: [
@@ -623,9 +644,9 @@ export const KB_TROUBLESHOOT = [
     ],
     pending: [],
     relatedPages: [
+      { label: "Core Reference", route: "loadbox/core-reference" },
       { label: "Gassing parameters", route: "screens/gassing" },
       { label: "Machine Operation", route: "basics" },
-      { label: "Core Reference", route: "loadbox/core-reference" },
     ],
   },
   {
@@ -640,16 +661,18 @@ export const KB_TROUBLESHOOT = [
       "wont harden",
       "hardening fault",
       "soft after gassing",
+      "core wont harden",
+      "core won't harden",
     ],
-    symptom: "Core stays soft or does not harden correctly after the process.",
+    symptom: "The core stays soft or does not harden correctly after the process.",
     firstChecks: [
       "Check whether the gassing step ran correctly.",
       "Check whether the issue started after a setup or setting change.",
-      "Check whether the problem is affecting every cycle or only some parts.",
+      "Check whether the problem affects every cycle or only some parts.",
       "Compare current conditions to the last known good run if possible.",
     ],
     nextSteps: [
-      "Verify the correct job settings are loaded.",
+      "Confirm the correct job settings are loaded.",
       "Check whether the problem is tied to startup, cold condition, or repeated cycles.",
       "Document what changed before the issue started.",
       "Escalate if acceptable cores cannot be produced.",
@@ -658,16 +681,16 @@ export const KB_TROUBLESHOOT = [
       "Hardening step not completing correctly",
       "Gassing-related process issue",
       "Wrong setting or process condition",
-      "Material/process condition out of normal range",
+      "Material or process condition out of normal range",
     ],
     whenCallMaint:
       "Call maintenance or setup if the core continues to stay soft, if acceptable cores cannot be produced, or if the hardening issue repeats after basic checks.",
     safetyNotes: [],
     pending: [],
     relatedPages: [
+      { label: "Core Reference", route: "loadbox/core-reference" },
       { label: "Gassing parameters", route: "screens/gassing" },
       { label: "Machine Operation", route: "basics" },
-      { label: "Core Reference", route: "loadbox/core-reference" },
     ],
   },
   {
@@ -682,12 +705,11 @@ export const KB_TROUBLESHOOT = [
       "hardening pump",
       "dosing fault",
     ],
-    symptom:
-      "The hardening process shows a dosing pump problem or the pump does not appear to run.",
+    symptom: "The hardening process shows a dosing pump problem or the pump does not appear to run.",
     firstChecks: [
       "Check the screen for the exact dosing pump or hardening-related message.",
       "Check whether the fault happens every cycle or only once.",
-      "Verify the machine reached the hardening step.",
+      "Check whether the machine reached the hardening step.",
       "Check whether another related hardening fault is also active.",
     ],
     nextSteps: [
@@ -708,9 +730,9 @@ export const KB_TROUBLESHOOT = [
     ],
     pending: [],
     relatedPages: [
+      { label: "Core Reference", route: "loadbox/core-reference" },
       { label: "Gassing parameters", route: "screens/gassing" },
       { label: "Machine Operation", route: "basics" },
-      { label: "Core Reference", route: "loadbox/core-reference" },
     ],
   },
   {
@@ -724,8 +746,7 @@ export const KB_TROUBLESHOOT = [
       "heater medium fault",
       "hardening heater fault",
     ],
-    symptom:
-      "The machine shows a no-medium or heater-related hardening fault.",
+    symptom: "The machine shows a no-medium or heater-related hardening fault.",
     firstChecks: [
       "Check the exact fault text on the screen.",
       "Check whether the hardening step is failing every cycle.",
@@ -735,21 +756,22 @@ export const KB_TROUBLESHOOT = [
     nextSteps: [
       "Do not keep restarting the cycle without understanding the fault.",
       "Record the exact message and whether the problem is repeatable.",
-      "If allowed, compare the current condition to the last known good run.",
+      "Compare the current condition to the last known good run if allowed.",
       "Escalate with the fault text and cycle step information.",
     ],
     likelyCauses: [
-      "Heater-related medium/supply condition is not being met",
+      "Heater-related medium or supply condition is not being met",
       "Hardening system fault",
       "Related control or process issue",
     ],
     whenCallMaint:
       "Call maintenance if the fault repeats, if the hardening step cannot complete, or if heater-related faults remain active.",
     safetyNotes: [
-      "Do not guess through repeated runs when a heater/hardening supply fault is active.",
+      "Do not guess through repeated runs when a heater or hardening supply fault is active.",
     ],
     pending: [],
     relatedPages: [
+      { label: "Core Reference", route: "loadbox/core-reference" },
       { label: "Gassing parameters", route: "screens/gassing" },
       { label: "Machine Operation", route: "basics" },
     ],
@@ -766,18 +788,17 @@ export const KB_TROUBLESHOOT = [
       "pneumatic issue",
       "air pressure problem",
     ],
-    symptom:
-      "Machine shows a pneumatic fault, air-related issue, or air functions do not respond correctly.",
+    symptom: "The machine shows a pneumatic fault or air-related functions do not respond correctly.",
     firstChecks: [
       "Check the screen for the exact pneumatic fault text.",
       "Confirm plant air supply is present and stable.",
       "Check whether the problem is tied to one motion or function.",
-      "Look for obvious loose airlines or audible leaks if safe.",
+      "Check for obvious loose airlines or audible leaks if safe.",
       "Check whether Reset Air is appropriate and allowed for the stopped condition.",
     ],
     nextSteps: [
       "If safe and allowed, perform the normal reset practice once.",
-      "Watch whether the same pneumatic fault returns at the same step.",
+      "Check whether the same pneumatic fault returns at the same step.",
       "Record the exact message, machine step, and any gauge condition.",
       "Stop repeated resets if the same fault keeps coming back.",
     ],
@@ -812,10 +833,9 @@ export const KB_TROUBLESHOOT = [
       "limit switch fault",
       "electrical issue",
     ],
-    symptom:
-      "Machine shows an electrical or control fault, or a control power-related function will not run.",
+    symptom: "The machine shows an electrical or control fault, or a control power-related function will not run.",
     firstChecks: [
-      "Read the exact fault text on the screen.",
+      "Check the exact fault text on the screen.",
       "Check whether the issue happened during startup or during a specific cycle step.",
       "Check whether control power and normal machine indications are present.",
       "Check whether the same electrical message returns immediately after reset.",
@@ -827,10 +847,10 @@ export const KB_TROUBLESHOOT = [
       "Document whether the issue affects all functions or one specific area.",
     ],
     likelyCauses: [
-      "Electrical/control fault is active",
+      "Electrical or control fault is active",
       "Control supply issue",
       "Motor protection or limit-switch-related issue",
-      "CPU/control-side fault",
+      "CPU or control-side fault",
     ],
     whenCallMaint:
       "Call maintenance if an electrical fault remains active, if control power is lost, if the same message returns immediately, or if a control-related function will not recover normally.",
@@ -858,12 +878,11 @@ export const KB_TROUBLESHOOT = [
       "rattling",
       "vibrating",
     ],
-    symptom:
-      "Machine makes unusual noise, rattles, or vibrates more than normal during operation.",
+    symptom: "The machine makes unusual noise, rattles, or vibrates more than normal during operation.",
     firstChecks: [
       "Check whether the noise happens at the same step every cycle.",
       "Check whether the vibration started after a setup, box change, or restart.",
-      "Look for obvious loose material, loose parts, or abnormal movement if safe to observe.",
+      "Check for obvious loose material, loose parts, or abnormal movement if safe to observe.",
       "Check whether the noise is coming from one area only or the whole machine.",
     ],
     nextSteps: [
@@ -903,13 +922,12 @@ export const KB_TROUBLESHOOT = [
       "stuttering motion",
       "not smooth",
     ],
-    symptom:
-      "One machine motion is not smooth and appears jerky, unstable, or oscillating.",
+    symptom: "One machine motion is not smooth and appears jerky, unstable, or oscillating.",
     firstChecks: [
       "Check which motion is affected and whether it happens every cycle.",
       "Check whether the issue started after a restart, setup, or recovery action.",
       "Check whether another fault message is active at the same time.",
-      "Watch whether the motion improves, stays the same, or gets worse on the next safe attempt.",
+      "Check whether the motion improves, stays the same, or gets worse on the next safe attempt.",
     ],
     nextSteps: [
       "Document which movement is affected.",
@@ -946,8 +964,7 @@ export const KB_TROUBLESHOOT = [
       "foam in oil",
       "oil looks bad",
     ],
-    symptom:
-      "Hydraulic oil condition looks abnormal or foaming is suspected along with machine performance issues.",
+    symptom: "Hydraulic oil condition looks abnormal or foaming is suspected along with machine performance issues.",
     firstChecks: [
       "Check whether the machine is also showing unstable movement, noise, or pressure-related behavior.",
       "Check whether the issue appeared with another hydraulic-related symptom.",
@@ -987,8 +1004,7 @@ export const KB_TROUBLESHOOT = [
       "oil temp high",
       "overheating oil",
     ],
-    symptom:
-      "Machine shows signs of high oil temperature or an oil-temperature-related fault.",
+    symptom: "The machine shows signs of high oil temperature or an oil-temperature-related fault.",
     firstChecks: [
       "Check the screen for the exact temperature or hydraulic-related message.",
       "Check whether the machine is also showing noise, vibration, or unstable movement.",
@@ -1020,6 +1036,7 @@ export const KB_TROUBLESHOOT = [
 
   {
     id: "clamp-wont-turn-green-search",
+    entryType: "recovery-bridge",
     title: "Clamp won’t turn green",
     priority: "high",
     triggers: [
@@ -1031,8 +1048,7 @@ export const KB_TROUBLESHOOT = [
       "clamp issue",
       "clamp not making",
     ],
-    symptom:
-      "Clamp step does not complete and the required green confirmation does not make.",
+    symptom: "The clamp step does not complete and the required green confirmation does not make.",
     firstChecks: [
       "Check whether the box is fully seated and aligned.",
       "Check for sand, debris, or buildup on seating or contact surfaces.",
@@ -1046,7 +1062,7 @@ export const KB_TROUBLESHOOT = [
     ],
     likelyCauses: [
       "Box not seated correctly",
-      "Debris or buildup affecting clamp/seating",
+      "Debris or buildup affecting clamp or seating",
       "Required condition not made before clamp step",
       "Mechanical or sensor-side clamp issue",
     ],
@@ -1067,6 +1083,7 @@ export const KB_TROUBLESHOOT = [
   },
   {
     id: "carriage-wont-move-search",
+    entryType: "recovery-bridge",
     title: "Carriage won’t move",
     priority: "high",
     triggers: [
@@ -1077,8 +1094,7 @@ export const KB_TROUBLESHOOT = [
       "carriage stuck",
       "carriage issue",
     ],
-    symptom:
-      "The carriage does not move when it should during load or recovery.",
+    symptom: "The carriage does not move when it should during load or recovery.",
     firstChecks: [
       "Check whether the machine is in the correct mode for the move.",
       "Check whether another required condition has not been made first.",
@@ -1113,6 +1129,7 @@ export const KB_TROUBLESHOOT = [
   },
   {
     id: "table-lifted-auto-stopped-search",
+    entryType: "recovery-bridge",
     title: "Table lifted but auto stopped",
     priority: "high",
     triggers: [
@@ -1122,8 +1139,7 @@ export const KB_TROUBLESHOOT = [
       "table stopped short",
       "table close but not there",
     ],
-    symptom:
-      "Auto load stops after the table lifts close to position, but the required position does not fully make.",
+    symptom: "Auto load stops after the table lifts close to position, but the required position does not fully make.",
     firstChecks: [
       "Check whether the table is close to position but not fully there.",
       "Check whether the required green confirmation has not been made.",
@@ -1157,6 +1173,7 @@ export const KB_TROUBLESHOOT = [
   },
   {
     id: "corebox-wont-lock-in-out-search",
+    entryType: "recovery-bridge",
     title: "Corebox won’t lock in / lock out",
     priority: "high",
     triggers: [
@@ -1169,8 +1186,7 @@ export const KB_TROUBLESHOOT = [
       "box wont lock",
       "box won't lock",
     ],
-    symptom:
-      "Corebox will not complete the lock-in or lock-out step correctly.",
+    symptom: "The corebox will not complete the lock-in or lock-out step correctly.",
     firstChecks: [
       "Check whether the box is seated and aligned correctly.",
       "Check whether the machine is in the correct step and mode.",
@@ -1195,15 +1211,15 @@ export const KB_TROUBLESHOOT = [
     ],
     pending: [],
     relatedPages: [
-      { label: "Corebox Setup", route: "loadbox" },
       { label: "Auto Load Recovery (Manual)", route: "loadbox/auto-recovery" },
+      { label: "Corebox Setup", route: "loadbox" },
       { label: "Corebox Removal Safety", route: "safety/corebox-removal-safety" },
     ],
   },
   {
     id: "robot-not-removing-core",
-    title: "Robot not removing core",
-    priority: "high",
+    title: "Robot removal problem",
+    priority: "low",
     triggers: [
       "robot not removing core",
       "robot wont remove core",
@@ -1211,14 +1227,16 @@ export const KB_TROUBLESHOOT = [
       "robot issue",
       "robot not picking core",
       "core not removed by robot",
+      "robot removal",
+      "robot remove problem",
+      "robot pickoff issue",
     ],
-    symptom:
-      "Robot does not remove the core correctly or the removal step does not complete the way it should.",
+    symptom: "The robot does not remove the core correctly or the removal step does not complete the way it should.",
     firstChecks: [
       "Check whether the robot problem happens every cycle or only once.",
       "Check whether the machine completed the related cycle step before the robot move.",
-      "Check whether the core is positioned normally for pickup/removal.",
-      "Look for an active message tied to robot or cycle interruption.",
+      "Check whether the core is positioned normally for pickup or removal.",
+      "Check for an active message tied to robot or cycle interruption.",
     ],
     nextSteps: [
       "Stop and document the exact step where the robot fails.",
@@ -1229,10 +1247,10 @@ export const KB_TROUBLESHOOT = [
     likelyCauses: [
       "Robot removal step not completing correctly",
       "Core position or cycle condition not normal before robot pickup",
-      "Related robot/camera/pickoff issue",
+      "Related robot, camera, or pickoff issue",
     ],
     whenCallMaint:
-      "Call setup or maintenance if the robot repeatedly fails to remove the core, or if the machine cannot continue normal production.",
+      "Call maintenance or setup if the robot repeatedly fails to remove the core, or if the machine cannot continue normal production.",
     safetyNotes: [
       "Do not enter robot or machine movement areas unless the machine is in the correct safe condition.",
     ],
@@ -1256,26 +1274,25 @@ export const KB_TROUBLESHOOT = [
       "camera fault",
       "pickoff fault",
     ],
-    symptom:
-      "Pickoff or camera-related function is not working correctly during production.",
+    symptom: "Pickoff or camera-related function is not working correctly during production.",
     firstChecks: [
       "Check whether the issue is happening every cycle or only sometimes.",
-      "Check whether the machine and core position look normal before the camera/pickoff step.",
+      "Check whether the machine and core position look normal before the camera or pickoff step.",
       "Check for an active message tied to robot, pickoff, or camera operation.",
       "Check whether the issue started after a restart, setup, or changeover.",
     ],
     nextSteps: [
       "Record the exact cycle point where the pickoff or camera problem happens.",
       "Do not keep retrying if the same function fails the same way each cycle.",
-      "Escalate with the message shown and what the robot/camera did or did not do.",
+      "Escalate with the message shown and what the robot or camera did or did not do.",
     ],
     likelyCauses: [
       "Camera or pickoff condition not being made correctly",
       "Robot-related process interruption",
-      "Cycle state not normal before pickoff/camera action",
+      "Cycle state not normal before pickoff or camera action",
     ],
     whenCallMaint:
-      "Call setup or maintenance if the camera or pickoff issue repeats or stops normal production.",
+      "Call maintenance or setup if the camera or pickoff issue repeats or stops normal production.",
     safetyNotes: [
       "Keep clear of robot and moving equipment areas unless the machine is in the correct safe condition.",
     ],
@@ -1288,6 +1305,7 @@ export const KB_TROUBLESHOOT = [
   },
   {
     id: "vacuum-wont-make-during-load-search",
+    entryType: "recovery-bridge",
     title: "Vacuum won’t make during load",
     priority: "high",
     triggers: [
@@ -1298,8 +1316,7 @@ export const KB_TROUBLESHOOT = [
       "vacuum not making during auto load",
       "vacuum during load",
     ],
-    symptom:
-      "Auto load reaches the vacuum step, but vacuum does not make.",
+    symptom: "Auto load reaches the vacuum step, but vacuum does not make.",
     firstChecks: [
       "Check whether the machine reached the vacuum step during auto load.",
       "Check whether the related positions made correctly before the vacuum step.",
