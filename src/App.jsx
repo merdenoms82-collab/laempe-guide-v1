@@ -93,6 +93,10 @@ export default function App() {
         }
       : null;
 
+  const mixerTroubleshootingIssues = KB_TROUBLESHOOT.filter((item) =>
+    (item.relatedPages || []).some((page) => page.route?.startsWith("mixer/"))
+  );
+
   return (
     <AppShell onNavigate={setView} onOpenSearch={() => setView("search")}>
       {cleanView === "home" && <HomeGrid onNavigate={setView} />}
@@ -298,6 +302,16 @@ export default function App() {
             <button
               type="button"
               className="card"
+              onClick={() => setView("troubleshooting/mixer")}
+              style={{ textAlign: "left", cursor: "pointer", color: "inherit" }}
+            >
+              <h3>Mixer Common Problems</h3>
+              <p>Browse mixer-related troubleshooting</p>
+            </button>
+
+            <button
+              type="button"
+              className="card"
               onClick={() => setView("troubleshooting/error-codes")}
               style={{ textAlign: "left", cursor: "pointer", color: "inherit" }}
             >
@@ -316,6 +330,19 @@ export default function App() {
         >
           <TroubleshootingList
             issues={KB_TROUBLESHOOT}
+            onOpenIssue={handleOpenIssue}
+          />
+        </DetailView>
+      )}
+
+      {cleanView === "troubleshooting/mixer" && (
+        <DetailView
+          title="Mixer Common Problems"
+          subtitle="Mixer symptoms → checks"
+          onBack={() => setView("troubleshooting")}
+        >
+          <TroubleshootingList
+            issues={mixerTroubleshootingIssues}
             onOpenIssue={handleOpenIssue}
           />
         </DetailView>
