@@ -3,25 +3,25 @@ const MIXER_ITEMS = [
     key: "mixer/overview",
     icon: "🌀",
     title: "Mixer Overview",
-    sub: "Purpose and workflow (placeholder)",
+    sub: "Purpose and workflow (pending confirmation)",
   },
   {
     key: "mixer/settings",
     icon: "⚙️",
     title: "Mixer Settings",
-    sub: "Adjustable settings (placeholder)",
+    sub: "Adjustable settings (pending confirmation)",
   },
   {
     key: "mixer/checks",
     icon: "✅",
     title: "Mixer Checks",
-    sub: "Operator checks (placeholder)",
+    sub: "Operator checks (pending confirmation)",
   },
   {
     key: "mixer/cleaning",
     icon: "🧽",
     title: "Mixer Cleaning",
-    sub: "End-of-shift cleaning (placeholder)",
+    sub: "End-of-shift cleaning steps",
   },
 ];
 

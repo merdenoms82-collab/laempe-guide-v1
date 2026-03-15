@@ -94,19 +94,214 @@ This page can later hold the feedback form link and instructions.`,
   "mixer/overview": {
     title: "Mixer Overview",
     subtitle: "Sand mixer reference",
-    body: `Mixer overview placeholder.`,
+    body: `Summary
+Purpose: Mix sand and binder so the machine has usable mixed sand for production.
+Main Use: Support normal machine operation
+Main Control: Mixer panel and touch screen
+
+What the Operator Is Using
+1. Control cabinet
+2. Touch screen / operator panel
+3. Mixing chamber and door
+4. Binder cabinet and lines
+5. Sand dosing section
+6. Air supply section
+
+Basic Workflow
+1. The mixer brings in sand.
+2. Binder is added to the sand.
+3. The material is mixed in the mixing chamber.
+4. Mixed sand is delivered for production use.
+5. The operator monitors the mixer from the panel and touch screen.
+
+Main Modes
+- Auto: Normal production mode
+- Manual: Used when you need direct control of mixer functions
+- Set-up: Used for controlled setup work, not normal production
+
+Operator Notes
+Use Auto for normal running.
+Use Manual only when a procedure calls for it.
+Use Set-up only when required for setup or controlled adjustment work.
+If the mixer is not behaving normally, go to Troubleshooting or the confirmed mixer procedure pages first.`,
   },
 
   "mixer/settings": {
     title: "Mixer Settings",
     subtitle: "Mixer settings reference",
-    body: `Mixer settings placeholder.`,
+    body: `REFERENCE ONLY
+
+Use this page as a quick operator guide to the mixer controls and screens.
+Do not change recipe or setup values unless the job, procedure, or authorized setup process calls for it.
+
+Summary
+Purpose: Help operators understand the main mixer controls, screens, and normal setting-related actions.
+Main Use: Check status, confirm mode, use manual functions when required, and return the mixer to a ready state.
+
+Main Controls
+1. CONTROL OFF / ON powers the mixer controls.
+2. MANUAL / AUTO selects normal running mode or manual control mode.
+3. ACKNOWLEDGE CABIN DOORS is used after the door condition is confirmed and ready.
+4. WORKING POSITION runs the selected function in the working direction.
+5. START POSITION runs the selected function back to its start or home direction.
+6. Set-up mode is a keyed function and is not normal production mode.
+
+Main Screens
+1. Start screen: mixer home screen after power-up.
+2. Recipe screen: shows the active mix recipe / recipe-related values.
+3. Operating modes: used to select the main mixer operating mode.
+4. Order screen: shows order / production-related status.
+5. Overview screen: shows overall mixer status and whether components are in the correct position.
+6. Manual screen: used to directly select mixer components and functions.
+7. Messages screen: shows active messages or faults that need review or acknowledgment.
+
+Normal Running
+1. Power the mixer up and bring up the start screen.
+2. Turn CONTROL ON.
+3. Acknowledge cabin doors if required.
+4. Put the mixer in AUTO for normal production.
+5. On the overview screen, confirm the required system positions are made.
+6. Use RELEASE / sand demand only when the machine and mixer are ready for production.
+
+Using Manual Mode
+1. Put MANUAL / AUTO in Manual.
+2. Open the Manual screen.
+3. Select the component or function you want to move.
+4. Hold WORKING POSITION or START POSITION to move that function.
+5. The lamp blinks while the movement is still happening.
+6. When the end position is reached, the lamp turns on solid / green.
+7. Releasing the button stops the movement right away.
+
+Functions Operators May Use in Manual
+1. Sand dosing container
+   - Working position: dose sand
+   - Start position: fill the sand dosing container
+2. Binder tube 1
+   - Working position: blow out binder tube 1
+   - Start position: suck binder into binder tube 1
+3. Binder tube 2
+   - Working position: blow out binder tube 2
+   - Start position: suck binder into binder tube 2
+4. Sand gate
+   - Working position: open emptying slider
+   - Start position: close emptying slider
+5. Sand chute
+   - Working position: move chute to Test Drop
+   - Start position: move chute to Machine
+6. Mixer motor
+   - Working position: switch mixer motor on
+   - Start position: switch mixer motor off
+
+Start Position Check
+Use this when the mixer needs to be returned to a ready state.
+1. Put MANUAL / AUTO in Manual.
+2. Open the Manual screen.
+3. Select Sand Gate.
+4. Hold START POSITION to close the emptying slider.
+5. Confirm the required binder levels are reached.
+6. Put MANUAL / AUTO back in Auto.
+7. On the overview screen, make sure the start-position status is made for all required components.
+
+Mode Guide
+1. Auto: normal production mode
+2. Manual: used for direct operator control of mixer functions
+3. Set-up: keyed setup mode for controlled adjustment work only, not normal production
+
+Operator Notes
+Use Auto for normal running.
+Use Manual only when a procedure calls for direct control.
+Do not use Set-up as a normal operating mode.
+If the overview screen does not show the mixer in the correct ready position, do not guess.
+If a function will not make position, keeps blinking, or the screen values do not match the job, stop and escalate.
+Do not change recipe or setup values unless you are following the approved process.`,
   },
 
   "mixer/checks": {
     title: "Mixer Checks",
     subtitle: "Mixer inspection reference",
-    body: `Mixer checks placeholder.`,
+    body: `REFERENCE ONLY
+
+Use this page as a quick operator check guide before running the mixer, while getting it ready, and when returning it to a ready state.
+
+Summary
+Purpose: Help operators verify the mixer is safe, ready, and in the correct condition for production.
+Main Use: Pre-run checks, start-position checks, and normal ready-state checks.
+
+Before Running
+1. Make sure no people or materials are in the danger area.
+2. Make sure the work area is clean and free of loose objects.
+3. Make sure safety equipment is installed and working correctly.
+4. Never bypass or disable safety equipment.
+5. Make sure the mixer is set up correctly before trying to run it.
+6. Make sure the system is switched on and has no active fault before starting Auto or Manual.
+
+Switch-On Checks
+1. Turn on the main switch so the mixer has power.
+2. Confirm the start screen appears.
+3. Set CONTROL ON.
+4. Acknowledge the emergency stop if required.
+5. Press ACKNOWLEDGE CABIN DOORS if required.
+6. Confirm the mixer is powered and ready for the next step.
+
+Auto Mode Ready Checks
+1. Make sure the system is set up.
+2. Make sure the mixer is switched on.
+3. Make sure the mixer is in the start position.
+4. Make sure there is no active fault.
+5. Put MANUAL / AUTO in Auto.
+6. On the mixer overview screen, make sure all required system positions show green.
+7. Start production only when the mixer is confirmed ready.
+
+Manual Mode Checks
+1. Use Manual only when a procedure calls for direct control.
+2. Make sure the system is switched on.
+3. Make sure there is no active fault.
+4. Open the Manual screen.
+5. Select only the function you need.
+6. Hold WORKING POSITION or START POSITION until the move is complete.
+7. Watch for blinking while the movement is still happening.
+8. Confirm the position light turns solid / green before treating the move as complete.
+
+Start Position Checks
+Use this when returning the mixer to a ready state.
+1. Put MANUAL / AUTO in Manual.
+2. Open the Manual screen.
+3. Select Sand Gate.
+4. Hold START POSITION to close the emptying slider.
+5. Make sure the emptying slider is closed.
+6. Check that the required binder levels have been reached.
+7. Put MANUAL / AUTO back in Auto.
+8. On the overview screen, make sure the start-position status is green for all required components.
+
+Functions to Confirm in Manual
+1. Sand gate closes correctly.
+2. Sand chute returns to Machine position when required.
+3. Mixer motor turns on and off correctly when commanded.
+4. Binder tube functions respond correctly when used by procedure.
+5. Sand dosing functions respond correctly when used by procedure.
+
+While Running
+1. Watch for faults before and during operation.
+2. Make sure the mixer overview still shows the system in the correct condition.
+3. If the mixer does not make position, keeps blinking, or does not return ready, do not guess.
+4. Stop and escalate if the mixer will not reach the required ready condition.
+
+Stop and Escalate
+1. Safety equipment is missing, damaged, or not working.
+2. The work area is not clear.
+3. The mixer has an active fault.
+4. A component will not make position.
+5. A light keeps blinking and never confirms the move.
+6. Start position will not make.
+7. Binder level is not where it needs to be.
+8. The mixer screen does not show the expected ready condition.
+
+Operator Notes
+Use Auto for normal production.
+Use Manual only for controlled operator actions.
+Do not treat blinking as complete.
+Use green / confirmed status before moving on.
+If the mixer is not in the correct ready state, stop and get help before production continues.`,
   },
 
   "mixer/cleaning": {
