@@ -6,14 +6,10 @@ export default function AppShell({ children, onNavigate, onOpenSearch }) {
     <div className="app">
       <TopBar onOpenSearch={onOpenSearch} />
 
-      <main className="main">
-        {children}
-      </main>
+      <main className="main">{children}</main>
 
       <div className="app-footer">
-        Pilot Prototype – Reference Tool (v0.1) • Independent training reference.
-        Not affiliated with machine manufacturer. Does not interface with the machine
-        or replicate proprietary control software.
+        Pilot reference tool • Training use only • No machine interface
       </div>
 
       <DockNav onNavigate={onNavigate} />

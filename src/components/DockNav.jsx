@@ -11,7 +11,7 @@ export default function DockNav({ onNavigate }) {
       : route.startsWith("mixer")
       ? "mixer"
       : route.startsWith("troubleshooting")
-      ? "fix"
+      ? "troubleshooting"
       : "";
 
   return (
@@ -45,11 +45,11 @@ export default function DockNav({ onNavigate }) {
 
       <button
         type="button"
-        className={`dockBtn ${activeKey === "fix" ? "is-active" : ""}`}
+        className={`dockBtn ${activeKey === "troubleshooting" ? "is-active" : ""}`}
         onClick={() => onNavigate("troubleshooting")}
       >
         <div className="dockBtn__icon">🧰</div>
-        <div className="dockBtn__label">Fix</div>
+        <div className="dockBtn__label">Troubleshoot</div>
       </button>
     </nav>
   );

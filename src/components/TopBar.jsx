@@ -2,9 +2,10 @@ export default function TopBar({ onOpenSearch }) {
   return (
     <header className="topbar">
       <div className="brand">
+        <div className="brand__eyebrow">OPERATOR HUB</div>
         <div className="brand__title">Laempe Reference Guide</div>
         <div className="brand__subtitle">
-          Touch Panel Training Reference • Version 0.1 (Pilot)
+          Fast operator reference for floor use
         </div>
       </div>
 
@@ -13,6 +14,7 @@ export default function TopBar({ onOpenSearch }) {
         type="button"
         onClick={onOpenSearch}
         aria-label="Open search"
+        title="Search"
       >
         🔎
       </button>
