@@ -53,32 +53,12 @@ function parseBody(body) {
 
 function WarningCard({ heading, paragraphs }) {
   return (
-    <div
-      style={{
-        background:
-          "linear-gradient(135deg, rgba(125, 28, 28, 0.28) 0%, rgba(18, 24, 38, 1) 55%, rgba(10, 15, 26, 1) 100%)",
-        border: "1px solid rgba(239, 68, 68, 0.35)",
-        borderLeft: "6px solid #DC2626",
-        borderRadius: "16px",
-        padding: "18px 20px",
-      }}
-    >
-      <div
-        className="sectionLabel"
-        style={{
-          color: "#E5E7EB",
-          marginBottom: "14px",
-        }}
-      >
-        {heading}
-      </div>
-
+    <div className="card card--warn">
+      <div className="sectionLabel">{heading}</div>
       <div
         style={{
           display: "grid",
-          gap: "14px",
-          color: "#E5E7EB",
-          lineHeight: 1.7,
+          gap: "12px",
         }}
       >
         {paragraphs.map((paragraph, index) => (
@@ -86,8 +66,7 @@ function WarningCard({ heading, paragraphs }) {
             key={`${heading}-${index}`}
             style={{
               margin: 0,
-              color: index === 0 ? "#F8FAFC" : "#D1D5DB",
-              fontWeight: index === 0 ? 600 : 500,
+              color: "rgba(255,255,255,0.92)",
             }}
           >
             {paragraph}
@@ -118,28 +97,22 @@ function StepsCard({ heading, items }) {
 function TextCard({ heading, paragraphs }) {
   return (
     <div className="card">
-      <div
-        style={{
-          fontSize: "18px",
-          fontWeight: 700,
-          color: "#F1F5F9",
-          marginBottom: paragraphs.length ? "12px" : "0",
-        }}
-      >
-        {heading}
-      </div>
+      <div className="sectionLabel">{heading}</div>
 
       {paragraphs.length > 0 && (
         <div
           style={{
             display: "grid",
             gap: "12px",
-            color: "#9CA3AF",
-            lineHeight: 1.7,
           }}
         >
           {paragraphs.map((paragraph, index) => (
-            <p key={`${heading}-${index}`} style={{ margin: 0 }}>
+            <p
+              key={`${heading}-${index}`}
+              style={{
+                margin: 0,
+              }}
+            >
               {paragraph}
             </p>
           ))}
@@ -159,12 +132,7 @@ export default function StaticContentView({
   const sections = parseBody(body);
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gap: "12px",
-      }}
-    >
+    <div className="stack">
       {actionLabel && onAction && (
         <button
           type="button"
@@ -216,19 +184,15 @@ export default function StaticContentView({
           href={FEEDBACK_URL}
           target="_blank"
           rel="noreferrer"
+          className="tile tile--blue"
           style={{
-            display: "inline-block",
-            background: "#1A2235",
-            color: "#F1F5F9",
-            border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: "16px",
-            padding: "14px 16px",
+            minHeight: "90px",
             textDecoration: "none",
-            fontWeight: "600",
-            textAlign: "center",
           }}
         >
-          Open Feedback Form
+          <div className="tile__icon">📝</div>
+          <div className="tile__title">Open Feedback Form</div>
+          <div className="tile__sub">Submit corrections and suggestions</div>
         </a>
       )}
     </div>

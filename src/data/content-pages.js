@@ -86,9 +86,11 @@ Always follow the approved work instruction, F.I.C. card, and plant procedure du
   feedback: {
     title: "Operator Feedback",
     subtitle: "Submit improvement input",
-    body: `Operator feedback section placeholder.
+    body: `Summary
+Use this page to collect corrections, missing steps, and improvement ideas from operators.
 
-This page can later hold the feedback form link and instructions.`,
+Status
+Feedback link and submission instructions can be added here when the business is ready to open feedback collection.`,
   },
 
   "mixer/overview": {
@@ -96,10 +98,10 @@ This page can later hold the feedback form link and instructions.`,
     subtitle: "Sand mixer reference",
     body: `Summary
 Purpose: Mix sand and binder so the machine has usable mixed sand for production.
-Main Use: Support normal machine operation
-Main Control: Mixer panel and touch screen
+Main Use: Support normal machine operation.
+Main Control: Mixer panel and touch screen.
 
-What the Operator Is Using
+What the operator is using
 1. Control cabinet
 2. Touch screen / operator panel
 3. Mixing chamber and door
@@ -107,17 +109,17 @@ What the Operator Is Using
 5. Sand dosing section
 6. Air supply section
 
-Basic Workflow
+Basic workflow
 1. The mixer brings in sand.
 2. Binder is added to the sand.
 3. The material is mixed in the mixing chamber.
 4. Mixed sand is delivered for production use.
 5. The operator monitors the mixer from the panel and touch screen.
 
-Main Modes
-- Auto: Normal production mode
-- Manual: Used when you need direct control of mixer functions
-- Set-up: Used for controlled setup work, not normal production
+Main modes
+1. Auto: normal production mode
+2. Manual: used when direct control of mixer functions is needed
+3. Set-up: used for controlled setup work, not normal production
 
 Operator Notes
 Use Auto for normal running.
@@ -147,13 +149,13 @@ Main Controls
 6. Set-up mode is a keyed function and is not normal production mode.
 
 Main Screens
-1. Start screen: mixer home screen after power-up.
-2. Recipe screen: shows the active mix recipe / recipe-related values.
-3. Operating modes: used to select the main mixer operating mode.
-4. Order screen: shows order / production-related status.
-5. Overview screen: shows overall mixer status and whether components are in the correct position.
-6. Manual screen: used to directly select mixer components and functions.
-7. Messages screen: shows active messages or faults that need review or acknowledgment.
+1. Start screen: mixer home screen after power-up
+2. Recipe screen: shows the active mix recipe and recipe-related values
+3. Operating modes: used to select the main mixer operating mode
+4. Order screen: shows order and production-related status
+5. Overview screen: shows overall mixer status and whether components are in the correct position
+6. Manual screen: used to directly select mixer components and functions
+7. Messages screen: shows active messages or faults that need review or acknowledgment
 
 Normal Running
 1. Power the mixer up and bring up the start screen.
@@ -193,7 +195,6 @@ Functions Operators May Use in Manual
    - Start position: switch mixer motor off
 
 Start Position Check
-Use this when the mixer needs to be returned to a ready state.
 1. Put MANUAL / AUTO in Manual.
 2. Open the Manual screen.
 3. Select Sand Gate.
@@ -207,13 +208,12 @@ Mode Guide
 2. Manual: used for direct operator control of mixer functions
 3. Set-up: keyed setup mode for controlled adjustment work only, not normal production
 
-Operator Notes
-Use Auto for normal running.
-Use Manual only when a procedure calls for direct control.
+WARNING
+
+Do not change recipe or setup values unless you are following the approved process.
 Do not use Set-up as a normal operating mode.
 If the overview screen does not show the mixer in the correct ready position, do not guess.
-If a function will not make position, keeps blinking, or the screen values do not match the job, stop and escalate.
-Do not change recipe or setup values unless you are following the approved process.`,
+If a function will not make position, keeps blinking, or the screen values do not match the job, stop and escalate.`,
   },
 
   "mixer/checks": {
@@ -263,7 +263,6 @@ Manual Mode Checks
 8. Confirm the position light turns solid / green before treating the move as complete.
 
 Start Position Checks
-Use this when returning the mixer to a ready state.
 1. Put MANUAL / AUTO in Manual.
 2. Open the Manual screen.
 3. Select Sand Gate.
@@ -280,28 +279,17 @@ Functions to Confirm in Manual
 4. Binder tube functions respond correctly when used by procedure.
 5. Sand dosing functions respond correctly when used by procedure.
 
-While Running
-1. Watch for faults before and during operation.
-2. Make sure the mixer overview still shows the system in the correct condition.
-3. If the mixer does not make position, keeps blinking, or does not return ready, do not guess.
-4. Stop and escalate if the mixer will not reach the required ready condition.
+WARNING
 
-Stop and Escalate
-1. Safety equipment is missing, damaged, or not working.
-2. The work area is not clear.
-3. The mixer has an active fault.
-4. A component will not make position.
-5. A light keeps blinking and never confirms the move.
-6. Start position will not make.
-7. Binder level is not where it needs to be.
-8. The mixer screen does not show the expected ready condition.
+Stop and escalate if safety equipment is missing, damaged, or not working.
+Stop and escalate if the work area is not clear.
+Stop and escalate if the mixer has an active fault, a component will not make position, a light keeps blinking and never confirms the move, start position will not make, binder level is not where it needs to be, or the mixer screen does not show the expected ready condition.
 
-Operator Notes
-Use Auto for normal production.
-Use Manual only for controlled operator actions.
-Do not treat blinking as complete.
-Use green / confirmed status before moving on.
-If the mixer is not in the correct ready state, stop and get help before production continues.`,
+IMPORTANT
+
+This page is a quick operator reference only.
+
+Always follow the approved work instruction, mixer procedure, and site safety rules before operating or adjusting the mixer.`,
   },
 
   "mixer/cleaning": {
@@ -333,7 +321,8 @@ Steps
 17. Use the + and - buttons to move the sand slide back to Machine.
 18. Put the mixer back in Auto mode.
 
-Operator Notes
+WARNING
+
 Do not open the mixer door until the mixer and door vacuum are stopped.
 Make sure all sand is cleared out before closing the door.
 Make sure the door seal is clean before latching.
@@ -369,7 +358,8 @@ Return to Service
 4. Verify machine is ready for normal operation.
 5. Notify affected personnel that the machine is back in service.
 
-Warning
+WARNING
+
 This page is a training/reference version.
 Operators must still follow the approved plant LOTO procedure.`,
   },
@@ -427,14 +417,11 @@ Cleaning Task Reminders
 4. Use approved tools for cleaning and buildup removal.
 5. Recheck the area before returning the machine to normal condition.
 
-Stop and Escalate
-1. The safety pin is missing or cannot be confirmed.
-2. Required lockout / isolation has not been confirmed.
-3. Machine condition is unclear.
-4. Buildup makes the task unsafe.
-5. A part, shell, or core appears unstable.
-6. The cleaning area cannot be reached safely.
-7. You are unsure which approved procedure applies.
+WARNING
+
+Stop and escalate if the safety pin is missing or cannot be confirmed.
+Stop and escalate if required lockout / isolation has not been confirmed.
+Stop and escalate if the machine condition is unclear, buildup makes the task unsafe, a part, shell, or core appears unstable, the cleaning area cannot be reached safely, or you are unsure which approved procedure applies.
 
 IMPORTANT
 
@@ -501,14 +488,13 @@ Loading Task Reminders
 8. With the access area open and safe, use the hoist to place the remaining section into the machine.
 9. Verify alignment and positioning before continuing.
 
-Stop and Escalate
-1. The hoist or lifting hardware is damaged or not operating correctly.
-2. The load cannot be controlled safely.
-3. The core box shifts, twists, or becomes unstable.
-4. A hook, chain, or lifting leg is not seated correctly.
-5. The box is too hot to handle safely.
-6. Alignment cannot be made safely.
-7. You are unsure which approved procedure applies.
+WARNING
+
+Stop and escalate if the hoist or lifting hardware is damaged or not operating correctly.
+Stop and escalate if the load cannot be controlled safely.
+Stop and escalate if the core box shifts, twists, or becomes unstable.
+Stop and escalate if a hook, chain, or lifting leg is not seated correctly.
+Stop and escalate if the box is too hot to handle safely, alignment cannot be made safely, or you are unsure which approved procedure applies.
 
 IMPORTANT
 
@@ -577,14 +563,13 @@ Removal Task Reminders
 9. Lift the core box slowly and move it to the receiving cart under control.
 10. Once clear, remove hooks and return the hoist to the proper area.
 
-Stop and Escalate
-1. The hoist or lifting hardware is damaged or not operating correctly.
-2. The load cannot be controlled safely.
-3. The core box shifts, twists, or becomes unstable.
-4. A hook, chain, or lifting leg is not seated correctly.
-5. The box is too hot to handle safely.
-6. The receiving cart cannot be positioned safely.
-7. You are unsure which approved procedure applies.
+WARNING
+
+Stop and escalate if the hoist or lifting hardware is damaged or not operating correctly.
+Stop and escalate if the load cannot be controlled safely.
+Stop and escalate if the core box shifts, twists, or becomes unstable.
+Stop and escalate if a hook, chain, or lifting leg is not seated correctly.
+Stop and escalate if the box is too hot to handle safely, the receiving cart cannot be positioned safely, or you are unsure which approved procedure applies.
 
 IMPORTANT
 
@@ -622,7 +607,8 @@ Return to Service
 4. Verify machine is ready for normal operation.
 5. Notify affected personnel that the machine is back in service.
 
-Warning
+WARNING
+
 This page is a training/reference version.
 Operators must still follow the approved plant LOTO procedure.`,
   },
@@ -647,21 +633,77 @@ Operators must still follow the approved plant LOTO procedure.`,
 13. Put machine in Auto and press green Start; machine loads box automatically.
 14. Critical note: corebox halves are connected by 4 transport hooks; after seating box, remove them so it can load without breaking.
 
-HIGH-RISK MISTAKES (DAMAGE RISK)
+WARNING
 
-15. Transport hooks left installed (damage risk).
-16. Box facing wrong direction ("FRONT" not facing you).
-17. Pins not seated front/rear.
-18. Wrong corebox selected in Database.
-19. Standing too close during lift / under suspended load.`,
+Transport hooks left installed can cause damage.
+Box facing the wrong direction can cause loading errors.
+Pins not seated front and rear can stop the load or damage components.
+Wrong corebox selected in Database can create the wrong machine sequence.
+Do not stand too close during the lift or under a suspended load.`,
   },
 
   "loadbox/common-issues": {
     title: "Common Corebox Issues",
     subtitle: "Corebox setup reference",
-    body: `Common Corebox Issues placeholder.
+    body: `Summary
+This section will hold confirmed common corebox problems and operator-first fixes.
 
-We will build this section after the core reference and auto recovery flow are locked.`,
+Status
+Build this section after the core reference and auto recovery flow are locked.`,
+  },
+
+  "loadbox/auto-recovery/full-manual-load": {
+    title: "Full Manual Load Recovery",
+    subtitle: "Auto Load Recovery (Manual)",
+    body: `Summary
+Use this page when auto load has already stopped, the machine state is understood, and you need to finish loading the box manually.
+
+When to use this
+1. Use this after the stopped state has already been corrected.
+2. Use this when a recovery page tells you to finish the rest manually from here.
+3. Do not use this as the first step unless you already know the machine is ready for this sequence.
+
+Full Manual Load Recovery Steps
+1. Put the machine in Manual.
+2. Go to the Manual page.
+3. Highlight Carriage and press + to move it in.
+4. Highlight Table and press + until the table goes all the way up.
+5. Press the blue Main Movements button.
+6. Highlight Shooting Plate.
+7. Turn the key and hold + until it turns green.
+8. Go back to the Manual page.
+9. Lower the Table with - until it is all the way down.
+10. Turn and hold the key and bring the Table back up.
+11. Holding the key only brings the table halfway up.
+12. Highlight Cope Eject and place it in the bottom position.
+13. Highlight Gas Carriage.
+14. Hold the key and move the gas carriage in.
+15. Highlight Table again.
+16. Hold the key and move the table up until the gas carriage makes contact with the table.
+17. Go back to the Main Movements page.
+18. Highlight Cope Eject.
+19. Hold the key and hold + until it turns green.
+20. That step creates the vacuum.
+21. Go back to the Manual page.
+22. Move Cope Eject to the top position.
+23. Move the Table all the way down.
+24. Move the Gas Carriage all the way back.
+25. Move the Table up until it is about 3 inches from the top.
+26. Highlight Top Part and move it down until it touches the box.
+27. Go to Main Movements.
+28. Highlight Top Part.
+29. Turn and hold the key and hold + until it turns green.
+30. Go back to the Manual page.
+31. Lower the Table.
+32. Raise the Top Part.
+33. Load is complete.
+
+WARNING
+
+Follow the steps in order.
+Use green confirmation before moving on.
+If a required move will not make or will not turn green, stop and escalate.
+Do not guess through repeated retries.`,
   },
 
   "loadbox/auto-recovery/table-lifted-auto-stopped": {
@@ -679,33 +721,15 @@ Recover this state
 3. Move the table until the required button turns green.
 4. Green confirms the table is now in the correct position.
 
-Finish the load manually from here
-5. Highlight Cope Eject and place it in the bottom position.
-6. Highlight Gas Carriage.
-7. Hold the key and move the gas carriage in.
-8. Once the gas carriage is all the way in, highlight Table again.
-9. Hold the key and move the table up until the gas carriage makes contact with the table.
-10. Go to the Main Movements page.
-11. Highlight Cope Eject.
-12. Hold the key and press and hold the + button until it turns green.
-13. This step creates the vacuum.
-14. Go back to the Manual page.
-15. Highlight Cope Eject and move it to the top position.
-16. Highlight Table and move it down until it is all the way down.
-17. Highlight Gas Carriage and move it back until it is all the way back.
-18. Highlight Table and move it up until it is about 3 inches from the top.
-19. Highlight Top Part and move it down until it touches the box.
-20. Go to the Main Movements page.
-21. Highlight Top Part.
-22. Turn and hold the key and press and hold the + button until it turns green.
-23. Go back to the Manual page.
-24. Lower the Table.
-25. Raise the Top Part.
-26. Load recovery is complete.
+Then
+1. Open Full Manual Load Recovery.
+2. Start at Step 1 and finish the rest manually.
 
-Operator Notes
+WARNING
+
 Do not guess the position.
-Use the green confirmation to know you are in the right spot.
+Use the green confirmation before continuing.
+If the required position will not make, stop and escalate.
 Once auto is interrupted, finish the rest manually.`,
   },
 
@@ -726,22 +750,12 @@ Recover this state
 5. Try again to make vacuum.
 6. If vacuum makes and the cope eject turns green, continue the rest manually from there.
 
-Finish the load manually from here
-7. Go back to the Manual page.
-8. Highlight Cope Eject and move it to the top position.
-9. Highlight Table and move it down until it is all the way down.
-10. Highlight Gas Carriage and move it back until it is all the way back.
-11. Highlight Table and move it up until it is about 3 inches from the top.
-12. Highlight Top Part and move it down until it touches the box.
-13. Go to the Main Movements page.
-14. Highlight Top Part.
-15. Turn and hold the key and press and hold the + button until it turns green.
-16. Go back to the Manual page.
-17. Lower the Table.
-18. Raise the Top Part.
-19. Load recovery is complete.
+Then
+1. Open Full Manual Load Recovery.
+2. Continue from Step 21 after vacuum is made.
 
-Operator Notes
+WARNING
+
 Do not continue loading if vacuum still does not make after retrying.
 If the problem repeats, stop and escalate.
 Once auto is interrupted, finish the rest manually.`,
@@ -751,38 +765,22 @@ Once auto is interrupted, finish the rest manually.`,
     title: "Carriage won't move",
     subtitle: "Auto Load Recovery (Manual)",
     body: `Summary
-Use this when the carriage does not move during load recovery.
+Use this when the carriage will not move during auto load.
 
-Status
-Placeholder for now.
+What it means
+This is usually a sign of a pneumatic error during load.
 
-Operator Notes
-We will add the exact recovery + remaining manual steps next.`,
-  },
+Recover this state
+1. Reset the pneumatic sensors.
+2. Start Auto again.
+3. If the machine was taken out of Auto, put it back in Auto and restart it.
 
-  "loadbox/auto-recovery/pneu-error-during-load": {
-    title: "PNEU error during load",
-    subtitle: "Auto Load Recovery (Manual)",
-    body: `Summary
-Use this when a PNEU error stops the load.
+WARNING
 
-Status
-Placeholder for now.
-
-Operator Notes
-We will add the exact recovery + remaining manual steps next.`,
-  },
-
-  "loadbox/auto-recovery/clamp-wont-turn-green": {
-    title: "Clamp won't turn green",
-    subtitle: "Auto Load Recovery (Manual)",
-    body: `Summary
-Use this when a clamp step does not complete and turn green.
-
-Status
-Placeholder for now.
-
-Operator Notes
-We will add the exact recovery + remaining manual steps next.`,
+Use this recovery first before trying anything else.
+If the carriage still will not move after resetting the pneumatic sensors and restarting Auto, stop and escalate.
+If the same pneumatic condition keeps coming back, do not keep retrying.
+If another fault or unsafe condition appears, stop and get help.
+Do not guess through repeated retries.`,
   },
 };

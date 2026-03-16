@@ -1,6 +1,12 @@
 export default function AutoRecoveryMenu({ onNavigate }) {
   const items = [
     {
+      key: "loadbox/auto-recovery/full-manual-load",
+      icon: "📋",
+      title: "Full Manual Load Recovery",
+      sub: "Complete manual load sequence",
+    },
+    {
       key: "loadbox/auto-recovery/table-lifted-auto-stopped",
       icon: "⬆️",
       title: "Table lifted but auto stopped",
@@ -16,19 +22,7 @@ export default function AutoRecoveryMenu({ onNavigate }) {
       key: "loadbox/auto-recovery/carriage-wont-move",
       icon: "↔️",
       title: "Carriage won't move",
-      sub: "Placeholder for now",
-    },
-    {
-      key: "loadbox/auto-recovery/pneu-error-during-load",
-      icon: "⚠️",
-      title: "PNEU error during load",
-      sub: "Placeholder for now",
-    },
-    {
-      key: "loadbox/auto-recovery/clamp-wont-turn-green",
-      icon: "🔒",
-      title: "Clamp won't turn green",
-      sub: "Placeholder for now",
+      sub: "Reset pneumatic sensors and restart Auto",
     },
   ];
 
