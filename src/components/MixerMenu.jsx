@@ -1,46 +1,38 @@
-const MIXER_ITEMS = [
+const MIXER_MENU = [
   {
-    key: "mixer/overview",
-    icon: "🌀",
+    id: "mixer/overview",
     title: "Mixer Overview",
-    sub: "Purpose and workflow (pending confirmation)",
+    subtitle: "Purpose and basic workflow",
   },
   {
-    key: "mixer/settings",
-    icon: "⚙️",
+    id: "mixer/settings",
     title: "Mixer Settings",
-    sub: "Adjustable settings (pending confirmation)",
+    subtitle: "Adjustable settings reference",
   },
   {
-    key: "mixer/checks",
-    icon: "✅",
+    id: "mixer/checks",
     title: "Mixer Checks",
-    sub: "Operator checks (pending confirmation)",
+    subtitle: "Operator checks and verification",
   },
   {
-    key: "mixer/cleaning",
-    icon: "🧽",
+    id: "mixer/cleaning",
     title: "Mixer Cleaning",
-    sub: "End-of-shift cleaning steps",
+    subtitle: "End-of-shift cleaning steps",
   },
 ];
 
-export default function MixerMenu({ onNavigate }) {
+export default function MixerMenu({ onSelect }) {
   return (
-    <div className="screens-list">
-      {MIXER_ITEMS.map((item) => (
+    <div className="menu-list">
+      {MIXER_MENU.map((item) => (
         <button
-          key={item.key}
+          key={item.id}
           type="button"
-          className="screen-item"
-          onClick={() => onNavigate(item.key)}
+          className="menu-card"
+          onClick={() => onSelect(item.id)}
         >
-          <div className="screen-icon">{item.icon}</div>
-          <div className="screen-info">
-            <div className="screen-name">{item.title}</div>
-            <div className="screen-desc">{item.sub}</div>
-          </div>
-          <div className="screen-arrow">›</div>
+          <div className="menu-card-title">{item.title}</div>
+          <div className="menu-card-subtitle">{item.subtitle}</div>
         </button>
       ))}
     </div>

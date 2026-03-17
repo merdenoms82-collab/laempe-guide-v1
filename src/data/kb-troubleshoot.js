@@ -4,21 +4,20 @@ export const KB_TROUBLESHOOT = [
     title: "Vacuum drops / won’t hold vacuum",
     priority: "high",
     triggers: [
-      "vac",
-      "vacuum",
-      "vac drop",
-      "vacuum low",
-      "losing vacuum",
-      "losing vac",
-      "vac gauge low",
-      "vac leak",
-      "won't hold vacuum",
-      "wont hold vacuum",
+      "vacuum drops",
       "vacuum wont hold",
       "vacuum won't hold",
+      "wont hold vacuum",
+      "won't hold vacuum",
+      "losing vacuum",
+      "vacuum leak",
+      "vacuum low",
+      "vac gauge low",
       "low vacuum",
+      "vac drop",
     ],
-    symptom: "Vacuum will not reach target or will not hold during the vacuum or clamp step.",
+    symptom:
+      "Vacuum will not reach target or will not hold during the vacuum or clamp step.",
     firstChecks: [
       "Confirm air supply is stable at the normal bar setting.",
       "Check whether vacuum is steady low, slowly falling, or dropping suddenly to 0.",
@@ -54,13 +53,14 @@ export const KB_TROUBLESHOOT = [
     triggers: [
       "vacuum pressure too low",
       "vacuum too low",
-      "vacuum message",
-      "vacuum fault",
+      "low vacuum pressure",
       "vacuum reading low",
       "vacuum gauge low",
-      "low vacuum pressure",
+      "low vacuum message",
+      "vacuum fault low",
     ],
-    symptom: "The machine shows a low-vacuum condition or the vacuum reading stays below the required range.",
+    symptom:
+      "The machine shows a low-vacuum condition or the vacuum reading stays below the required range.",
     firstChecks: [
       "Check the visible vacuum reading if a gauge or screen value is available.",
       "Check whether the low reading stays steady or drops during the step.",
@@ -97,17 +97,17 @@ export const KB_TROUBLESHOOT = [
     title: "Machine stops mid-cycle / random stop",
     priority: "high",
     triggers: [
-      "stops",
-      "mid cycle",
-      "cycle stopped",
+      "machine stops mid cycle",
+      "stops mid cycle",
       "random stop",
-      "halts",
-      "wont run",
-      "won't run",
-      "fault",
-      "error",
+      "cycle stopped",
+      "machine halts",
+      "stops during cycle",
+      "stopped partway through cycle",
+      "machine stopped during run",
     ],
-    symptom: "The machine stops during the cycle without a clear operator command.",
+    symptom:
+      "The machine stops during the cycle without a clear operator command.",
     firstChecks: [
       "Check the HMI message or fault text first and capture the exact wording if possible.",
       "Check whether a required sensor or machine state is not being made.",
@@ -145,13 +145,13 @@ export const KB_TROUBLESHOOT = [
       "eject problem",
       "wont eject",
       "won't eject",
-      "eject issue",
-      "sticking",
-      "won't come out",
-      "wont come out",
       "not ejecting",
+      "core won't come out",
+      "core wont come out",
+      "sticking on eject",
     ],
-    symptom: "The core does not release or eject cleanly after the process step is complete.",
+    symptom:
+      "The core does not release or eject cleanly after the process step is complete.",
     firstChecks: [
       "Confirm vacuum and clamp state are normal before the eject step.",
       "Check whether the issue is on one side only or both sides.",
@@ -183,14 +183,15 @@ export const KB_TROUBLESHOOT = [
     priority: "medium",
     triggers: [
       "cope eject seal",
-      "seal issue",
-      "cope seal",
-      "seal not seating",
-      "clamp issue",
-      "wont clamp",
-      "won't clamp",
+      "cope seal issue",
+      "cope seal not seating",
+      "seal not seating cope",
+      "cope clamp issue",
+      "cope won't clamp",
+      "cope wont clamp",
     ],
-    symptom: "The cope side does not appear to seal or seat correctly, affecting clamp or vacuum behavior.",
+    symptom:
+      "The cope side does not appear to seal or seat correctly, affecting clamp or vacuum behavior.",
     firstChecks: [
       "Check for sand or debris on sealing surfaces.",
       "Check visible alignment or seating condition if safely observable.",
@@ -227,12 +228,12 @@ export const KB_TROUBLESHOOT = [
     triggers: [
       "gas smell",
       "smell gas",
-      "odor",
-      "fumes",
-      "amine",
-      "exhaust",
-      "venting",
-      "strong smell",
+      "amine smell",
+      "gas odor",
+      "strong gas smell",
+      "fumes during gassing",
+      "exhaust adjustment",
+      "venting smell",
     ],
     symptom: "Operators notice gas odor during or after the gassing cycle.",
     firstChecks: [
@@ -271,14 +272,11 @@ export const KB_TROUBLESHOOT = [
       "holes near vents",
       "vent marks",
       "marks near vents",
-      "pitting",
-      "overgassing",
-      "over gassing",
-      "gas too much",
-      "holes",
-      "vents",
-      "holes in cores",
-      "marks in cores",
+      "holes in cores near vents",
+      "pitting near vents",
+      "overgassing vents",
+      "over gassing vents",
+      "vent holes in core",
     ],
     symptom: "Core defects are concentrated near vents, such as holes or marks.",
     firstChecks: [
@@ -312,15 +310,16 @@ export const KB_TROUBLESHOOT = [
     title: "Cold box start issues / preheating use (Pending)",
     priority: "low",
     triggers: [
-      "cold box",
-      "cold start",
-      "preheat",
-      "preheating",
-      "first run bad",
-      "startup curing",
-      "initial curing",
+      "cold box start issue",
+      "cold start box",
+      "preheat corebox",
+      "preheating corebox",
+      "first run bad cold box",
+      "startup curing issue",
+      "initial curing problem",
     ],
-    symptom: "Early runs on a cold corebox show poor curing or poor consistency until the box warms.",
+    symptom:
+      "Early runs on a cold corebox show poor curing or poor consistency until the box warms.",
     firstChecks: [
       "Check whether it happens mainly at start of shift or after long downtime.",
       "Check whether Pre-heating is available and operator-accessible on this machine.",
@@ -354,10 +353,8 @@ export const KB_TROUBLESHOOT = [
       "machine wont start",
       "machine won't start",
       "cannot start machine",
-      "wont start",
-      "won't start",
-      "startup fault",
       "machine not starting",
+      "startup fault machine",
       "machine fault startup",
     ],
     symptom: "The machine will not start when you try to run it.",
@@ -395,14 +392,15 @@ export const KB_TROUBLESHOOT = [
     title: "Light curtain interrupted",
     priority: "high",
     triggers: [
-      "light curtain",
-      "curtain interrupted",
-      "safety curtain",
+      "light curtain interrupted",
+      "light curtain blocked",
+      "safety curtain blocked",
+      "light barrier blocked",
       "machine won't run light curtain",
       "machine wont run light curtain",
-      "light barrier",
     ],
-    symptom: "The machine will not run or stops because the light curtain is interrupted.",
+    symptom:
+      "The machine will not run or stops because the light curtain is interrupted.",
     firstChecks: [
       "Check that no person, part, cart, or tool is in the light curtain area.",
       "Check for anything breaking the curtain path.",
@@ -430,6 +428,47 @@ export const KB_TROUBLESHOOT = [
     ],
   },
   {
+    id: "open-door-upper-section",
+    title: "Open door on upper section",
+    priority: "high",
+    triggers: [
+      "open door upper section",
+      "upper door open",
+      "door in handrails open",
+      "upper section door open",
+      "machine says door open upper",
+    ],
+    symptom:
+      "The machine will not run or faults because an upper access or handrail-area door is open.",
+    firstChecks: [
+      "Check whether the upper section access door is fully closed.",
+      "Check whether the door latch looks fully made.",
+      "Check whether the message clears after the door is properly closed.",
+      "Check whether another safety condition is also active.",
+    ],
+    nextSteps: [
+      "Close the door fully and verify the machine reads it correctly.",
+      "Do not keep retrying startup if the same door message returns immediately.",
+      "Document which door is being called out if the machine still does not clear.",
+    ],
+    likelyCauses: [
+      "Upper section door open",
+      "Door not fully latched",
+      "Door switch or safety read not making correctly",
+    ],
+    whenCallMaint:
+      "Call maintenance if the door is closed but the machine still shows it open, or if the same door fault keeps returning.",
+    safetyNotes: [
+      "Do not bypass or defeat the door safety condition.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Machine Operation", route: "basics" },
+      { label: "Control Screens", route: "screens" },
+      { label: "Emergency & Safety", route: "safety" },
+    ],
+  },
+  {
     id: "sand-bind-shoot-area-dirty",
     title: "Sand bind / shoot area dirty",
     priority: "medium",
@@ -437,12 +476,13 @@ export const KB_TROUBLESHOOT = [
       "sand bind",
       "shoot area dirty",
       "shoot dirty",
-      "sand blockage",
       "shoot plate dirty",
-      "sand build up shoot",
       "shoot blocked",
+      "sand blockage shoot area",
+      "sand build up shoot",
     ],
-    symptom: "Sand binds in the shooting area or the shoot area does not clear correctly.",
+    symptom:
+      "Sand binds in the shooting area or the shoot area does not clear correctly.",
     firstChecks: [
       "Check for visible buildup in the shoot area if safe.",
       "Check for dirty or restricted shoot components.",
@@ -473,21 +513,61 @@ export const KB_TROUBLESHOOT = [
     ],
   },
   {
+    id: "sand-builds-under-shoot-head",
+    title: "Sand builds under shoot head",
+    priority: "medium",
+    triggers: [
+      "sand builds under shoot head",
+      "sand under shoot head",
+      "build up under shoot head",
+      "shoot head buildup",
+      "sand buildup under head",
+    ],
+    symptom:
+      "Sand or binder mixture builds up under the shoot head instead of clearing normally.",
+    firstChecks: [
+      "Check whether the buildup happens every cycle or only sometimes.",
+      "Check whether the shoot delay timing was recently changed.",
+      "Check whether scoring or wear is visible in the affected area if safe.",
+      "Check whether the buildup is tied to one specific box or job.",
+    ],
+    nextSteps: [
+      "Document how quickly the buildup returns after cleaning.",
+      "Check whether the issue started after a setting or hardware change.",
+      "Escalate if the buildup is repeatable and affecting production quality.",
+    ],
+    likelyCauses: [
+      "Shoot delay time too short",
+      "Scored or worn area",
+      "Slow-closing or sticking valve condition",
+    ],
+    whenCallMaint:
+      "Call maintenance if buildup returns quickly, if wear or scoring is suspected, or if the condition keeps affecting the shooting process.",
+    safetyNotes: [
+      "Use the correct safe condition before cleaning around the shoot area.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Corebox Setup", route: "loadbox" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
     id: "shot-not-full",
     title: "Shot not full",
     priority: "high",
     triggers: [
       "shot not full",
-      "not full shot",
       "incomplete shot",
-      "weak fill",
       "partial shot",
-      "shot incomplete",
+      "weak fill",
       "core not full",
       "core not filling",
       "weak core fill",
+      "shot incomplete",
     ],
-    symptom: "The shot is incomplete and the core does not fill out the way it should.",
+    symptom:
+      "The shot is incomplete and the core does not fill out the way it should.",
     firstChecks: [
       "Check whether shooting pressure looks reduced.",
       "Check for buildup or restriction in the shoot area if safe.",
@@ -528,9 +608,10 @@ export const KB_TROUBLESHOOT = [
       "low shooting pressure",
       "shooting pressure low",
       "low shot pressure",
-      "shoot pressure",
+      "shoot pressure low",
     ],
-    symptom: "The machine appears to have low shooting force or a low-pressure shooting condition.",
+    symptom:
+      "The machine appears to have low shooting force or a low-pressure shooting condition.",
     firstChecks: [
       "Check whether the shooting pressure indication or job setting looks lower than expected.",
       "Check for visible restriction or buildup in the shooting area if safe.",
@@ -571,11 +652,12 @@ export const KB_TROUBLESHOOT = [
       "wont shoot out",
       "won't shoot out",
       "did not shoot out",
-      "shooting fault",
+      "shooting fault core",
       "core didnt come out",
       "core didn't come out",
     ],
-    symptom: "The shooting step does not complete correctly and the core does not discharge or shoot out the way it should.",
+    symptom:
+      "The shooting step does not complete correctly and the core does not discharge or shoot out the way it should.",
     firstChecks: [
       "Check whether the machine completed the shooting step correctly.",
       "Check for sand bind or restriction in the shooting area.",
@@ -608,6 +690,82 @@ export const KB_TROUBLESHOOT = [
     ],
   },
   {
+    id: "shooting-area-damp",
+    title: "Shooting area damp",
+    priority: "medium",
+    triggers: [
+      "shooting area damp",
+      "shoot area damp",
+      "damp shooting area",
+      "wet shoot area",
+      "moisture in shooting area",
+    ],
+    symptom:
+      "The shooting area is damp or moisture-related condition is affecting the shooting process.",
+    firstChecks: [
+      "Check whether the issue is constant or only appears after longer runtime.",
+      "Check whether the machine is also showing heater or temperature-related symptoms.",
+      "Check whether flushing or purge behavior changed recently.",
+      "Document when the damp condition is first noticed.",
+    ],
+    nextSteps: [
+      "Record whether the issue is paired with hardening or shooting faults.",
+      "Escalate if the damp condition repeats or affects quality.",
+      "Do not keep guessing through repeated runs if moisture-related issues continue.",
+    ],
+    likelyCauses: [
+      "Ex-flow heater not at operating temperature",
+      "Purge pressure too low",
+      "Moisture-related process condition",
+    ],
+    whenCallMaint:
+      "Call maintenance if the shooting area stays damp, if heater-related symptoms are also active, or if the condition keeps affecting production.",
+    safetyNotes: [],
+    pending: [],
+    relatedPages: [
+      { label: "Troubleshooting", route: "troubleshooting" },
+      { label: "Gassing parameters", route: "screens/gassing" },
+    ],
+  },
+  {
+    id: "shooting-area-not-flushed",
+    title: "Shooting area not flushed out",
+    priority: "medium",
+    triggers: [
+      "shooting area not flushed",
+      "shoot area not flushed",
+      "not flushed out",
+      "shooting area not clearing",
+      "shoot area not clearing",
+    ],
+    symptom:
+      "The shooting area does not flush out correctly after the cycle.",
+    firstChecks: [
+      "Check whether the issue happens every cycle or only intermittently.",
+      "Check whether final pressure timing or purge pressure was changed recently.",
+      "Check whether the machine also shows related shooting or damp-area symptoms.",
+      "Document the exact step where clearing seems incomplete.",
+    ],
+    nextSteps: [
+      "Record whether the issue began after a setting change.",
+      "Compare current behavior to the last known good run if possible.",
+      "Escalate if the shooting area repeatedly fails to clear correctly.",
+    ],
+    likelyCauses: [
+      "Time to final pressure too short",
+      "Purge pressure too high",
+      "Proportional valve condition",
+    ],
+    whenCallMaint:
+      "Call maintenance or setup if the shooting area repeatedly does not flush out, or if the condition begins affecting quality or cycle reliability.",
+    safetyNotes: [],
+    pending: [],
+    relatedPages: [
+      { label: "Troubleshooting", route: "troubleshooting" },
+      { label: "Control Screens", route: "screens" },
+    ],
+  },
+  {
     id: "core-not-gassed",
     title: "Core is not gassed",
     priority: "high",
@@ -617,9 +775,10 @@ export const KB_TROUBLESHOOT = [
       "no gassing",
       "core wont gas",
       "core won't gas",
-      "gassing fault",
+      "gassing fault core",
     ],
-    symptom: "The core does not appear to gas correctly or the hardening step does not happen.",
+    symptom:
+      "The core does not appear to gas correctly or the hardening step does not happen.",
     firstChecks: [
       "Check whether the gassing step actually ran.",
       "Check the screen for a hardening or gassing-related message.",
@@ -650,6 +809,88 @@ export const KB_TROUBLESHOOT = [
     ],
   },
   {
+    id: "whistling-noise-gassing",
+    title: "Whistling noise during gassing or hardening",
+    priority: "medium",
+    triggers: [
+      "whistling noise gassing",
+      "whistling noise hardening",
+      "whistling during gassing",
+      "whistle noise machine",
+      "gas whistle noise",
+    ],
+    symptom:
+      "A whistling noise is heard during the gassing or hardening-related part of the cycle.",
+    firstChecks: [
+      "Check whether the whistling only happens during one specific step.",
+      "Check whether the issue started after a setup, line, or box change.",
+      "Check whether there are also gassing or hardening quality issues.",
+      "Document exactly when the noise starts and stops.",
+    ],
+    nextSteps: [
+      "Record whether the noise is repeatable every cycle.",
+      "Report whether the issue is tied to one box, one side, or all runs.",
+      "Escalate if the noise is repeatable or paired with quality problems.",
+    ],
+    likelyCauses: [
+      "Gas not entering correctly",
+      "Restricted gas path or ventilation condition",
+      "Leak or flow issue in the hardening process",
+    ],
+    whenCallMaint:
+      "Call maintenance if whistling repeats, if gas flow is suspected to be abnormal, or if the sound is paired with hardening issues.",
+    safetyNotes: [
+      "Treat unusual gas-process sounds seriously and follow site safety practices.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Gassing parameters", route: "screens/gassing" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
+    id: "operating-substance-escaping",
+    title: "Operating substance escaping at blank",
+    priority: "high",
+    triggers: [
+      "operating substance escaping",
+      "substance escaping at blank",
+      "leak at blank",
+      "operating substance leak",
+      "process substance leak",
+    ],
+    symptom:
+      "Operating substance appears to be escaping from the process area instead of staying contained.",
+    firstChecks: [
+      "Confirm the area is safe before investigating further.",
+      "Check whether the issue is visible every cycle or only occasionally.",
+      "Check whether extraction or exhaust seems to be functioning normally.",
+      "Document exactly where the escaping substance is seen or smelled.",
+    ],
+    nextSteps: [
+      "Stop and escalate if the leak or escape condition appears active.",
+      "Do not keep running if exposure or leak risk is not understood.",
+      "Capture whether the condition is tied to one station or one phase of the cycle.",
+    ],
+    likelyCauses: [
+      "Extraction system not working",
+      "Gassing hose defect",
+      "Leak in process-side piping or fittings",
+    ],
+    whenCallMaint:
+      "Call maintenance immediately if operating substance is escaping, if extraction seems not to function, or if exposure risk is present.",
+    safetyNotes: [
+      "Treat escaping operating substance as a safety issue first.",
+      "Follow site PPE, ventilation, and exposure procedures.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Emergency & Safety", route: "safety" },
+      { label: "Gassing parameters", route: "screens/gassing" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
     id: "core-does-not-harden",
     title: "Core does not harden",
     priority: "high",
@@ -664,7 +905,8 @@ export const KB_TROUBLESHOOT = [
       "core wont harden",
       "core won't harden",
     ],
-    symptom: "The core stays soft or does not harden correctly after the process.",
+    symptom:
+      "The core stays soft or does not harden correctly after the process.",
     firstChecks: [
       "Check whether the gassing step ran correctly.",
       "Check whether the issue started after a setup or setting change.",
@@ -699,13 +941,13 @@ export const KB_TROUBLESHOOT = [
     priority: "high",
     triggers: [
       "dosing pump not running",
-      "pump not running",
-      "dosing pump",
-      "pump fault",
-      "hardening pump",
-      "dosing fault",
+      "pump not running hardening",
+      "dosing pump fault",
+      "hardening pump fault",
+      "dosing fault pump",
     ],
-    symptom: "The hardening process shows a dosing pump problem or the pump does not appear to run.",
+    symptom:
+      "The hardening process shows a dosing pump problem or the pump does not appear to run.",
     firstChecks: [
       "Check the screen for the exact dosing pump or hardening-related message.",
       "Check whether the fault happens every cycle or only once.",
@@ -740,13 +982,14 @@ export const KB_TROUBLESHOOT = [
     title: "No medium at ex-flow heater",
     priority: "high",
     triggers: [
+      "no medium at ex flow heater",
       "no medium at ex-flow heater",
-      "ex-flow heater",
-      "no medium heater",
+      "ex flow heater no medium",
       "heater medium fault",
       "hardening heater fault",
     ],
-    symptom: "The machine shows a no-medium or heater-related hardening fault.",
+    symptom:
+      "The machine shows a no-medium or heater-related hardening fault.",
     firstChecks: [
       "Check the exact fault text on the screen.",
       "Check whether the hardening step is failing every cycle.",
@@ -777,18 +1020,60 @@ export const KB_TROUBLESHOOT = [
     ],
   },
   {
+    id: "temperature-limiter-tripped",
+    title: "Temperature limiter tripped",
+    priority: "high",
+    triggers: [
+      "temperature limiter tripped",
+      "temp limiter tripped",
+      "overtemp limiter",
+      "temperature limiter fault",
+      "flow heater limiter tripped",
+    ],
+    symptom:
+      "The machine shows a temperature limiter or overtemperature protection condition.",
+    firstChecks: [
+      "Check the exact message on the screen.",
+      "Check whether the issue is tied to the flow heater or heater function.",
+      "Check whether overheating symptoms were present before the trip.",
+      "Document whether the trip happened once or repeats on restart.",
+    ],
+    nextSteps: [
+      "Do not keep restarting the machine if the limiter trips again immediately.",
+      "Record the exact message and the part of the cycle where it happened.",
+      "Escalate if overtemperature protection remains active.",
+    ],
+    likelyCauses: [
+      "Temperature limiter tripped",
+      "Overtemperature condition",
+      "Heater-related fault condition",
+    ],
+    whenCallMaint:
+      "Call maintenance if the temperature limiter trips, if the message stays active, or if heater-related faults repeat.",
+    safetyNotes: [
+      "Hot surfaces and heater areas can be hazardous.",
+      "Do not bypass overtemperature protection.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Emergency & Safety", route: "safety" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
     id: "pneumatic-fault",
     title: "Pneumatic fault / air system issue",
     priority: "high",
     triggers: [
       "pneumatic fault",
-      "pneu",
+      "air system issue",
       "air fault",
-      "air issue",
       "pneumatic issue",
-      "air pressure problem",
+      "air pressure problem machine",
+      "pneu fault",
     ],
-    symptom: "The machine shows a pneumatic fault or air-related functions do not respond correctly.",
+    symptom:
+      "The machine shows a pneumatic fault or air-related functions do not respond correctly.",
     firstChecks: [
       "Check the screen for the exact pneumatic fault text.",
       "Confirm plant air supply is present and stable.",
@@ -829,11 +1114,12 @@ export const KB_TROUBLESHOOT = [
       "control power issue",
       "cpu fault",
       "24v fault",
-      "motor protection",
+      "motor protection fault",
       "limit switch fault",
-      "electrical issue",
+      "electrical issue machine",
     ],
-    symptom: "The machine shows an electrical or control fault, or a control power-related function will not run.",
+    symptom:
+      "The machine shows an electrical or control fault, or a control power-related function will not run.",
     firstChecks: [
       "Check the exact fault text on the screen.",
       "Check whether the issue happened during startup or during a specific cycle step.",
@@ -865,20 +1151,100 @@ export const KB_TROUBLESHOOT = [
     ],
   },
   {
+    id: "voltage-supply-24v-missing",
+    title: "Voltage supply 24V missing",
+    priority: "high",
+    triggers: [
+      "24v missing",
+      "voltage supply 24v missing",
+      "24v supply missing",
+      "missing 24v",
+      "24v fault machine",
+    ],
+    symptom:
+      "The machine shows a 24V supply problem or related control supply fault.",
+    firstChecks: [
+      "Check the exact message on the screen.",
+      "Check whether other control-related functions are also affected.",
+      "Check whether the fault appeared during startup or mid-cycle.",
+      "Document whether the message returns immediately after reset.",
+    ],
+    nextSteps: [
+      "Stop repeated resets if the 24V fault returns right away.",
+      "Record which machine functions were lost or affected.",
+      "Escalate with the exact message and machine state.",
+    ],
+    likelyCauses: [
+      "24V supply missing",
+      "Control-side voltage problem",
+      "Electrical supply or fuse-related issue",
+    ],
+    whenCallMaint:
+      "Call maintenance immediately if 24V supply is missing or if control functions are lost.",
+    safetyNotes: [
+      "Do not open electrical areas unless authorized and following procedure.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Control Screens", route: "screens" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
+    id: "cpu-error-machine",
+    title: "CPU error",
+    priority: "high",
+    triggers: [
+      "cpu error",
+      "machine cpu error",
+      "controller cpu fault",
+      "system cpu error",
+      "plc cpu error",
+    ],
+    symptom:
+      "The machine shows a CPU or controller error and normal operation is blocked.",
+    firstChecks: [
+      "Check the exact fault text on the screen.",
+      "Check whether the machine lost only one function or the whole control response.",
+      "Check whether the issue happened during startup or during operation.",
+      "Document whether the error clears or returns immediately.",
+    ],
+    nextSteps: [
+      "Stop repeated retries if the CPU error comes back right away.",
+      "Record the exact wording of the message and what the machine was doing.",
+      "Escalate as a control-side fault.",
+    ],
+    likelyCauses: [
+      "System or controller error",
+      "Control-side hardware or logic issue",
+      "CPU fault affecting normal operation",
+    ],
+    whenCallMaint:
+      "Call maintenance immediately if a CPU error is active or returns immediately after reset.",
+    safetyNotes: [
+      "Do not guess through repeated restarts with a controller fault active.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Control Screens", route: "screens" },
+      { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
     id: "excessive-noise-vibration",
     title: "Excessive noise / vibration",
     priority: "high",
     triggers: [
-      "noise",
-      "vibration",
-      "machine shaking",
-      "loud machine",
       "excessive noise",
       "excessive vibration",
-      "rattling",
-      "vibrating",
+      "machine shaking",
+      "loud machine",
+      "machine rattling",
+      "vibrating machine",
+      "abnormal vibration",
     ],
-    symptom: "The machine makes unusual noise, rattles, or vibrates more than normal during operation.",
+    symptom:
+      "The machine makes unusual noise, rattles, or vibrates more than normal during operation.",
     firstChecks: [
       "Check whether the noise happens at the same step every cycle.",
       "Check whether the vibration started after a setup, box change, or restart.",
@@ -920,9 +1286,10 @@ export const KB_TROUBLESHOOT = [
       "unstable motion",
       "jumps during movement",
       "stuttering motion",
-      "not smooth",
+      "motion not smooth",
     ],
-    symptom: "One machine motion is not smooth and appears jerky, unstable, or oscillating.",
+    symptom:
+      "One machine motion is not smooth and appears jerky, unstable, or oscillating.",
     firstChecks: [
       "Check which motion is affected and whether it happens every cycle.",
       "Check whether the issue started after a restart, setup, or recovery action.",
@@ -957,14 +1324,15 @@ export const KB_TROUBLESHOOT = [
     title: "Foaming / oil condition issue",
     priority: "medium",
     triggers: [
-      "foaming",
       "oil foaming",
       "hydraulic oil foam",
-      "oil condition",
       "foam in oil",
+      "oil condition issue",
       "oil looks bad",
+      "foaming hydraulic oil",
     ],
-    symptom: "Hydraulic oil condition looks abnormal or foaming is suspected along with machine performance issues.",
+    symptom:
+      "Hydraulic oil condition looks abnormal or foaming is suspected along with machine performance issues.",
     firstChecks: [
       "Check whether the machine is also showing unstable movement, noise, or pressure-related behavior.",
       "Check whether the issue appeared with another hydraulic-related symptom.",
@@ -993,18 +1361,141 @@ export const KB_TROUBLESHOOT = [
     ],
   },
   {
+    id: "hydraulic-oil-level-low",
+    title: "Hydraulic oil level too low",
+    priority: "high",
+    triggers: [
+      "hydraulic oil level low",
+      "oil level too low hydraulic",
+      "low hydraulic oil",
+      "hydraulic oil low",
+      "hydraulic reservoir low",
+    ],
+    symptom:
+      "The machine shows a low hydraulic oil condition or related hydraulic warning.",
+    firstChecks: [
+      "Check the exact fault or warning text on the screen.",
+      "Check whether the machine also shows noise, motion, or pressure issues.",
+      "Check whether the condition is constant or only appears during operation.",
+      "Document whether the issue appeared after recent maintenance or leakage.",
+    ],
+    nextSteps: [
+      "Stop repeated operation if hydraulic warnings keep returning.",
+      "Record the exact message and related machine behavior.",
+      "Escalate if any leak or repeated low-oil condition is suspected.",
+    ],
+    likelyCauses: [
+      "Hydraulic oil level too low",
+      "Leak in the hydraulic circuit",
+      "Hydraulic supply condition out of range",
+    ],
+    whenCallMaint:
+      "Call maintenance immediately if low hydraulic oil is indicated, if a leak is suspected, or if other hydraulic symptoms are present.",
+    safetyNotes: [
+      "Hydraulic systems can be hazardous under pressure.",
+      "Do not open or loosen hydraulic components unless authorized.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Troubleshooting", route: "troubleshooting" },
+      { label: "Emergency & Safety", route: "safety" },
+      { label: "Control Screens", route: "screens" },
+    ],
+  },
+  {
+    id: "return-flow-filter-soiled",
+    title: "Return flow filter soiled",
+    priority: "medium",
+    triggers: [
+      "return flow filter soiled",
+      "return filter dirty",
+      "hydraulic return filter",
+      "return flow filter dirty",
+      "hydraulic filter dirty",
+    ],
+    symptom:
+      "The machine shows a return-flow filter condition or hydraulic filter contamination issue.",
+    firstChecks: [
+      "Check the exact message on the screen if one is shown.",
+      "Check whether another hydraulic warning is active.",
+      "Check whether machine performance also changed along with the filter message.",
+      "Document when the message appears during the shift.",
+    ],
+    nextSteps: [
+      "Do not ignore a repeating hydraulic filter message.",
+      "Record the exact message and whether the condition is constant or intermittent.",
+      "Escalate before hydraulic performance gets worse.",
+    ],
+    likelyCauses: [
+      "Return flow filter soiled",
+      "Hydraulic contamination condition",
+      "Related hydraulic maintenance condition",
+    ],
+    whenCallMaint:
+      "Call maintenance if the return-flow filter message is active, repeats, or is paired with other hydraulic symptoms.",
+    safetyNotes: [
+      "Do not open or service hydraulic components unless authorized.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Troubleshooting", route: "troubleshooting" },
+      { label: "Control Screens", route: "screens" },
+    ],
+  },
+  {
+    id: "oil-air-heat-exchanger-dirty",
+    title: "Oil-air heat exchanger dirty",
+    priority: "medium",
+    triggers: [
+      "oil air heat exchanger dirty",
+      "heat exchanger dirty",
+      "hydraulic cooler dirty",
+      "oil cooler dirty",
+      "cooler clogged hydraulic",
+    ],
+    symptom:
+      "The machine shows overheating or oil temperature problems tied to poor cooling.",
+    firstChecks: [
+      "Check whether the machine is also showing high oil temperature.",
+      "Check whether the issue gets worse as runtime increases.",
+      "Check whether airflow or cooling condition appears abnormal if visible.",
+      "Document whether the machine recently started running hotter than normal.",
+    ],
+    nextSteps: [
+      "Treat repeating overheating as a real machine condition, not a nuisance message.",
+      "Record the exact message and related temperature behavior.",
+      "Escalate if the issue repeats or temperature keeps climbing.",
+    ],
+    likelyCauses: [
+      "Oil-air heat exchanger dirty",
+      "Restricted cooling airflow",
+      "Hydraulic cooling condition degraded",
+    ],
+    whenCallMaint:
+      "Call maintenance if overheating repeats, if oil temperature remains high, or if cooling-related faults stay active.",
+    safetyNotes: [
+      "Do not continue pushing production if the hydraulic system is overheating.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Troubleshooting", route: "troubleshooting" },
+      { label: "Control Screens", route: "screens" },
+    ],
+  },
+  {
     id: "oil-temperature-too-high",
     title: "Oil temperature too high",
     priority: "high",
     triggers: [
-      "oil temperature",
+      "oil temperature too high",
       "oil too hot",
       "hydraulic oil hot",
       "high oil temperature",
       "oil temp high",
       "overheating oil",
     ],
-    symptom: "The machine shows signs of high oil temperature or an oil-temperature-related fault.",
+    symptom:
+      "The machine shows signs of high oil temperature or an oil-temperature-related fault.",
     firstChecks: [
       "Check the screen for the exact temperature or hydraulic-related message.",
       "Check whether the machine is also showing noise, vibration, or unstable movement.",
@@ -1048,7 +1539,8 @@ export const KB_TROUBLESHOOT = [
       "mixer won't run",
       "mixer not running",
     ],
-    symptom: "The mixer will not start or will not go into normal running when the operator tries to run it.",
+    symptom:
+      "The mixer will not start or will not go into normal running when the operator tries to run it.",
     firstChecks: [
       "Confirm the mixer has power and the start screen is up.",
       "Confirm CONTROL ON is selected.",
@@ -1086,15 +1578,15 @@ export const KB_TROUBLESHOOT = [
     priority: "high",
     triggers: [
       "mixer not in start position",
-      "not in start position",
-      "start position not made",
+      "start position not made mixer",
       "mixer wont go ready",
       "mixer won't go ready",
       "mixer not ready",
-      "start position wont make",
-      "start position won't make",
+      "start position wont make mixer",
+      "start position won't make mixer",
     ],
-    symptom: "The mixer will not return to the required ready condition or the start-position state does not make.",
+    symptom:
+      "The mixer will not return to the required ready condition or the start-position state does not make.",
     firstChecks: [
       "Put the mixer in Manual if the procedure requires manual return to start position.",
       "Open the Manual screen and confirm the correct function is selected.",
@@ -1137,9 +1629,10 @@ export const KB_TROUBLESHOOT = [
       "sand slide wont move",
       "sand slide won't move",
       "test drop wont move",
-      "machine position wont move",
+      "machine position wont move chute",
     ],
-    symptom: "The sand chute / sand slide does not move when commanded between Machine and Test Drop or other required positions.",
+    symptom:
+      "The sand chute / sand slide does not move when commanded between Machine and Test Drop or other required positions.",
     firstChecks: [
       "Confirm the mixer is in the correct mode for manual movement if manual control is being used.",
       "Confirm the correct function is selected on the Manual screen.",
@@ -1176,14 +1669,15 @@ export const KB_TROUBLESHOOT = [
     triggers: [
       "sand gate wont close",
       "sand gate won't close",
-      "gate wont close",
-      "gate won't close",
+      "gate wont close mixer",
+      "gate won't close mixer",
       "emptying slider wont close",
       "emptying slider won't close",
-      "slider wont close",
-      "slider won't close",
+      "slider wont close mixer",
+      "slider won't close mixer",
     ],
-    symptom: "The sand gate / emptying slider will not close correctly when returning the mixer to start position.",
+    symptom:
+      "The sand gate / emptying slider will not close correctly when returning the mixer to start position.",
     firstChecks: [
       "Put the mixer in Manual if required.",
       "Open the Manual screen and select Sand Gate.",
@@ -1224,11 +1718,12 @@ export const KB_TROUBLESHOOT = [
       "mixer motor not running",
       "mixer motor wont start",
       "mixer motor won't start",
-      "motor wont run",
-      "motor won't run",
+      "motor wont run mixer",
+      "motor won't run mixer",
       "mixer not mixing",
     ],
-    symptom: "The mixer motor does not start when commanded and the mixer does not begin the expected mixing action.",
+    symptom:
+      "The mixer motor does not start when commanded and the mixer does not begin the expected mixing action.",
     firstChecks: [
       "Confirm the mixer is powered and in the correct mode for the action being attempted.",
       "If using Manual, confirm Mixer Motor is the selected function.",
@@ -1266,14 +1761,15 @@ export const KB_TROUBLESHOOT = [
     priority: "medium",
     triggers: [
       "binder level not ready",
-      "binder not ready",
-      "binder level low",
-      "binder not made",
-      "binder wont make",
-      "binder won't make",
+      "binder not ready mixer",
+      "binder level low mixer",
+      "binder not made mixer",
+      "binder wont make mixer",
+      "binder won't make mixer",
       "binder issue mixer",
     ],
-    symptom: "The mixer does not show the required binder-ready condition or binder level does not make when returning to ready state.",
+    symptom:
+      "The mixer does not show the required binder-ready condition or binder level does not make when returning to ready state.",
     firstChecks: [
       "Check whether the required binder level is shown as made on the mixer screen.",
       "Check whether the issue is affecting one binder side or the whole mixer ready state.",
@@ -1304,20 +1800,333 @@ export const KB_TROUBLESHOOT = [
     ],
   },
   {
+    id: "binder-not-pulling-into-system",
+    title: "Binder not pulling into system",
+    priority: "high",
+    triggers: [
+      "binder not pulling",
+      "binder not pulling into system",
+      "binder not coming in",
+      "binder not sucking in",
+      "binder wont pull",
+      "binder won't pull",
+      "binder line not filling",
+      "no binder to mixer",
+      "binder not feeding",
+    ],
+    symptom:
+      "The mixer acts like binder is not coming into the system or the binder line does not fill the way it should.",
+    firstChecks: [
+      "Check whether binder supply is available at the source container.",
+      "Check whether the binder level is low or empty.",
+      "Check for a kinked binder line.",
+      "Check for a leaking binder line or fitting.",
+      "Check whether any visible shut-off valve is closed.",
+    ],
+    nextSteps: [
+      "Trace the visible binder path and check for restriction or leakage.",
+      "Check whether the binder seems too cold or too thick to move normally.",
+      "If allowed, compare the current condition to the last known good binder feed condition.",
+      "Document whether the issue affects one binder side or the full mixer function.",
+    ],
+    likelyCauses: [
+      "Binder supply empty or too low",
+      "Kinked or restricted binder line",
+      "Leaking binder line or fitting",
+      "Closed shut-off valve",
+      "Binder too cold or too thick to flow normally",
+      "Pump-side binder feed problem",
+    ],
+    whenCallMaint:
+      "Call maintenance if binder still will not pull into the system after supply, line, and valve checks, or if a damaged line, leak, or repeated feed failure is found.",
+    safetyNotes: [
+      "Use proper PPE when checking binder-related areas.",
+      "Do not disconnect lines under pressure.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Mixer Overview", route: "mixer/overview" },
+      { label: "Mixer Checks", route: "mixer/checks" },
+      { label: "Mixer Settings", route: "mixer/settings" },
+    ],
+  },
+  {
+    id: "binder-pump-runs-no-supply",
+    title: "Binder pump runs but no binder supply",
+    priority: "high",
+    triggers: [
+      "binder pump runs no supply",
+      "pump runs no binder",
+      "binder pump runs but no supply",
+      "binder pump on but not feeding",
+      "pump working no binder",
+      "binder not supplying",
+      "binder pump no flow",
+    ],
+    symptom:
+      "The binder pump appears to run, but binder still does not supply where it needs to go.",
+    firstChecks: [
+      "Check whether binder is actually available upstream.",
+      "Check whether a shut-off valve is closed.",
+      "Check for visible leaks in the binder line.",
+      "Check for a blocked, pinched, or restricted binder line.",
+      "Check whether the binder appears too cold or thick to move normally.",
+    ],
+    nextSteps: [
+      "Verify actual binder movement, not just pump sound.",
+      "Compare current binder feed behavior to a known normal condition.",
+      "Document whether the problem happens every time or only sometimes.",
+      "Stop repeated retries if the pump keeps running without delivery.",
+    ],
+    likelyCauses: [
+      "Closed shut-off valve",
+      "Blocked or pinched binder line",
+      "Leaking binder line",
+      "Pump output problem",
+      "Binder too cold or too thick to flow",
+    ],
+    whenCallMaint:
+      "Call maintenance if the pump runs but binder still does not supply after line, valve, and source checks, or if the same condition repeats.",
+    safetyNotes: [
+      "Do not crack lines loose to test flow.",
+      "Treat binder leaks as both slip and process hazards.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Mixer Overview", route: "mixer/overview" },
+      { label: "Mixer Checks", route: "mixer/checks" },
+      { label: "Mixer Settings", route: "mixer/settings" },
+    ],
+  },
+  {
+    id: "streaks-in-mixing-chamber",
+    title: "Streaks in mixing chamber",
+    priority: "medium",
+    triggers: [
+      "streaks in mixing chamber",
+      "mix streaks",
+      "streaking in mixer",
+      "binder streaks",
+      "uneven mix in chamber",
+      "mix not even",
+      "streaks in sand mix",
+    ],
+    symptom:
+      "The sand mix looks uneven and streaks are visible in the mixing chamber.",
+    firstChecks: [
+      "Check whether the streaking happens every batch or only sometimes.",
+      "Check for visible dripping or uneven binder entry.",
+      "Check whether the issue started after a pressure or setup change.",
+      "Compare the current mix pattern to a known normal batch.",
+    ],
+    nextSteps: [
+      "Document whether the streaking is light, heavy, or tied to one side.",
+      "Check whether binder appears to be entering too fast.",
+      "Report whether the condition started after maintenance, setup, or line work.",
+      "Escalate if the chamber keeps showing uneven mix pattern.",
+    ],
+    likelyCauses: [
+      "Binder dosing too fast",
+      "Injection pressure too high",
+      "Injection line laid incorrectly",
+      "Uneven binder entry into the chamber",
+    ],
+    whenCallMaint:
+      "Call maintenance or setup if streaking continues, if binder entry looks uneven, or if pressure or line arrangement may need correction.",
+    safetyNotes: [
+      "Keep clear of moving mixer areas while observing chamber behavior.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Mixer Overview", route: "mixer/overview" },
+      { label: "Mixer Settings", route: "mixer/settings" },
+    ],
+  },
+  {
+    id: "mixing-sand-too-cold",
+    title: "Mixing sand too cold",
+    priority: "medium",
+    triggers: [
+      "sand too cold",
+      "mixing sand too cold",
+      "cold sand in mixer",
+      "mixer sand cold",
+      "cold sand issue",
+      "sand temperature low",
+    ],
+    symptom:
+      "Sand condition appears too cold and mix behavior changes from normal.",
+    firstChecks: [
+      "Check whether the issue started during colder conditions or after a source change.",
+      "Check where the sand is feeding from.",
+      "Check whether heating-related function appears normal if visible to the operator.",
+      "Compare current sand condition to the last known good condition.",
+    ],
+    nextSteps: [
+      "Document when the condition appears during the shift.",
+      "Report whether quality problems also increased at the same time.",
+      "Check whether the issue stays constant or improves as the system runs.",
+      "Escalate if cold-sand symptoms continue affecting production.",
+    ],
+    likelyCauses: [
+      "Sand coming from a colder source than normal",
+      "Heating-related issue",
+      "Material temperature out of normal range",
+    ],
+    whenCallMaint:
+      "Call maintenance if sand temperature-related problems persist, if heating appears not to function, or if the issue keeps affecting quality.",
+    safetyNotes: [],
+    pending: [],
+    relatedPages: [
+      { label: "Mixer Overview", route: "mixer/overview" },
+      { label: "Mixer Checks", route: "mixer/checks" },
+    ],
+  },
+  {
+    id: "additive-not-mixing-correctly",
+    title: "Additive not mixing correctly",
+    priority: "medium",
+    triggers: [
+      "additive not mixing",
+      "additive not mixed",
+      "additive mixing issue",
+      "additive blend problem",
+      "mix time too short",
+      "uneven additive",
+    ],
+    symptom: "The additive does not seem evenly mixed into the sand blend.",
+    firstChecks: [
+      "Check whether the issue happens every batch or only sometimes.",
+      "Check whether the correct recipe or job condition is active.",
+      "Compare current cycle behavior to a known normal cycle.",
+      "Check whether the mix appears to stop too soon.",
+    ],
+    nextSteps: [
+      "Document whether the problem started after a change or restart.",
+      "Report whether the issue affects quality consistently or only occasionally.",
+      "Check whether the same job previously ran normally.",
+      "Escalate if additive blend quality continues to be inconsistent.",
+    ],
+    likelyCauses: [
+      "Mixing time too short",
+      "Recipe or setup mismatch",
+      "Process timing issue",
+      "Uneven additive blending condition",
+    ],
+    whenCallMaint:
+      "Call maintenance or setup if additive still does not mix correctly after recipe and cycle checks, or if the same quality problem repeats.",
+    safetyNotes: [
+      "Do not change protected process settings unless that is part of your role.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Mixer Settings", route: "mixer/settings" },
+      { label: "Mixer Overview", route: "mixer/overview" },
+    ],
+  },
+  {
+    id: "mixer-motor-stops-during-cycle",
+    title: "Mixer motor stops during cycle",
+    priority: "high",
+    triggers: [
+      "mixer motor stops during cycle",
+      "mixer stops during cycle",
+      "motor stops mid cycle",
+      "mixer faults during mix",
+      "mixer stops partway",
+      "motor cuts out during mixing",
+    ],
+    symptom:
+      "The mixer motor starts but stops during the cycle before the mixing step should be complete.",
+    firstChecks: [
+      "Check whether the stop happens at the same point every time.",
+      "Check for an active message or fault on the mixer screen.",
+      "Check for signs of blockage or buildup affecting material movement.",
+      "Check whether the issue started after a change in material or cleanup condition.",
+    ],
+    nextSteps: [
+      "Document the exact point in the cycle where the motor stops.",
+      "Check whether the outlet or flow path appears blocked if safe to observe.",
+      "Stop repeated retries if the same stop keeps happening.",
+      "Escalate with the message shown and the cycle point where the stop occurs.",
+    ],
+    likelyCauses: [
+      "Blocked outlet or material path",
+      "Material buildup affecting the cycle",
+      "Probe or condition not clearing correctly",
+      "Motor or control-side stop condition",
+    ],
+    whenCallMaint:
+      "Call maintenance if the mixer motor keeps stopping during the cycle, if blockage cannot be safely cleared, or if the same stop repeats.",
+    safetyNotes: [
+      "Do not reach into hazard areas unless the machine is in the correct safe condition.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Mixer Checks", route: "mixer/checks" },
+      { label: "Mixer Cleaning", route: "mixer/cleaning" },
+      { label: "Mixer Overview", route: "mixer/overview" },
+    ],
+  },
+  {
+    id: "mixer-motor-safety-switch-tripped",
+    title: "Mixer motor safety switch tripped",
+    priority: "high",
+    triggers: [
+      "mixer motor safety switch",
+      "motor safety switch tripped",
+      "motor protection tripped mixer",
+      "mixer overload",
+      "mixer motor trip",
+      "motor protection mixer",
+    ],
+    symptom:
+      "The mixer motor safety or protection condition trips and the mixer will not continue normally.",
+    firstChecks: [
+      "Check whether hardened material is left in the mixer.",
+      "Check whether the problem started after a material change.",
+      "Check whether the same trip happens immediately on retry.",
+      "Check for an active message tied to motor protection or overload.",
+    ],
+    nextSteps: [
+      "Document whether the trip happened during startup or during active mixing.",
+      "Report whether the issue followed a sand, binder, or media change.",
+      "Stop repeated retries if the same trip returns immediately.",
+      "Escalate with the exact message and what was in the mixer at the time.",
+    ],
+    likelyCauses: [
+      "Mixer started in hardened material",
+      "Material resistance too high in the mixer",
+      "Sand or media change affecting load condition",
+      "Motor protection or overload condition",
+    ],
+    whenCallMaint:
+      "Call maintenance if the safety switch trips again, if hardened material is suspected in the mixer, or if the mixer cannot return to normal operation.",
+    safetyNotes: [
+      "Do not keep resetting motor protection without finding the cause.",
+    ],
+    pending: [],
+    relatedPages: [
+      { label: "Mixer Cleaning", route: "mixer/cleaning" },
+      { label: "Mixer Overview", route: "mixer/overview" },
+      { label: "Mixer Checks", route: "mixer/checks" },
+    ],
+  },
+  {
     id: "mixer-keeps-blinking-not-green",
     title: "Mixer keeps blinking / won’t turn green",
     priority: "high",
     triggers: [
       "mixer keeps blinking",
-      "wont turn green",
-      "won't turn green",
-      "keeps blinking",
-      "not going green",
-      "blinking not green",
+      "wont turn green mixer",
+      "won't turn green mixer",
+      "not going green mixer",
+      "blinking not green mixer",
       "mixer light blinking",
-      "position not making",
+      "position not making mixer",
     ],
-    symptom: "A mixer function starts or appears active, but the confirmation never turns green and the move does not fully make.",
+    symptom:
+      "A mixer function starts or appears active, but the confirmation never turns green and the move does not fully make.",
     firstChecks: [
       "Check which exact function is still blinking.",
       "Confirm the correct function was selected before the move.",
@@ -1355,15 +2164,15 @@ export const KB_TROUBLESHOOT = [
     priority: "high",
     triggers: [
       "mixer fault",
-      "mixer message",
-      "mixer error",
-      "message blocking run",
-      "fault on mixer screen",
+      "mixer message blocking run",
       "mixer screen fault",
-      "mixer wont run fault",
+      "mixer error message",
       "mixer won't run fault",
+      "mixer wont run fault",
+      "fault on mixer screen",
     ],
-    symptom: "A mixer message or fault stays active and prevents normal running or return to ready state.",
+    symptom:
+      "A mixer message or fault stays active and prevents normal running or return to ready state.",
     firstChecks: [
       "Capture the exact mixer message or fault text.",
       "Check whether the message is tied to one function, ready state, or startup condition.",
@@ -1407,10 +2216,11 @@ export const KB_TROUBLESHOOT = [
       "clamp not green",
       "wont clamp",
       "won't clamp",
-      "clamp issue",
       "clamp not making",
+      "clamp issue load",
     ],
-    symptom: "The clamp step does not complete and the required green confirmation does not make.",
+    symptom:
+      "The clamp step does not complete and the required green confirmation does not make.",
     firstChecks: [
       "Check whether the box is fully seated and aligned.",
       "Check for sand, debris, or buildup on seating or contact surfaces.",
@@ -1454,7 +2264,7 @@ export const KB_TROUBLESHOOT = [
       "gas carriage wont move",
       "gas carriage won't move",
       "carriage stuck",
-      "carriage issue",
+      "carriage issue load",
     ],
     symptom: "The carriage does not move when it should during load or recovery.",
     firstChecks: [
@@ -1499,7 +2309,8 @@ export const KB_TROUBLESHOOT = [
       "table stopped short",
       "table close but not there",
     ],
-    symptom: "Auto load stops after the table lifts close to position, but the required position does not fully make.",
+    symptom:
+      "Auto load stops after the table lifts close to position, but the required position does not fully make.",
     firstChecks: [
       "Check whether the table is close to position but not fully there.",
       "Check whether the required green confirmation has not been made.",
@@ -1541,12 +2352,13 @@ export const KB_TROUBLESHOOT = [
       "corebox won't lock in",
       "corebox wont lock out",
       "corebox won't lock out",
-      "lock in issue",
-      "lock out issue",
+      "lock in issue corebox",
+      "lock out issue corebox",
       "box wont lock",
       "box won't lock",
     ],
-    symptom: "The corebox will not complete the lock-in or lock-out step correctly.",
+    symptom:
+      "The corebox will not complete the lock-in or lock-out step correctly.",
     firstChecks: [
       "Check whether the box is seated and aligned correctly.",
       "Check whether the machine is in the correct step and mode.",
@@ -1584,14 +2396,13 @@ export const KB_TROUBLESHOOT = [
       "robot not removing core",
       "robot wont remove core",
       "robot won't remove core",
-      "robot issue",
       "robot not picking core",
       "core not removed by robot",
-      "robot removal",
-      "robot remove problem",
+      "robot removal problem",
       "robot pickoff issue",
     ],
-    symptom: "The robot does not remove the core correctly or the removal step does not complete the way it should.",
+    symptom:
+      "The robot does not remove the core correctly or the removal step does not complete the way it should.",
     firstChecks: [
       "Check whether the robot problem happens every cycle or only once.",
       "Check whether the machine completed the related cycle step before the robot move.",
@@ -1634,7 +2445,8 @@ export const KB_TROUBLESHOOT = [
       "camera fault",
       "pickoff fault",
     ],
-    symptom: "Pickoff or camera-related function is not working correctly during production.",
+    symptom:
+      "Pickoff or camera-related function is not working correctly during production.",
     firstChecks: [
       "Check whether the issue is happening every cycle or only sometimes.",
       "Check whether the machine and core position look normal before the camera or pickoff step.",
@@ -1661,6 +2473,50 @@ export const KB_TROUBLESHOOT = [
       { label: "Machine Operation", route: "basics" },
       { label: "Control Screens", route: "screens" },
       { label: "Troubleshooting", route: "troubleshooting" },
+    ],
+  },
+  {
+    id: "vacuum-system-soiled-or-leaking",
+    title: "Vacuum system soiled or leaking",
+    priority: "high",
+    triggers: [
+      "vacuum system soiled",
+      "vacuum system leaking",
+      "vacuum system dirty",
+      "leak in vacuum system",
+      "vacuum leak machine side",
+    ],
+    symptom:
+      "The machine shows a vacuum system problem tied to contamination or leakage rather than just a general low-vacuum symptom.",
+    firstChecks: [
+      "Check whether vacuum loss is steady, sudden, or tied to one step.",
+      "Check for visible contamination in accessible vacuum-related areas.",
+      "Check for obvious hose, fitting, or seal leakage if safe.",
+      "Check whether the issue repeats at the same machine step.",
+    ],
+    nextSteps: [
+      "If the main symptom is low or falling vacuum, use the vacuum troubleshooting path first.",
+      "Document whether the issue looks like a leak problem, contamination problem, or both.",
+      "Escalate if the machine-side vacuum condition keeps returning.",
+    ],
+    likelyCauses: [
+      "Leak in vacuum system",
+      "Vacuum system contamination",
+      "Dirty vacuum-side components",
+      "Seal or fitting issue",
+    ],
+    whenCallMaint:
+      "Call maintenance if the vacuum system appears contaminated, if leakage is suspected, or if vacuum problems keep returning after basic checks.",
+    safetyNotes: [
+      "Do not bypass vacuum-related interlocks or safety conditions.",
+    ],
+    pending: [],
+    relatedPages: [
+      {
+        label: "Troubleshooting — Vacuum drops",
+        route: "troubleshooting/vacuum-drops",
+      },
+      { label: "Control Screens", route: "screens" },
     ],
   },
   {
