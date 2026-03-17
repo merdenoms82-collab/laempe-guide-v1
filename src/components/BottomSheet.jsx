@@ -5,9 +5,12 @@ export default function BottomSheet({ open, title, content, onClose }) {
     .split("\n\n")
     .filter(Boolean);
 
+  const what = sections[0] || "";
   const increase = sections.find((s) => s.startsWith("Increasing it:"));
   const decrease = sections.find((s) => s.startsWith("Decreasing it:"));
   const note = sections.find((s) => s.startsWith("Note:"));
+
+  const isParameterStyle = Boolean(increase || decrease || note);
 
   return (
     <>
@@ -25,14 +28,20 @@ export default function BottomSheet({ open, title, content, onClose }) {
 
         <div className="sheet-title">{title}</div>
 
-        {note && (
+        {!isParameterStyle && what && (
+          <div className="sheet-section">
+            <div className="sheet-content">{what}</div>
+          </div>
+        )}
+
+        {isParameterStyle && note && (
           <div className="sheet-section">
             <div className="sheet-label">Why it matters</div>
             <div className="sheet-content">{note.replace("Note: ", "")}</div>
           </div>
         )}
 
-        {(increase || decrease) && (
+        {isParameterStyle && (increase || decrease) && (
           <>
             <div className="sheet-divider" />
 
