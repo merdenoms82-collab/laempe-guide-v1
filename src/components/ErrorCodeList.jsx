@@ -26,11 +26,6 @@ export default function ErrorCodeList({ items }) {
                 <h3>{item.code}</h3>
                 <p>{item.message}</p>
 
-                <div style={{ marginTop: "10px" }}>
-                  <strong>Status:</strong>{" "}
-                  <span style={{ color: "rgba(255,255,255,0.82)" }}>{item.status}</span>
-                </div>
-
                 {item.firstChecks?.length > 0 && (
                   <div style={{ marginTop: "10px" }}>
                     <strong>First checks:</strong>
