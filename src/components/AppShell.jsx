@@ -1,19 +1,19 @@
 import TopBar from "./TopBar";
 import DockNav from "./DockNav";
 
-export default function AppShell({ children, activeTab, onNavigateHome }) {
+export default function AppShell({ children, onNavigate, onOpenSearch }) {
   return (
     <div className="app">
-      <TopBar onNavigateHome={onNavigateHome} />
+      <TopBar onOpenSearch={onOpenSearch} />
 
       <main className="main">{children}</main>
 
-      <footer className="app-footer">
+      <div className="app-footer">
         Independent operator training and troubleshooting reference • Not
         affiliated with the machine manufacturer • No machine interface
-      </footer>
+      </div>
 
-      <DockNav activeTab={activeTab} onNavigateHome={onNavigateHome} />
+      <DockNav onNavigate={onNavigate} />
     </div>
   );
 }
