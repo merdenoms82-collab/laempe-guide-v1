@@ -33,6 +33,16 @@ export default function BottomSheet({ open, title, content, onClose }) {
           </div>
         )}
 
+        {note && (
+          <>
+            <div className="sheet-divider" />
+            <div className="sheet-section">
+              <div className="sheet-label">Why it matters</div>
+              <div className="sheet-content">{note.replace("Note: ", "")}</div>
+            </div>
+          </>
+        )}
+
         {(increase || decrease) && (
           <>
             <div className="sheet-divider" />
@@ -57,16 +67,6 @@ export default function BottomSheet({ open, title, content, onClose }) {
                   </div>
                 </div>
               )}
-            </div>
-          </>
-        )}
-
-        {note && (
-          <>
-            <div className="sheet-divider" />
-            <div className="sheet-section">
-              <div className="sheet-label">Why it matters</div>
-              <div className="sheet-content">{note.replace("Note: ", "")}</div>
             </div>
           </>
         )}
