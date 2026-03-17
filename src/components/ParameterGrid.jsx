@@ -9,7 +9,7 @@ export default function ParameterGrid({ items, onOpenItem }) {
           onClick={() => onOpenItem(item)}
         >
           <div className="paramItem__name">{item.name}</div>
-          <div className="paramItem__desc">{item.what}</div>
+          <div className="paramItem__desc">{item.what || item.note || ""}</div>
         </button>
       ))}
     </div>
