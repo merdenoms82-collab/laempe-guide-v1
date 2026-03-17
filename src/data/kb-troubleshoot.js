@@ -210,9 +210,7 @@ export const KB_TROUBLESHOOT = [
     whenCallMaint:
       "Call maintenance if the seal will not seat correctly after basic cleaning or reset, or if clamp or vacuum depends on that failed seating condition.",
     safetyNotes: ["Keep hands clear of pinch points during seating attempts."],
-    pending: [
-      "Pending confirmation: exact HMI indicator/state that permits clamp.",
-    ],
+    pending: [],
     relatedPages: [
       {
         label: "Troubleshooting — Vacuum drops",
@@ -256,9 +254,7 @@ export const KB_TROUBLESHOOT = [
     safetyNotes: [
       "Treat unusual odor as a safety issue first. Follow site PPE and ventilation rules.",
     ],
-    pending: [
-      "Pending confirmation: exact adjustment increment and site policy for exhaust changes.",
-    ],
+    pending: [],
     relatedPages: [
       { label: "Gassing parameters", route: "screens/gassing" },
       { label: "Core Reference", route: "loadbox/core-reference" },
@@ -297,17 +293,72 @@ export const KB_TROUBLESHOOT = [
     whenCallMaint:
       "Call maintenance if defects persist after baseline re-check and approved cleaning, or if vent features or corebox surfaces appear damaged.",
     safetyNotes: [],
-    pending: [
-      "Pending confirmation: exact relationship between this defect pattern and gassing settings for this process.",
-    ],
+    pending: [],
     relatedPages: [
       { label: "Gassing parameters", route: "screens/gassing" },
       { label: "Core Reference", route: "loadbox/core-reference" },
     ],
   },
   {
+    id: "vent-buildup-vents-plugging",
+    title: "Vent buildup / vents plugging",
+    priority: "medium",
+    triggers: [
+      "vent buildup",
+      "vents plugging",
+      "vents plugged",
+      "sand in vents",
+      "resin in vents",
+      "vent packed",
+      "vent clogging",
+      "vents clogging",
+      "sand packing into vents",
+      "vent build up",
+      "vents clog up",
+    ],
+    symptom:
+      "Sand or binder buildup packs into the vents and repeated cleaning is needed to keep the box running correctly.",
+    firstChecks: [
+      "Check sand condition. Does it seem too wet, sticky, clumping, or inconsistent?",
+      "Check whether shoot pressure or blow force is higher than normal.",
+      "Check whether the vents are already partly plugged or carrying old buildup.",
+      "Check whether curing looks weak or inconsistent, especially if cores are soft.",
+    ],
+    nextSteps: [
+      "Blow out the vents with an air wand using normal safe practice.",
+      "Run a few cycles and watch whether buildup comes back immediately or slowly over time.",
+      "If allowed, reduce shoot pressure slightly and watch whether vent buildup improves.",
+      "Compare vent behavior with core hardness, especially on the bottom or near vent areas.",
+    ],
+    likelyCauses: [
+      "Sand too wet or binder condition too heavy, causing sand to stick in the vents",
+      "Shoot pressure too high, forcing sand tightly into vent areas",
+      "Weak curing or gas-related setting issue, allowing soft material to smear into vents",
+      "Vent design, wear, damage, or old buildup restricting normal venting",
+    ],
+    whenCallMaint:
+      "Call setup or maintenance if vents clog again immediately after cleaning, if pressure changes do not help, if sand condition feels off or inconsistent, or if curing/gas behavior appears unstable.",
+    safetyNotes: [
+      "Use normal safe cleaning practice when blowing out vents.",
+      "Do not reach into unsafe areas or clean the box unless the machine is in the correct safe condition.",
+    ],
+    pending: [],
+    relatedPages: [
+      {
+        label: "Core does not harden",
+        route: "troubleshooting/core-does-not-harden",
+      },
+      {
+        label: "Holes/marks near vents",
+        route: "troubleshooting/vent-marks-holes",
+      },
+      { label: "Gassing parameters", route: "screens/gassing" },
+      { label: "Core Reference", route: "loadbox/core-reference" },
+    ],
+  },
+  {
     id: "cold-box-preheat",
-    title: "Cold box start issues / preheating use (Pending)",
+    title: "Cold box start issues / preheating use",
     priority: "low",
     triggers: [
       "cold box start issue",
@@ -336,9 +387,7 @@ export const KB_TROUBLESHOOT = [
     whenCallMaint:
       "Call maintenance if the preheat setting exists but has no noticeable effect, or if startup issues persist beyond the initial warmup period.",
     safetyNotes: [],
-    pending: [
-      "Pending confirmation: exact startup and preheat guidance by box and process.",
-    ],
+    pending: [],
     relatedPages: [
       { label: "Gassing parameters", route: "screens/gassing" },
       { label: "Core Reference", route: "loadbox/core-reference" },
