@@ -613,6 +613,294 @@ This page is a training/reference version.
 Operators must still follow the approved plant LOTO procedure.`,
   },
 
+  "loadbox/parameter-guide": {
+    title: "Corebox Parameter Guide",
+    subtitle: "What machine and gassing settings do",
+    body: `REFERENCE ONLY
+
+Use this page as a quick operator explanation of the main machine shot and gassing settings.
+Do not change values unless the job, F.I.C. card, approved setup, or plant procedure calls for it.
+
+Summary
+Purpose: Explain what the corebox machine parameters and gassing parameters actually control during the cycle.
+
+Big picture
+Sand shooting = structure
+Gassing = chemical hardening
+
+If shooting is weak, gassing cannot fix it.
+If gassing is weak, shooting will not fix it.
+They must match.
+
+Gassing Parameters
+
+1. Number of gassings
+What it does:
+How many times gas is injected into the mold per cycle.
+
+1 = single gas shot
+2 = gas, exhaust, then gas again
+
+More gassings can increase cure strength, but also increase gas exposure and cycle time.
+
+2. Filling pressure [bar]
+What it does:
+Air pressure used to blow sand into the core box.
+
+Higher pressure:
+- Packs sand tighter
+- Can cause erosion or flash if too high
+
+Lower pressure:
+- Softer core
+- Possible weak spots
+
+If set to 0, no sand blow happens.
+
+3. Filling time [s]
+What it does:
+How long sand blow air stays on.
+
+Longer time:
+- More sand
+- Risk of overpacking
+
+Shorter time:
+- Incomplete fill
+
+4. Gassing pressure [bar]
+What it does:
+Pressure of the amine gas injected into the sand mold.
+This is the curing pressure.
+
+Higher pressure:
+- Faster penetration
+- More aggressive cure
+- More leak potential
+
+Lower pressure:
+- Weak core
+- Soft spots
+
+5. Gassing time [s]
+What it does:
+How long gas stays flowing into the mold.
+This is the main curing time.
+
+Longer time:
+- Harder core
+- More chemical exposure risk
+
+Shorter time:
+- Under-cured core
+
+6. Time to final pressure [s]
+What it does:
+How long it takes to ramp from zero to full gas pressure.
+Think of it like a pressure buildup delay.
+
+Long ramp:
+- Gentler pressure
+- Less mold stress
+
+Short ramp:
+- Immediate full pressure
+- Faster penetration
+
+If too short, pressure shock can be more aggressive.
+
+7. Post-hardening time [s]
+What it does:
+How long the mold stays clamped after gassing finishes before opening.
+
+This helps:
+- Let reaction finish
+- Let gas settle
+
+If set to 0, the mold may open immediately after exhaust.
+
+8. Gas exhaust time valve [s]
+What it does:
+How long the exhaust valve stays open to pull gas out.
+
+This is critical for:
+- Clearing residual amine gas
+- Reducing exposure
+- Preventing gas release when the mold opens
+
+Too short:
+- Gas remains trapped
+- Higher operator exposure risk
+
+Too long:
+- Longer cycle time
+
+9. Pre-heating time [s]
+What it does:
+How long the gas generator warms up before production.
+
+This helps ensure:
+- Proper vaporization
+- Stable gas concentration
+
+How the gassing cycle works
+1. Sand blow
+2. Clamp seals mold
+3. Gas pressure ramps up
+4. Gas flows for the set time
+5. Exhaust opens
+6. Optional post-hardening delay
+7. Mold opens
+
+What affects core hardness most on the gassing side
+1. Gassing time
+2. Gassing pressure
+3. Number of gassings
+4. Proper exhaust timing
+5. Sand and binder condition
+
+What affects operator exposure most
+1. Gassing time
+2. Gassing pressure
+3. Exhaust time
+4. Post-hardening time
+
+Machine Shot Parameters
+
+1. Number of shots
+What it does:
+How many times sand is blown into the core box per cycle.
+
+1 = single blow
+2 or more = multiple blows for more complex fill
+
+More shots can improve fill in deep pockets, but add cycle time.
+
+2. Shooting pressure [bar]
+What it does:
+Compressed air pressure used to blow sand into the mold.
+
+Higher pressure:
+- Packs sand tighter
+- Higher density core
+- Harder surface
+- More wear risk on the box
+- More flash risk
+
+Lower pressure:
+- Softer core
+- Weak corners
+- Incomplete fill
+
+This is one of the biggest factors in core density.
+
+3. Shooting time [s]
+What it does:
+How long the shooting valve stays open.
+
+Longer time:
+- More sand volume
+- Higher density
+- Risk of overpacking
+
+Shorter time:
+- Underfill
+- Voids
+
+Pressure and time work together.
+
+4. Exhaust time corebox [s]
+What it does:
+How long air is allowed to vent out of the core box after the shot.
+
+This matters because air must escape as sand enters.
+
+Too short:
+- Trapped air pockets
+- Soft spots
+- Air voids
+- Blowholes
+
+Too long:
+- Slower cycle
+
+5. Exhaust time valve [s]
+What it does:
+How long the blow valve stays open to release residual pressure after the shot.
+
+Too short:
+- Pressure trapped
+- Sand rebound
+- Ejection problems
+
+Too long:
+- Slower production
+
+6. Sand refill interval
+What it does:
+How often the hopper refills between shots.
+
+1 usually means refill every cycle.
+
+If refill interval is too long:
+- Inconsistent shot weight
+- Density variation
+
+7. Sand refill time 1 [s]
+What it does:
+How long the refill valve opens.
+
+Too short:
+- Hopper not full
+- Light shots
+
+Too long:
+- Overfilling
+- Sand waste
+
+8. Sand refill time 2 [s]
+What it does:
+Usually used in multi-stage refill systems.
+If it is 0, it is likely not being used.
+
+9. Remaining shots counter
+What it does:
+Production tracking only.
+This does not directly affect quality.
+
+What affects core hardness most on the shot side
+1. Shooting pressure
+2. Shooting time
+3. Number of shots
+
+If your cores are too soft
+Try checking:
+1. Shooting pressure
+2. Shooting time
+3. Gassing pressure
+4. Gassing time
+5. Sand and binder condition
+
+If cores are breaking during ejection
+Possible causes:
+1. Overpacked core
+2. Gas cure mismatch
+3. Too much pressure
+
+If cores are sticking to the box
+Usually this is not only a shooting issue.
+More often check:
+1. Insufficient gassing
+2. Low exhaust time
+3. High binder condition
+4. Core box temperature
+
+IMPORTANT
+
+Use this page to understand what the settings do.
+Do not change process values unless you are following the approved setup and job standard.`,
+  },
+
   "loadbox/load-unload/automatic": {
     title: "Auto Load",
     subtitle: "Corebox setup reference",

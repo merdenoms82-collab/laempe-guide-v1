@@ -7,6 +7,12 @@ export default function CoreboxMenu({ onNavigate }) {
       sub: "Weights, stacking, problems, and floor settings",
     },
     {
+      key: "loadbox/parameter-guide",
+      icon: "🧠",
+      title: "Parameter Guide",
+      sub: "What machine and gassing settings actually do",
+    },
+    {
       key: "loadbox/load-unload/automatic",
       icon: "🤖",
       title: "Auto Load",
