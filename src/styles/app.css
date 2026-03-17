@@ -750,15 +750,6 @@ mark{
   .effect-row{
     flex-direction:column;
   }
-
-  .effect-box{
-    min-width:0;
-  }
-
-  .sheet-content{
-    overflow-wrap:anywhere;
-    word-break:break-word;
-  }
 }
 
 @media (max-width:380px){
