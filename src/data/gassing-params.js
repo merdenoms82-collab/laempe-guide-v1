@@ -3,72 +3,99 @@ export const GASSING_PARAMS = [
     key: "numGassings",
     name: "Number of gassings",
     what: "How many times gas is injected into the mold per cycle. 1 means a single gas shot. 2 means gas, exhaust, then gas again.",
-    increase: "Can improve cure strength and penetration on harder or more complex cores, but also adds gas exposure and cycle time.",
-    decrease: "Less total gas exposure and a shorter cycle, but may reduce cure strength on thicker sections or harder-to-cure cores.",
-    note: "One of the main cure settings. More gassings can help hardening, but it must still match the job, sand condition, and exhaust timing.",
+    increase:
+      "Can improve cure strength and penetration on harder or more complex cores, but also adds gas exposure and cycle time.",
+    decrease:
+      "Reduces total gas exposure and shortens the cycle, but may lower cure strength on thicker sections or harder-to-cure cores.",
+    note:
+      "One of the main cure settings. More gassings can help hardening, but it still has to match sand condition, pressure, and exhaust timing.",
   },
   {
     key: "fillingPressure",
     name: "Filling pressure [bar]",
     what: "Air pressure used to blow sand into the core box before gassing.",
-    increase: "Packs sand tighter and can increase density, but if too high it can cause erosion, flashing, or venting problems.",
-    decrease: "Reduces packing force and may help if the box is being hit too hard, but if too low it can leave weak spots or a soft fill.",
-    note: "If this is set to 0, no sand blow happens. Pressure and filling time work together.",
+    increase:
+      "Packs sand tighter and can increase density, but if too high it can cause erosion, flashing, or venting problems.",
+    decrease:
+      "Reduces packing force and may help if the box is being hit too hard, but if too low it can leave weak spots or a soft fill.",
+    note:
+      "If this is set to 0, no sand blow happens. Pressure and filling time work together.",
   },
   {
     key: "fillingTime",
     name: "Filling time [s]",
-    what: "How long the fill or blow phase runs before gassing.",
-    increase: "Allows more sand into the box and can increase packing, but too much can overpack the box or create vent issues.",
-    decrease: "Shortens the fill and may reduce overpacking, but if too short it can cause incomplete fill.",
-    note: "This setting works with filling pressure. Time adds volume, pressure adds force.",
+    what: "How long sand blow air stays on during the fill phase.",
+    increase:
+      "Allows more sand into the box and can increase packing, but too much can overpack the box or create vent issues.",
+    decrease:
+      "Shortens the fill and may reduce overpacking, but if too short it can cause incomplete fill.",
+    note:
+      "This works with filling pressure. Time adds volume and pressure adds force.",
   },
   {
     key: "gassingPressure",
     name: "Gassing pressure [bar]",
     what: "Pressure of the amine gas injected into the sand mold. This is the curing pressure.",
-    increase: "Gives stronger and faster gas penetration, but can be more aggressive and increase leak or vent-mark risk.",
-    decrease: "Reduces how aggressively gas enters the core, but if too low it can leave weak cure or soft spots.",
-    note: "This is one of the main curing settings. Pressure, gassing time, and exhaust all need to match each other.",
+    increase:
+      "Gives stronger and faster gas penetration, but can be more aggressive and increase leak or vent-mark risk.",
+    decrease:
+      "Reduces how aggressively gas enters the core, but if too low it can leave weak cure or soft spots.",
+    note:
+      "This is one of the main curing settings. Pressure, gassing time, and exhaust need to match each other.",
   },
   {
     key: "gassingTime",
     name: "Gassing time [s]",
     what: "How long gas stays flowing into the mold. This is the main cure exposure time.",
-    increase: "Usually gives a harder cure, but also increases chemical exposure risk and total cycle time.",
-    decrease: "Shortens exposure and cycle time, but can leave the core under-cured or soft.",
-    note: "One of the biggest hardness settings on the gassing side. If cores are soft, this is one of the first settings to review.",
+    increase:
+      "Usually gives a harder cure, but also increases chemical exposure risk and total cycle time.",
+    decrease:
+      "Shortens exposure and cycle time, but can leave the core under-cured or soft.",
+    note:
+      "One of the biggest hardness settings on the gassing side. If cores are soft, this is one of the first settings to review.",
   },
   {
     key: "timeToFinalPressure",
     name: "Time to final pressure [s]",
     what: "How long it takes to ramp from zero to full gassing pressure. Think of it as the pressure buildup delay.",
-    increase: "Creates a slower, gentler pressure ramp that can be easier on the mold.",
-    decrease: "Brings gas pressure up faster for a more aggressive pressure buildup.",
-    note: "This affects how sharply gas hits the mold. Too fast can feel more abrupt; too slow may reduce penetration behavior on some jobs.",
+    increase:
+      "Creates a slower, gentler pressure ramp that can be easier on the mold.",
+    decrease:
+      "Brings gas pressure up faster for a more aggressive pressure buildup.",
+    note:
+      "This affects how sharply gas hits the mold. Too fast can feel more abrupt, while too slow may soften penetration behavior on some jobs.",
   },
   {
     key: "postHardening",
     name: "Post-hardening time [s]",
     what: "How long the mold stays clamped after gassing stops before opening.",
-    increase: "Gives more time for the reaction to finish and the core to stabilize before opening.",
-    decrease: "Gets the mold open sooner, but may increase breakage risk on fragile or not-fully-set cores.",
-    note: "If set to 0, the mold may open immediately after exhaust. This can matter if residual gas or weak cure is still present.",
+    increase:
+      "Gives more time for the reaction to finish and the core to stabilize before opening.",
+    decrease:
+      "Gets the mold open sooner, but may increase breakage risk on fragile or not-fully-set cores.",
+    note:
+      "If this is set to 0, the mold may open immediately after exhaust. That can matter if residual gas or weak cure is still present.",
   },
   {
     key: "gasExhaust",
     name: "Gas exhaust time valve [s]",
     what: "How long the exhaust valve stays open to pull gas out after gassing.",
-    increase: "Clears more residual gas and can reduce smell or exposure risk, but adds cycle time.",
-    decrease: "Speeds up the cycle, but may leave residual gas trapped in the mold or release odor when the mold opens.",
-    note: "This is one of the most important settings for operator exposure. If exhaust is short and post-hardening is low, gas may still be present when the mold opens.",
+    increase:
+      "Clears more residual gas and can reduce smell or exposure risk, but adds cycle time.",
+    decrease:
+      "Speeds up the cycle, but may leave residual gas trapped in the mold or release odor when the mold opens.",
+    note:
+      "This is one of the most important settings for operator exposure. If exhaust is short and post-hardening is low, gas may still be present when the mold opens.",
   },
   {
     key: "preHeating",
     name: "Pre-heating time [s]",
     what: "How long the gas generator warms up before production starts.",
-    increase: "Can improve startup stability and gas generation, especially in colder conditions.",
-    decrease: "Gets production started faster, but may reduce stability if the system is still cold.",
-    note: "Used to help the gas generator reach operating temperature before running. Especially helpful on cold starts or cold boxes.",
+    increase:
+      "Can improve startup stability and gas generation, especially in colder conditions.",
+    decrease:
+      "Gets production started faster, but may reduce stability if the system is still cold.",
+    note:
+      "Used to help the gas generator reach operating temperature before running. Especially helpful on cold starts or cold boxes.",
   },
 ];

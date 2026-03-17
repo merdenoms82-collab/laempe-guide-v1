@@ -3,72 +3,99 @@ export const MACHINE_PARAMS = [
     key: "numberOfShots",
     name: "Number of shots",
     what: "How many times sand is blown into the core box per cycle. 1 means a single blow. More than 1 means multiple blows, usually for more complex cores.",
-    increase: "Can improve fill in deep pockets or harder-to-fill areas, but adds compaction and increases cycle time.",
-    decrease: "Shortens the cycle, but may reduce fill quality on more complex cores.",
-    note: "One of the main structure settings. More shots can help fill, but they must still match pressure and time.",
+    increase:
+      "Can improve fill in deep pockets or harder-to-fill areas, but adds compaction and increases cycle time.",
+    decrease:
+      "Shortens the cycle, but may reduce fill quality on more complex cores.",
+    note:
+      "One of the main structure settings. More shots can help fill, but they still need to match pressure and time.",
   },
   {
     key: "shootingPressure",
     name: "Shooting pressure [bar]",
     what: "Compressed air pressure used to blow sand into the mold.",
-    increase: "Packs sand tighter, increases density, and can harden the surface, but if too high it can wear the box, cause flash, or overpack the core.",
-    decrease: "Reduces packing force, but if too low it can leave soft cores, weak corners, or incomplete fill.",
-    note: "One of the biggest factors in core density on the shooting side.",
+    increase:
+      "Packs sand tighter, increases density, and can harden the surface, but if too high it can wear the box, cause flash, or overpack the core.",
+    decrease:
+      "Reduces packing force, but if too low it can leave soft cores, weak corners, or incomplete fill.",
+    note:
+      "One of the biggest factors in core density on the shooting side.",
   },
   {
     key: "shootingTime",
     name: "Shooting time [s]",
     what: "How long the shooting valve stays open during the sand blow.",
-    increase: "Allows more sand volume and can increase density, but may overpack the core and add cycle time.",
-    decrease: "Shortens the shot, but can cause underfill or voids if too short.",
-    note: "Pressure and time work together. Pressure adds force. Time adds volume.",
+    increase:
+      "Allows more sand volume and can increase density, but may overpack the core and add cycle time.",
+    decrease:
+      "Shortens the shot, but can cause underfill or voids if too short.",
+    note:
+      "Pressure and time work together. Pressure adds force and time adds volume.",
   },
   {
     key: "exhaustTimeCorebox",
     name: "Exhaust time corebox [s]",
     what: "How long the core box is allowed to vent after the shot.",
-    increase: "Gives more time for air to escape and can help venting, but slows the cycle.",
-    decrease: "Speeds up the cycle, but if too short it can trap air and lead to soft spots, air pockets, or blowholes.",
-    note: "If fill quality is inconsistent or air seems trapped, this setting matters.",
+    increase:
+      "Gives more time for air to escape and can help venting, but slows the cycle.",
+    decrease:
+      "Speeds up the cycle, but if too short it can trap air and lead to soft spots, air pockets, or blowholes.",
+    note:
+      "If fill quality is inconsistent or air seems trapped, this setting matters.",
   },
   {
     key: "exhaustTimeValve",
     name: "Exhaust time valve [s]",
     what: "How long the blow valve stays open to release residual pressure after the shot.",
-    increase: "Allows more pressure release and venting, but adds cycle time.",
-    decrease: "Shortens the cycle, but if too short it can leave trapped pressure, cause sand rebound, or create ejection problems.",
-    note: "This is different from cure exhaust. This setting affects the sand shot side, not the amine gas side.",
+    increase:
+      "Allows more pressure release and venting, but adds cycle time.",
+    decrease:
+      "Shortens the cycle, but if too short it can leave trapped pressure, cause sand rebound, or create ejection problems.",
+    note:
+      "This is different from cure exhaust. This setting affects the sand shot side, not the amine gas side.",
   },
   {
     key: "sandRefillInterval",
     name: "Sand refill interval",
     what: "How often automatic sand refill happens between shots.",
-    increase: "Refills less often, which may reduce extra cycling, but raises the risk that the hopper runs low.",
-    decrease: "Refills more often, which can help keep supply consistent, but adds more refill cycling.",
-    note: "If refill timing is off, shot weight and density can become inconsistent.",
+    increase:
+      "Refills less often, which may reduce extra cycling, but raises the risk that the hopper runs low.",
+    decrease:
+      "Refills more often, which can help keep supply consistent, but adds more refill cycling.",
+    note:
+      "If refill timing is off, shot weight and density can become inconsistent.",
   },
   {
     key: "sandRefillTime1",
     name: "Sand refill time 1 [s]",
     what: "Primary refill duration for the sand system.",
-    increase: "Allows a longer refill and can help if sand supply is coming in light, but too much can overfill or waste sand.",
-    decrease: "Shortens refill time, but if too short the hopper may not fill enough for the next shot.",
-    note: "Used to keep the shot supply consistent from cycle to cycle.",
+    increase:
+      "Allows a longer refill and can help if sand supply is coming in light, but too much can overfill or waste sand.",
+    decrease:
+      "Shortens refill time, but if too short the hopper may not fill enough for the next shot.",
+    note:
+      "Used to keep the shot supply consistent from cycle to cycle.",
   },
   {
     key: "sandRefillTime2",
     name: "Sand refill time 2 [s]",
     what: "Secondary refill duration, usually used only in systems that run a second refill stage.",
-    increase: "Extends the second refill stage if that stage is being used.",
-    decrease: "Shortens the second refill stage and may leave refill incomplete if the stage is needed.",
-    note: "If this is set to 0, it is likely not being used on that job or machine setup.",
+    increase:
+      "Extends the second refill stage if that stage is being used.",
+    decrease:
+      "Shortens the second refill stage and may leave refill incomplete if the stage is needed.",
+    note:
+      "If this is set to 0, it is likely not being used on that job or machine setup.",
   },
   {
     key: "remainingShotsCounter",
     name: "Remaining shots counter",
     what: "Display showing the remaining programmed shot count.",
-    increase: "",
-    decrease: "",
-    note: "Display only. This is for tracking and does not directly affect core quality.",
+    increase:
+      "Does not directly change process quality. It only changes the displayed count as production moves.",
+    decrease:
+      "Does not directly change process quality. It only changes the displayed count as production moves.",
+    note:
+      "Display only. This is for tracking and does not directly affect core quality.",
   },
 ];
