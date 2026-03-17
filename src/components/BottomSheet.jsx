@@ -5,6 +5,7 @@ export default function BottomSheet({ open, title, content, onClose }) {
     .split("\n\n")
     .filter(Boolean);
 
+  const what = sections[0] || "";
   const increase = sections.find((s) => s.startsWith("Increasing it:"));
   const decrease = sections.find((s) => s.startsWith("Decreasing it:"));
   const note = sections.find((s) => s.startsWith("Note:"));
@@ -25,11 +26,21 @@ export default function BottomSheet({ open, title, content, onClose }) {
 
         <div className="sheet-title">{title}</div>
 
-        {note && (
+        {what && (
           <div className="sheet-section">
-            <div className="sheet-label">Why it matters</div>
-            <div className="sheet-content">{note.replace("Note: ", "")}</div>
+            <div className="sheet-label">What it does</div>
+            <div className="sheet-content">{what}</div>
           </div>
+        )}
+
+        {note && (
+          <>
+            <div className="sheet-divider" />
+            <div className="sheet-section">
+              <div className="sheet-label">Why it matters</div>
+              <div className="sheet-content">{note.replace("Note: ", "")}</div>
+            </div>
+          </>
         )}
 
         {(increase || decrease) && (
@@ -37,21 +48,25 @@ export default function BottomSheet({ open, title, content, onClose }) {
             <div className="sheet-divider" />
 
             <div className="effect-row">
-              <div className="effect-box increase">
-                <div className="effect-arrow">↑</div>
-                <div className="effect-label">Increasing it</div>
-                <div className="sheet-content">
-                  {increase ? increase.replace("Increasing it: ", "") : "—"}
+              {increase && (
+                <div className="effect-box increase">
+                  <div className="effect-arrow">↑</div>
+                  <div className="effect-label">Increasing it</div>
+                  <div className="sheet-content">
+                    {increase.replace("Increasing it: ", "")}
+                  </div>
                 </div>
-              </div>
+              )}
 
-              <div className="effect-box decrease">
-                <div className="effect-arrow">↓</div>
-                <div className="effect-label">Decreasing it</div>
-                <div className="sheet-content">
-                  {decrease ? decrease.replace("Decreasing it: ", "") : "—"}
+              {decrease && (
+                <div className="effect-box decrease">
+                  <div className="effect-arrow">↓</div>
+                  <div className="effect-label">Decreasing it</div>
+                  <div className="sheet-content">
+                    {decrease.replace("Decreasing it: ", "")}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </>
         )}
