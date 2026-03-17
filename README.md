@@ -1,81 +1,82 @@
 # Laempe Operator Hub
 
-Structured, mobile-first operator reference app for Laempe systems.
+Mobile-first operator reference hub for Laempe systems.
 
 ## Purpose
-Reduce downtime, support onboarding, and help operators find the right next step fast.
+Laempe Operator Hub is designed to help operators find the right answer quickly during production, setup, recovery, and troubleshooting.
 
-## Current State
-This project is a Vite + React application deployed from GitHub Pages.
+Primary goals:
+- reduce downtime
+- speed up operator onboarding
+- improve troubleshooting consistency
+- create a clear, structured reference tool for floor use
 
-It is being built as an operator-first support tool for foundry floor use, with emphasis on:
+## What This App Is
+This app is an operator-facing reference and training tool.
 
-- fast scanning
-- mobile-friendly navigation
-- troubleshooting-first workflows
-- conservative safety guidance
-- visible browse pages plus searchable results
+It is built to:
+- guide operators to the right page quickly
+- support common troubleshooting and recovery tasks
+- organize machine knowledge into clear, practical modules
+- provide a cleaner alternative to digging through manuals or scattered notes
 
-## Product Intent
-The app is not a manual dump and not a maintenance knowledge pile.
+## What This App Is Not
+This app:
+- does not interface with the machine
+- does not replace official manuals, plant procedures, or LOTO requirements
+- is not a copy of the machine manufacturer’s control software
+- is not intended to replace maintenance, engineering, or formal safety authority
 
-It is a structured operator sidekick that helps users quickly find:
+## Current Build
+The current build is a Vite + React application structured for mobile-friendly use and GitHub Pages deployment.
 
-- machine guidance
-- control screen references
-- setup flows
-- troubleshooting help
-- error code lookup
-- safety and LOTO information
-- cleaning and checks
-- shift-useful operational knowledge
-
-## Current Architecture
-Main repo structure:
-
-- `public/`
-- `src/`
-  - `components/`
-  - `data/`
-  - `features/`
-  - `styles/`
-  - `App.jsx`
-  - `main.jsx`
-- `index.html`
-- `vite.config.js`
-
-## Navigation Pattern
-The app currently uses hash-based routing with a custom route hook.
-
-Routing is centralized in `src/App.jsx`.
-
-## Module Pattern
-Current module families include:
-
-- Home
-- Machine Operation
+Current focus areas in the app include:
+- Home navigation
 - Control Screens
-- Sand Mixer
 - Corebox Setup
-- Troubleshooting
-- Shift Checklists
+- Sand Mixer
 - Emergency & Safety
+- Troubleshooting
 - Search
+- Shift Checklists
 
-## Quality Rules
-- Preserve current architecture unless there is a clear problem
-- Reuse existing patterns before inventing new ones
-- Keep content operator-first and mobile-friendly
-- Keep safety-critical guidance conservative
-- Label unconfirmed content as pending confirmation
-- Keep error codes inside Troubleshooting
-- Prefer visible browse pages plus searchable results
+## Product Direction
+The product is being developed as a practical operator sidekick, not a document dump.
+
+Guiding principles:
+- operators first
+- fast navigation
+- simple plant-floor language
+- conservative safety tone
+- strong troubleshooting flow
+- modular growth over time
+
+## Architecture
+The application is organized around a modular React structure with reusable UI components and feature-based content patterns.
+
+High-level pieces include:
+- `src/` application code
+- reusable components for navigation and detail views
+- feature modules for content and search
+- structured data files for troubleshooting, parameters, and reference content
+- GitHub Pages deployment workflow
 
 ## Deployment
-GitHub Pages deployment uses the Vite base path:
+The app is configured for GitHub Pages deployment through GitHub Actions.
 
-`/laempe-guide-v1/`
+## Recommended Use
+This tool is best presented as:
+- an internal operator reference hub
+- a training support tool
+- a controlled plant-floor pilot for structured feedback and expansion
 
-## Status Notes
-Some sections are populated with real operator content.
-Some sections still contain placeholders or pending-confirmation content and should be expanded carefully without drifting module boundaries.
+## Expansion Path
+Planned long-term direction may include:
+- deeper troubleshooting coverage
+- stronger core-specific reference content
+- richer screen and parameter documentation
+- broader training support
+- multi-area or multi-plant internal rollout
+
+## Project Positioning
+Laempe Operator Hub should be treated as an internal operations support tool built around clarity, speed, and usability for operators.
