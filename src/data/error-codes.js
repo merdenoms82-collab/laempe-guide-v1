@@ -6,13 +6,13 @@ export const ERROR_CODES = [
     message:
       'Gas carriage: No release for "Move out (Shot)". Not all conditions for running the movement have been fulfilled.',
     operatorMeaning:
-      "The gas carriage is not being allowed to move out for the shot step because the machine is missing one or more required conditions.",
+      "The gas carriage is being blocked from moving out for the shot step because one or more required machine conditions are not made.",
     status: "pending confirmation",
     firstChecks: [
-      "Verify machine is in the expected mode/state.",
+      "Verify the machine is in the expected mode and cycle state.",
       "Check whether carriage movement conditions are fully made.",
       "Check related carriage, table, or top-part movement messages.",
-      "Check for blocked movement or incomplete sequence.",
+      "Check for blocked movement or an incomplete sequence.",
     ],
     whenCallMaint:
       "Call maintenance if movement conditions appear correct but release is still not granted.",
@@ -24,15 +24,15 @@ export const ERROR_CODES = [
     message:
       'Carriage: No release for "move out". Not all conditions for running the movement have been fulfilled.',
     operatorMeaning:
-      "The carriage is not being allowed to move out because the machine is missing a required release condition.",
+      "The carriage is not being allowed to move out because a required release condition has not been made.",
     status: "pending confirmation",
     firstChecks: [
-      "Verify carriage path is clear.",
-      "Check whether required machine states are made.",
-      "Check if another movement fault is blocking carriage release.",
+      "Verify the carriage path is clear.",
+      "Check whether the required machine states are made.",
+      "Check if another movement or fault is blocking carriage release.",
     ],
     whenCallMaint:
-      "Call maintenance if carriage will not move out after condition checks.",
+      "Call maintenance if the carriage will not move out after normal condition checks.",
   },
   {
     id: "mct0327",
@@ -41,15 +41,15 @@ export const ERROR_CODES = [
     message:
       'Gas carriage: No release for "Move in (Gassing)". Not all conditions for running the movement have been fulfilled.',
     operatorMeaning:
-      "The gas carriage is not being allowed to move into gassing position because the machine is not fully ready for that step.",
+      "The gas carriage is being blocked from moving into gassing position because the machine is not fully ready for that step.",
     status: "pending confirmation",
     firstChecks: [
-      "Verify machine is ready for the gassing step.",
-      "Check if carriage in/out sequence was completed properly.",
-      "Check for related top part or table position faults.",
+      "Verify the machine is ready for the gassing step.",
+      "Check whether the carriage in/out sequence completed properly.",
+      "Check for related top-part or table position faults.",
     ],
     whenCallMaint:
-      "Call maintenance if the gas carriage still cannot move in after sequence checks.",
+      "Call maintenance if the gas carriage still cannot move in after normal sequence checks.",
   },
   {
     id: "mct0231",
@@ -58,15 +58,15 @@ export const ERROR_CODES = [
     message:
       'Carriage: No release for "move in". Not all conditions for running the movement have been fulfilled.',
     operatorMeaning:
-      "The carriage is not being allowed to move in because the machine is missing one or more required conditions.",
+      "The carriage is not being allowed to move in because one or more required machine conditions are missing.",
     status: "pending confirmation",
     firstChecks: [
-      "Verify carriage path is clear.",
-      "Check if carriage move-out or other steps completed first.",
+      "Verify the carriage path is clear.",
+      "Check whether the previous move-out or related steps completed first.",
       "Check for blocking faults elsewhere in the cycle.",
     ],
     whenCallMaint:
-      "Call maintenance if carriage move-in is still blocked after checks.",
+      "Call maintenance if carriage move-in remains blocked after normal checks.",
   },
   {
     id: "mct0309",
@@ -74,10 +74,10 @@ export const ERROR_CODES = [
     area: "Table",
     message: 'Table: Position 6 — "Gassing" not reached!',
     operatorMeaning:
-      "The table did not make it to the gassing position when the machine expected it to.",
+      "The table did not reach the gassing position when the machine expected it to.",
     status: "pending confirmation",
     firstChecks: [
-      "Verify the table actually reached the expected gassing position.",
+      "Verify whether the table actually reached the expected gassing position.",
       "Check for blocked movement or incomplete travel.",
       "Check related table raise/lower messages.",
     ],
@@ -91,15 +91,15 @@ export const ERROR_CODES = [
     message:
       'Table: No release for "lower". Not all conditions for running the movement have been fulfilled.',
     operatorMeaning:
-      "The table is not being allowed to lower because the machine is missing a required release condition.",
+      "The table is not being allowed to lower because a required release condition is missing.",
     status: "pending confirmation",
     firstChecks: [
-      "Verify machine state allows table lowering.",
+      "Verify the machine state allows table lowering.",
       "Check if another movement is still active or incomplete.",
       "Check for interlock or sequence conditions not met.",
     ],
     whenCallMaint:
-      "Call maintenance if table lowering remains blocked after checks.",
+      "Call maintenance if table lowering remains blocked after normal checks.",
   },
   {
     id: "mct0295",
@@ -108,15 +108,15 @@ export const ERROR_CODES = [
     message:
       'Table: No release for "raise". Not all conditions for running the movement have been fulfilled.',
     operatorMeaning:
-      "The table is not being allowed to raise because the machine is missing a required release condition.",
+      "The table is not being allowed to raise because a required release condition is missing.",
     status: "pending confirmation",
     firstChecks: [
-      "Verify machine state allows table raising.",
+      "Verify the machine state allows table raising.",
       "Check if any interlock is blocking the raise command.",
-      "Check related carriage/top-part sequence faults.",
+      "Check related carriage or top-part sequence faults.",
     ],
     whenCallMaint:
-      "Call maintenance if table raising remains blocked after checks.",
+      "Call maintenance if table raising remains blocked after normal checks.",
   },
   {
     id: "mct0390",
@@ -125,15 +125,15 @@ export const ERROR_CODES = [
     message:
       'Top part: No release for "raise". Not all conditions for running the movement have been fulfilled.',
     operatorMeaning:
-      "The top part is not being allowed to raise because the machine is missing one or more required conditions.",
+      "The top part is not being allowed to raise because one or more required machine conditions are not made.",
     status: "pending confirmation",
     firstChecks: [
-      "Verify the machine is in the expected mode/state.",
+      "Verify the machine is in the expected mode and state.",
       "Check for sequence faults blocking top-part release.",
       "Check whether clamp or carriage conditions are complete.",
     ],
     whenCallMaint:
-      "Call maintenance if top-part raise remains blocked after checks.",
+      "Call maintenance if top-part raise remains blocked after normal checks.",
   },
   {
     id: "mct0402",
@@ -142,11 +142,11 @@ export const ERROR_CODES = [
     message:
       'Top part: Position 3 — "Move gassing carriage in/out" not reached!',
     operatorMeaning:
-      "The top part did not get to the position needed for the gas carriage movement.",
+      "The top part did not reach the position needed for gas carriage movement.",
     status: "pending confirmation",
     firstChecks: [
-      "Verify top part reached the required position.",
-      "Check whether gas carriage movement is being blocked by position mismatch.",
+      "Verify the top part reached the required position.",
+      "Check whether gas carriage movement is being blocked by a position mismatch.",
       "Check related top-part raise/lower messages.",
     ],
     whenCallMaint:
@@ -159,15 +159,15 @@ export const ERROR_CODES = [
     message:
       'Top part: No release for "lower". Not all conditions for running the movement have been fulfilled.',
     operatorMeaning:
-      "The top part is not being allowed to lower because the machine is missing a required release condition.",
+      "The top part is not being allowed to lower because a required release condition is missing.",
     status: "pending confirmation",
     firstChecks: [
-      "Verify machine state allows top-part lowering.",
+      "Verify the machine state allows top-part lowering.",
       "Check if another movement step is incomplete.",
       "Check for blocking interlocks or sequence faults.",
     ],
     whenCallMaint:
-      "Call maintenance if top-part lower remains blocked after checks.",
+      "Call maintenance if top-part lowering remains blocked after normal checks.",
   },
   {
     id: "mct0138",
@@ -178,7 +178,7 @@ export const ERROR_CODES = [
       "Something is in the front light curtain area, or the light curtain is being triggered when it should be clear.",
     status: "confirmed from screen text",
     firstChecks: [
-      "Verify no one or nothing is breaking the light curtain.",
+      "Verify no one and nothing is breaking the light curtain.",
       "Clear the front removal area.",
       "Check for misalignment or repeated nuisance triggering.",
     ],
@@ -191,11 +191,11 @@ export const ERROR_CODES = [
     area: "Machine / Safety",
     message: "Machine: There are cores on the bottom part.",
     operatorMeaning:
-      "The machine still thinks cores or material are present on the bottom part.",
+      "The machine still detects cores or leftover material on the bottom part.",
     status: "confirmed from screen text",
     firstChecks: [
       "Check whether cores or debris are still on the bottom part.",
-      "Verify removal sequence completed properly.",
+      "Verify the removal sequence completed properly.",
       "Clear leftover cores only using safe approved practice.",
     ],
     whenCallMaint:
@@ -223,32 +223,34 @@ export const ERROR_CODES = [
     code: "PCT1315",
     area: "Periphery / Communication",
     message:
-      "Periphery defining station message captured, full text pending confirmation.",
+      "Periphery defining station fault/message captured.",
     operatorMeaning:
-      "This code was captured, but the full machine message still needs to be confirmed.",
+      "The defining station is reporting a fault or state problem that may block normal sequence or reference behavior.",
     status: "pending confirmation",
     firstChecks: [
-      "Capture the full screen text next time it appears.",
-      "Check whether the defining station is in its expected state.",
+      "Capture the exact full screen text if it appears again.",
+      "Check whether the defining station is in the expected position or state.",
+      "Check whether the issue appeared during startup, reference, or normal cycle.",
     ],
     whenCallMaint:
-      "Call maintenance if the code repeats and blocks production.",
+      "Call maintenance if the message repeats, blocks production, or the defining station will not return to normal state.",
   },
   {
     id: "mct1155",
     code: "MCT1155",
     area: "Periphery / Communication",
     message:
-      "Pickoff vertical message captured, full text pending confirmation.",
+      "Pickoff vertical fault/message captured.",
     operatorMeaning:
-      "This code appears tied to the pickoff vertical movement/state, but the full message still needs to be confirmed.",
+      "This appears tied to the pickoff vertical movement or position and may be blocking normal machine sequence.",
     status: "pending confirmation",
     firstChecks: [
-      "Capture the full screen text next time it appears.",
-      "Check whether the pickoff vertical movement/state is normal.",
+      "Capture the exact full screen text if it appears again.",
+      "Check whether the pickoff vertical movement and position look normal.",
+      "Check whether the issue happened during travel, pickup, or return movement.",
     ],
     whenCallMaint:
-      "Call maintenance if the code repeats and blocks production.",
+      "Call maintenance if the message repeats, blocks production, or the pickoff vertical will not return to normal operation.",
   },
   {
     id: "mct1624",
@@ -257,7 +259,7 @@ export const ERROR_CODES = [
     message:
       "Hydraulics machine: Warning, tank level triggered. Check as soon as possible and eliminate error. Acknowledgment at OP on the hydraulics side.",
     operatorMeaning:
-      "The hydraulic tank level warning has been triggered and needs attention soon.",
+      "The hydraulic tank level warning has been triggered and needs attention as soon as possible.",
     status: "confirmed from screen text",
     firstChecks: [
       "Check hydraulic tank level per approved practice.",
@@ -277,9 +279,9 @@ export const ERROR_CODES = [
       "A communication fault is being reported on the listed module and port.",
     status: "confirmed from screen text",
     firstChecks: [
-      "Check whether the module fault clears after normal reset/recovery steps.",
-      "Look for repeated communication loss pattern.",
-      "Document exact module and port shown on the message.",
+      "Check whether the module fault clears after normal reset or recovery steps.",
+      "Look for a repeated communication loss pattern.",
+      "Document the exact module and port shown on the message.",
     ],
     whenCallMaint:
       "Call maintenance for repeated or persistent communication faults.",
