@@ -257,14 +257,16 @@ function chooseTopResult(issueMatch, codeMatch) {
 function buildQuickHelper({ topChoice, query }) {
   if (!query.trim()) {
     return {
-      title: "Search Helper",
-      summary: "Type a symptom, machine message, or exact error code.",
+      title: "Search the operator guide",
+      summary:
+        "Search by symptom, screen message, or exact code to get the best next step fast.",
       firstChecks: [
-        "Try a symptom like vacuum, shot not full, or light curtain.",
-        "Use an exact code only if you have one.",
-        "Use short phrases first.",
+        "Try real floor wording like vacuum low, shot not full, or light curtain.",
+        "Use an exact code if you have one, like MCT0138.",
+        "Keep the search short first, then narrow it if needed.",
       ],
-      escalate: "Open troubleshooting or the error code page if needed.",
+      escalate:
+        "Open troubleshooting or the error code section if you need the full detail.",
       type: "empty",
       isRecovery: false,
     };
@@ -276,7 +278,7 @@ function buildQuickHelper({ topChoice, query }) {
 
     return {
       title: issue.title,
-      summary: issue.symptom || "Closest troubleshooting match found.",
+      summary: issue.symptom || "Best troubleshooting match found.",
       firstChecks: (issue.firstChecks || []).slice(0, 4),
       escalate:
         issue.whenCallMaint ||
@@ -292,7 +294,7 @@ function buildQuickHelper({ topChoice, query }) {
     return {
       title: code.code,
       summary:
-        code.operatorMeaning || code.message || "Closest error code match found.",
+        code.operatorMeaning || code.message || "Best error code match found.",
       firstChecks: (code.firstChecks || []).slice(0, 4),
       escalate:
         code.whenCallMaint ||
@@ -303,14 +305,15 @@ function buildQuickHelper({ topChoice, query }) {
   }
 
   return {
-    title: "No strong match found",
-    summary: `No clear match was found for "${query}".`,
+    title: "No clear match yet",
+    summary: `The search did not find a strong result for "${query}".`,
     firstChecks: [
       "Try a shorter symptom or simpler wording.",
       "Try the exact code only if you have one.",
-      "Try related terms like vacuum, clamp, carriage, or light curtain.",
+      "Try floor terms like vacuum, clamp, carriage, shot, or light curtain.",
     ],
-    escalate: "If the machine is unsafe or repeatedly faulting, stop and escalate.",
+    escalate:
+      "If the machine is unsafe, repeatedly faulting, or blocking production, stop and escalate.",
     type: "none",
     isRecovery: false,
   };
@@ -330,8 +333,15 @@ function collectRelatedPages(entry, limit = 3) {
   return pages;
 }
 
+function getResultLabel({ type, isRecovery }) {
+  if (type === "code") return "Best Error Code Match";
+  if (isRecovery) return "Best Recovery Match";
+  return "Best Symptom Match";
+}
+
 function SearchResultCard({
   heading,
+  label,
   summary,
   checks = [],
   escalate,
@@ -349,7 +359,7 @@ function SearchResultCard({
         onClick={onHeaderClick}
         style={{ textAlign: "left", cursor: "pointer", color: "inherit" }}
       >
-        <h3>Closest Match — {heading}</h3>
+        <h3>{label} — {heading}</h3>
         <p>{summary}</p>
       </button>
 
@@ -418,6 +428,7 @@ export default function SearchView({
     if (!topIssueMatch || topChoice.type !== "issue") return false;
     if (topIssueMatch.isRecovery) return false;
     if (topIssueMatch.exact && topIssueMatch.score >= 500) return false;
+    if (topIssueMatch.score >= 420 && issueMatches.length <= 2) return false;
     return issueMatches.length > 1;
   }, [issueMatches.length, topChoice.type, topIssueMatch]);
 
@@ -430,7 +441,8 @@ export default function SearchView({
     if (!topIssue) return [];
     if (topChoice.value?.isRecovery) return [];
     if (topChoice.value?.exact && topChoice.value?.score >= 500) return [];
-    return collectRelatedPages(topIssue, 3);
+    if (topChoice.value?.score >= 420) return [];
+    return collectRelatedPages(topIssue, 2);
   }, [topChoice, topIssue]);
 
   return (
@@ -440,15 +452,19 @@ export default function SearchView({
           type="text"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Search symptoms, messages, or exact error codes..."
-          aria-label="Search documentation"
+          placeholder='Try: vacuum low, shot not full, MCT0138'
+          aria-label="Search troubleshooting, screen messages, or codes"
         />
       </div>
 
       {helper.type === "issue" && topIssue && (
         <SearchResultCard
           heading={topIssue.title}
-          summary={topIssue.symptom || "Closest troubleshooting match found."}
+          label={getResultLabel({
+            type: "issue",
+            isRecovery: topChoice.value?.isRecovery,
+          })}
+          summary={topIssue.symptom || "Best troubleshooting match found."}
           checks={(topIssue.firstChecks || []).slice(0, 4)}
           escalate={
             topIssue.whenCallMaint ||
@@ -470,6 +486,7 @@ export default function SearchView({
       {helper.type === "code" && topCode && (
         <SearchResultCard
           heading={topCode.code}
+          label={getResultLabel({ type: "code", isRecovery: false })}
           summary={topCode.operatorMeaning || topCode.message}
           checks={(topCode.firstChecks || []).slice(0, 4)}
           escalate={
@@ -490,7 +507,7 @@ export default function SearchView({
       {helper.type === "empty" && (
         <>
           <div className="card card--tip">
-            <h3>Search Helper</h3>
+            <h3>{helper.title}</h3>
             <p>{helper.summary}</p>
           </div>
 
@@ -508,7 +525,7 @@ export default function SearchView({
       {helper.type === "none" && (
         <>
           <div className="card card--tip">
-            <h3>No strong match found</h3>
+            <h3>{helper.title}</h3>
             <p>{helper.summary}</p>
           </div>
 
