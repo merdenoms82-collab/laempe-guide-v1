@@ -8,9 +8,9 @@ export default function CoreboxMenu({ onNavigate }) {
     },
     {
       key: "loadbox/parameter-guide",
-      icon: "🧠",
-      title: "Parameter Guide",
-      sub: "What machine and gassing settings actually do",
+      icon: "⚙️",
+      title: "Corebox Parameter Guide",
+      sub: "What each parameter does and how changes affect the process",
     },
     {
       key: "loadbox/load-unload/automatic",
@@ -23,12 +23,6 @@ export default function CoreboxMenu({ onNavigate }) {
       icon: "🛠️",
       title: "Auto Load Recovery (Manual)",
       sub: "Pick the machine state and recover from there",
-    },
-    {
-      key: "loadbox/common-issues",
-      icon: "🧩",
-      title: "Common Corebox Issues",
-      sub: "General reference",
     },
   ];
 
