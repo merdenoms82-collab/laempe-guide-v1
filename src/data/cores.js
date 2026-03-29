@@ -234,4 +234,42 @@ export const CORES = [
       { label: "Remaining shots counter", saved: "0", floor: "0" },
     ],
   },
+{
+  id: "4-90-10",
+  title: '4" 90 10',
+  machineName: '4" 90 10',
+  stacking: [
+    "8 per layer",
+    "40 per buggy",
+  ],
+  commonProblems: [
+    "Soft core on the corners",
+  ],
+  bestFix: [
+    "Higher gassing",
+    "Pick corner vents",
+  ],
+  gassingSettings: [
+    { label: "Number of gassings", saved: "1", floor: "1" },
+    { label: "Filling pressure [bar]", saved: "0.0", floor: "0.0" },
+    { label: "Filling time [s]", saved: "0.0", floor: "0.0" },
+    { label: "Gassing pressure [bar]", saved: "1.5", floor: "2.9" },
+    { label: "Gassing time [s]", saved: "30.0", floor: "30.0" },
+    { label: "Time to final pressure [s]", saved: "12.0", floor: "4.5" },
+    { label: "Post-hardening time [s]", saved: "0.0", floor: "0.0" },
+    { label: "Gas exhaust time valve [s]", saved: "3.5", floor: "3.5" },
+    { label: "Pre-heating time [s]", saved: "250.0", floor: "250.0" },
+  ],
+  shotSettings: [
+    { label: "Number of shots", saved: "1", floor: "1" },
+    { label: "Shooting pressure [bar]", saved: "2.7", floor: "2.9" },
+    { label: "Shooting time [s]", saved: "2.7", floor: "2.9" },
+    { label: "Exhaust time corebox [s]", saved: "2.7", floor: "2.7" },
+    { label: "Exhaust time valve [s]", saved: "2.7", floor: "2.7" },
+    { label: "Sand refill interval", saved: "1", floor: "1" },
+    { label: "Sand refill time 1 [s]", saved: "12.0", floor: "12.0" },
+    { label: "Sand refill time 2 [s]", saved: "0.0", floor: "0.0" },
+    { label: "Remaining shots counter", saved: "0", floor: "0" },
+  ],
+},
 ];
