@@ -619,8 +619,7 @@ Operators must still follow the approved plant LOTO procedure.`,
     body: `REFERENCE ONLY
 
 Use this page as a quick operator explanation of the main machine shot and gassing settings.
-Do not change values unless the job, F.I.C. card, approved setup, or plant procedure calls for it.
-
+Do not change values unless the job, approved settings, approved setup, or plant procedure calls for it.
 Summary
 Purpose: Explain what the corebox machine parameters and gassing parameters actually control during the cycle.
 
