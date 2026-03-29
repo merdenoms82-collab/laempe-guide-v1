@@ -8,9 +8,10 @@ export default function AppShell({ children, onNavigate, onOpenSearch }) {
 
       <main className="main">{children}</main>
 
-      <div className="app-footer">
+           <div className="app-footer">
         Independent operator training and troubleshooting reference • Not
-        affiliated with the machine manufacturer • No machine interface
+        affiliated with the machine manufacturer • No machine interface •
+        Created by R. Young
       </div>
 
       <DockNav onNavigate={onNavigate} />
