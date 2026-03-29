@@ -1,21 +1,21 @@
 export const CONTENT_PAGES = {
-  basics: {
-    title: "Machine Operation",
-    subtitle: "Start • Run • Shutdown",
-    body: `REFERENCE ONLY
+basics: {
+  title: "Machine Operation",
+  subtitle: "Start • Run • Shutdown",
+  body: `REFERENCE ONLY
 
-Always follow the approved work instruction, F.I.C. card, and plant procedure before operating the machine.
+Always follow the approved work instruction, approved machine settings, and plant procedure before operating the machine.
 
 Summary
 Purpose: Give operators a clear quick-reference for normal machine operation.
 
 Before Starting
 1. Read and understand the work instruction for the job.
-2. Read and understand the F.I.C. card for the job.
+2. Verify you are running the correct job and corebox.
 3. Make sure all guarding is in place before starting the shift.
 4. Make sure partial buggies are available if needed for the run.
 5. Sign in on the MES terminal.
-6. Make sure machine and gassing screens match the F.I.C. card.
+6. Make sure machine and gassing screens match the approved settings for the job.
 7. If the machine fails to operate or is not acting right, stop and notify setup, supervisor, or maintenance.
 
 Startup
@@ -41,21 +41,21 @@ Machine Ready Checks
 
 Running Production
 1. Push entry request, complete required resets, and start the cycle as required by procedure.
-2. Make sure machine and gassing screens still match the F.I.C. card.
+2. Make sure machine and gassing screens still match the approved settings for the job.
 3. Start the machine with the green auto start button.
 4. Watch cycle operation and robot core removal.
 5. If the robot or camera is not working correctly, notify setup and supervisor.
 6. Remove cores only as required and keep the area clear for continued operation.
 
 Core Inspection and Quality
-1. Remove, inspect, and rework cores to F.I.C. card and Quality Alert requirements.
+1. Remove, inspect, and rework cores to the approved job standard and Quality Alert requirements.
 2. Use approved tools only for rework and cleanup.
 3. If cores do not meet standard, make the required correction if allowed.
 4. If you cannot make acceptable cores, notify setup or supervisor.
 5. Report all downtime over 20 minutes to supervision.
 
 End of Shift / Shutdown
-1. Place acceptable cores on the correct buggy to F.I.C. card standard.
+1. Place acceptable cores on the correct buggy to the approved job standard.
 2. Make accurate tags and place them on the buggy with the cores.
 3. About 45 minutes before end of shift, get ready to run the sand out.
 4. Turn off the mixer sand demand switch.
@@ -80,8 +80,8 @@ IMPORTANT
 
 This page is a quick operator reference only.
 
-Always follow the approved work instruction, F.I.C. card, and plant procedure during machine operation.`,
-  },
+Always follow the approved work instruction, approved machine settings, and plant procedure during machine operation.`,
+},  
 
   feedback: {
     title: "Operator Feedback",
