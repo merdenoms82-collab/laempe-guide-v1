@@ -286,4 +286,90 @@ export const ERROR_CODES = [
     whenCallMaint:
       "Call maintenance for repeated or persistent communication faults.",
   },
+  {
+  id: "mct0128",
+  code: "MCT0128",
+  area: "Machine",
+  message: "Machine: CAUTION!! The function setup mode is selected.",
+  operatorMeaning:
+    "The machine is in setup mode, so normal operation may be limited or blocked until the correct mode is selected.",
+  status: "confirmed from message screen",
+  firstChecks: [
+    "Check whether the machine is still in setup mode.",
+    "Verify the correct operating mode is selected for the task.",
+    "Return to the normal mode if setup mode is not needed.",
+  ],
+  whenCallMaint:
+    "Call maintenance or setup if the machine will not return to the required operating mode or the message keeps coming back.",
+},
+{
+  id: "mct0296",
+  code: "MCT0296",
+  area: "Table",
+  message:
+    'Table: "Machine table emergency stop TOP" fault. The uppermost permissible end position has been overrun. Check assembly and desired values. Acknowledgment required.',
+  operatorMeaning:
+    "The table has gone beyond the allowed top end position or the machine thinks it has. The table position needs to be checked before continuing.",
+  status: "confirmed from message screen",
+  firstChecks: [
+    "Check whether the table is too high or not in the expected position.",
+    "Check for related table raise or position faults.",
+    "Acknowledge only after the machine condition is understood.",
+    "Do not keep retrying table movement if the same fault returns.",
+  ],
+  whenCallMaint:
+    "Call maintenance immediately if the table appears overrun, the position does not look correct, or the fault returns after acknowledgment.",
+},
+{
+  id: "mct0290",
+  code: "MCT0290",
+  area: "Table",
+  message:
+    "Table: Error: process stopped due to release loss. Check component and acknowledge.",
+  operatorMeaning:
+    "The machine stopped because the table lost a required release condition during the process.",
+  status: "confirmed from message screen",
+  firstChecks: [
+    "Check whether the table is in the correct position.",
+    "Check for another related table or sequence fault.",
+    "Check whether a required condition was lost during movement.",
+    "Acknowledge only after checking the machine condition.",
+  ],
+  whenCallMaint:
+    "Call maintenance if the release-loss fault returns, if the table will not move correctly, or if the blocking condition is not clear.",
+},
+{
+  id: "mct0131",
+  code: "MCT0131",
+  area: "Machine / Safety",
+  message: "Machine: Button work position must not be actuated.",
+  operatorMeaning:
+    "The machine is indicating that the work-position button should not be used in the current state or sequence.",
+  status: "confirmed from message screen",
+  firstChecks: [
+    "Check what mode and step the machine is currently in.",
+    "Check whether the machine is in manual, setup, or another blocked condition.",
+    "Do not keep pressing the button if the message stays active.",
+  ],
+  whenCallMaint:
+    "Call maintenance or setup if the message remains active and the correct machine state is not clear.",
+},
+{
+  id: "pct1288",
+  code: "PCT1288",
+  area: "Periphery / Communication",
+  message:
+    'Periphery defining station: Drive is not referenced, start "reference movement" in manual mode.',
+  operatorMeaning:
+    "The defining-station drive is not referenced and needs the approved reference movement in manual mode before normal operation can continue.",
+  status: "partially confirmed from message screen",
+  firstChecks: [
+    "Switch to manual mode if required by procedure.",
+    "Run the approved reference movement.",
+    "Verify the drive completes the reference successfully.",
+    "Check whether the same message returns right away.",
+  ],
+  whenCallMaint:
+    "Call maintenance if the drive will not reference, faults during reference, or immediately loses reference again.",
+},
 ];

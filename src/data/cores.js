@@ -272,4 +272,41 @@ export const CORES = [
     { label: "Remaining shots counter", saved: "0", floor: "0" },
   ],
 },
+{
+  id: "2-tee-fl-002-2b",
+  title: '2" tee fl 002 [2b]',
+  machineName: '2" tee fl 002 [2b]',
+  stacking: [
+    "24 per layer",
+    "240 per buggy",
+  ],
+  commonProblems: [
+    "Incomplete cores",
+  ],
+  bestFix: [
+    "Higher shooting pressure",
+  ],
+  gassingSettings: [
+    { label: "Number of gassings", saved: "1", floor: "1" },
+    { label: "Filling pressure [bar]", saved: "0.0", floor: "0.0" },
+    { label: "Filling time [s]", saved: "0.0", floor: "0.0" },
+    { label: "Gassing pressure [bar]", saved: "1.0", floor: "1.0" },
+    { label: "Gassing time [s]", saved: "24.0", floor: "24.0" },
+    { label: "Time to final pressure [s]", saved: "10.0", floor: "10.0" },
+    { label: "Post-hardening time [s]", saved: "0.0", floor: "0.0" },
+    { label: "Gas exhaust time valve [s]", saved: "3.0", floor: "3.0" },
+    { label: "Pre-heating time [s]", saved: "900.0", floor: "900.0" },
+  ],
+  shotSettings: [
+    { label: "Number of shots", saved: "1", floor: "1" },
+    { label: "Shooting pressure [bar]", saved: "2.4", floor: "2.4" },
+    { label: "Shooting time [s]", saved: "2.5", floor: "2.5" },
+    { label: "Exhaust time corebox [s]", saved: "2.5", floor: "2.5" },
+    { label: "Exhaust time valve [s]", saved: "2.5", floor: "2.5" },
+    { label: "Sand refill interval", saved: "0", floor: "0" },
+    { label: "Sand refill time 1 [s]", saved: "13.5", floor: "13.5" },
+    { label: "Sand refill time 2 [s]", saved: "0.0", floor: "0.0" },
+    { label: "Remaining shots counter", saved: "0", floor: "0" },
+  ],
+},
 ];
