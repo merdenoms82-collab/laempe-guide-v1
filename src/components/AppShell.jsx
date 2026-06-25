@@ -4,6 +4,7 @@ import DockNav from "./DockNav";
 export default function AppShell({ children, onNavigate, onOpenSearch }) {
   return (
     <div className="app">
+      <div className="bg-glow" aria-hidden="true" />
       <TopBar onOpenSearch={onOpenSearch} />
 
       <main className="main">{children}</main>

@@ -76,11 +76,12 @@ export default function HomeGrid({ onNavigate }) {
       </div>
 
       <div className="tiles2">
-        {HOME_MODULES.map((item) => (
+        {HOME_MODULES.map((item, index) => (
           <button
             key={item.key}
             type="button"
             className={`tile ${item.color}`}
+            style={{ animationDelay: `${100 + index * 55}ms` }}
             onClick={() => onNavigate(item.key)}
           >
             <div className="tile__icon">{item.icon}</div>
