@@ -23,9 +23,13 @@ export default function TroubleshootingList({ issues, onOpenIssue }) {
         >
           <div className="issueCard__top">
             <h3>{issue.title}</h3>
-            <div className={getPriorityClass(issue.priority)}>
-              {getPriorityLabel(issue.priority)}
-            </div>
+            {issue.allMaintenance ? (
+              <div className="statusChip statusChip--maint">Maint only</div>
+            ) : (
+              <div className={getPriorityClass(issue.priority)}>
+                {getPriorityLabel(issue.priority)}
+              </div>
+            )}
           </div>
 
           <p>{issue.symptom}</p>

@@ -45,54 +45,7 @@ export const KB_TROUBLESHOOT = [
       { label: "Control Screens", route: "screens" },
       { label: "Gassing parameters", route: "screens/gassing" },
     ],
-  },
-  {
-    id: "vacuum-pressure-too-low",
-    title: "Vacuum pressure too low",
-    priority: "medium",
-    triggers: [
-      "vacuum pressure too low",
-      "vacuum too low",
-      "low vacuum pressure",
-      "vacuum reading low",
-      "vacuum gauge low",
-      "low vacuum message",
-      "vacuum fault low",
-    ],
-    symptom:
-      "The machine shows a low-vacuum condition or the vacuum reading stays below the required range.",
-    firstChecks: [
-      "Check the visible vacuum reading if a gauge or screen value is available.",
-      "Check whether the low reading stays steady or drops during the step.",
-      "Check for obvious leaks, poor seating, or debris if safe to inspect.",
-      "Check whether the related position fully made before the vacuum step.",
-      "Check for an active message or fault tied to the vacuum condition.",
-    ],
-    nextSteps: [
-      "If the issue is a general vacuum loss pattern, use Vacuum drops / won’t hold vacuum as the main troubleshooting path.",
-      "Confirm the related part is fully seated and in the correct position.",
-      "Clean obvious debris from the seal area if procedure allows.",
-      "Retry only if the machine condition is understood and safe.",
-    ],
-    likelyCauses: [
-      "Vacuum below the required operating range",
-      "Leak or poor seal",
-      "Poor seating or machine position",
-      "Machine-side vacuum problem",
-    ],
-    whenCallMaint:
-      "Call maintenance if the vacuum reading remains too low after basic checks, if the message repeats, or if you suspect a damaged seal, leak, or machine-side fault.",
-    safetyNotes: ["Do not continue guessing if vacuum is unstable."],
-    pending: [],
-    relatedPages: [
-      {
-        label: "Troubleshooting — Vacuum drops",
-        route: "troubleshooting/vacuum-drops",
-      },
-      { label: "Control Screens", route: "screens" },
-    ],
-  },
-  {
+  },  {
     id: "random-stop-mid-cycle",
     title: "Machine stops mid-cycle / random stop",
     priority: "high",
@@ -218,49 +171,7 @@ export const KB_TROUBLESHOOT = [
       },
       { label: "PNEU — Sensors + Reset Air", route: "screens" },
     ],
-  },
-  {
-    id: "gas-smell-exhaust",
-    title: "Gas smell complaint / exhaust adjustment",
-    priority: "medium",
-    triggers: [
-      "gas smell",
-      "smell gas",
-      "amine smell",
-      "gas odor",
-      "strong gas smell",
-      "fumes during gassing",
-      "exhaust adjustment",
-      "venting smell",
-    ],
-    symptom: "Operators notice gas odor during or after the gassing cycle.",
-    firstChecks: [
-      "Confirm the area is safe and ventilation is functioning per site policy.",
-      "Check for obvious leaks in accessible lines or fittings using normal safe observation.",
-      "Check whether the exhaust-related setting is too low for clearing residual gas.",
-    ],
-    nextSteps: [
-      "If odor increased after changes, revert the last approved setting change if allowed and document it.",
-      "Increase Gas Exhaust Time slightly if procedure allows.",
-      "If odor persists or a leak is suspected, stop and escalate.",
-    ],
-    likelyCauses: [
-      "Exhaust duration too short",
-      "Leak in accessible connections",
-      "Ventilation issue in the area",
-    ],
-    whenCallMaint:
-      "Call maintenance if a suspected leak cannot be identified or stopped safely, if odor persists despite approved exhaust adjustment, or if there is any alarm or exposure concern.",
-    safetyNotes: [
-      "Treat unusual odor as a safety issue first. Follow site PPE and ventilation rules.",
-    ],
-    pending: [],
-    relatedPages: [
-      { label: "Gassing parameters", route: "screens/gassing" },
-      { label: "Core Reference", route: "loadbox/core-reference" },
-    ],
-  },
-  {
+  },  {
     id: "vent-marks-holes",
     title: "Holes/marks near vents (possible over-gassing symptom)",
     priority: "medium",
@@ -435,48 +346,7 @@ export const KB_TROUBLESHOOT = [
       { label: "Machine Operation", route: "basics" },
       { label: "Control Screens", route: "screens" },
     ],
-  },
-  {
-    id: "light-curtain-interrupted",
-    title: "Light curtain interrupted",
-    priority: "high",
-    triggers: [
-      "light curtain interrupted",
-      "light curtain blocked",
-      "safety curtain blocked",
-      "light barrier blocked",
-      "machine won't run light curtain",
-      "machine wont run light curtain",
-    ],
-    symptom:
-      "The machine will not run or stops because the light curtain is interrupted.",
-    firstChecks: [
-      "Check that no person, part, cart, or tool is in the light curtain area.",
-      "Check for anything breaking the curtain path.",
-      "Check that the area is clear before trying again.",
-      "Check for anything hanging or sitting in the safety zone.",
-    ],
-    nextSteps: [
-      "Clear the area completely.",
-      "Check for material or obstruction in the light curtain path.",
-      "Retry only after the area is clear and the condition is understood.",
-      "If the curtain still shows blocked, document what the screen says.",
-    ],
-    likelyCauses: [
-      "The safety light curtain is detecting an interruption",
-      "Material, person, or obstruction is in the curtain path",
-      "Possible curtain alignment or sensor problem",
-    ],
-    whenCallMaint:
-      "Call maintenance if the light curtain fault remains after the area is clear, if the curtain appears clear but the machine still shows interruption, or if you suspect a sensor or alignment problem.",
-    safetyNotes: ["Do not bypass or defeat the light curtain."],
-    pending: [],
-    relatedPages: [
-      { label: "Machine Operation", route: "basics" },
-      { label: "Control Screens", route: "screens" },
-    ],
-  },
-  {
+  },  {
     id: "open-door-upper-section",
     title: "Open door on upper section",
     priority: "high",
@@ -600,99 +470,7 @@ export const KB_TROUBLESHOOT = [
       { label: "Corebox Setup", route: "loadbox" },
       { label: "Troubleshooting", route: "troubleshooting" },
     ],
-  },
-  {
-    id: "shot-not-full",
-    title: "Shot not full",
-    priority: "high",
-    triggers: [
-      "shot not full",
-      "incomplete shot",
-      "partial shot",
-      "weak fill",
-      "core not full",
-      "core not filling",
-      "weak core fill",
-      "shot incomplete",
-    ],
-    symptom:
-      "The shot is incomplete and the core does not fill out the way it should.",
-    firstChecks: [
-      "Check whether shooting pressure looks reduced.",
-      "Check for buildup or restriction in the shoot area if safe.",
-      "Check whether the problem happens every cycle or only sometimes.",
-      "Check whether the setup still matches the correct job conditions.",
-    ],
-    nextSteps: [
-      "Compare current machine behavior to the last known good run.",
-      "Clear obvious buildup if procedure allows.",
-      "Retry only after confirming the machine is safe and the setup looks correct.",
-      "Document whether the shot stays weak in the same area each time.",
-    ],
-    likelyCauses: [
-      "Reduced shooting pressure",
-      "Restriction or buildup in the shoot path",
-      "Material movement issue",
-      "Incorrect process or setup condition",
-    ],
-    whenCallMaint:
-      "Call maintenance or setup if shots continue to be incomplete after basic checks, or if the machine repeatedly produces weak shots.",
-    safetyNotes: [],
-    pending: [],
-    relatedPages: [
-      { label: "Core Reference", route: "loadbox/core-reference" },
-      {
-        label: "Reduced shooting pressure",
-        route: "troubleshooting/reduced-shooting-pressure",
-      },
-      { label: "Corebox Setup", route: "loadbox" },
-    ],
-  },
-  {
-    id: "reduced-shooting-pressure",
-    title: "Reduced shooting pressure",
-    priority: "medium",
-    triggers: [
-      "reduced shooting pressure",
-      "low shooting pressure",
-      "shooting pressure low",
-      "low shot pressure",
-      "shoot pressure low",
-    ],
-    symptom:
-      "The machine appears to have low shooting force or a low-pressure shooting condition.",
-    firstChecks: [
-      "Check whether the shooting pressure indication or job setting looks lower than expected.",
-      "Check for visible restriction or buildup in the shooting area if safe.",
-      "Check whether material flow looks normal.",
-      "Check whether the problem happens every cycle or only sometimes.",
-    ],
-    nextSteps: [
-      "If the main symptom is incomplete fill, use Shot not full as the main troubleshooting path.",
-      "Check the shooting area for buildup or blockage.",
-      "Confirm the process is set to the correct job conditions.",
-      "Retry only after obvious issues are cleared and the machine is safe.",
-    ],
-    likelyCauses: [
-      "Shooting pressure lower than needed",
-      "Restriction or blockage",
-      "Flow issue",
-      "Machine-side pressure issue",
-    ],
-    whenCallMaint:
-      "Call maintenance if pressure still appears low after basic checks, if the condition repeats, or if you suspect a pressure supply or machine-side problem.",
-    safetyNotes: [],
-    pending: [],
-    relatedPages: [
-      { label: "Core Reference", route: "loadbox/core-reference" },
-      {
-        label: "Shot not full",
-        route: "troubleshooting/shot-not-full",
-      },
-      { label: "Control Screens", route: "screens" },
-    ],
-  },
-  {
+  },  {
     id: "core-not-shot-out",
     title: "Core is not shot out",
     priority: "medium",
@@ -737,167 +515,7 @@ export const KB_TROUBLESHOOT = [
       },
       { label: "Corebox Setup", route: "loadbox" },
     ],
-  },
-  {
-    id: "shooting-area-damp",
-    title: "Shooting area damp",
-    priority: "medium",
-    triggers: [
-      "shooting area damp",
-      "shoot area damp",
-      "damp shooting area",
-      "wet shoot area",
-      "moisture in shooting area",
-    ],
-    symptom:
-      "The shooting area is damp or moisture-related condition is affecting the shooting process.",
-    firstChecks: [
-      "Check whether the issue is constant or only appears after longer runtime.",
-      "Check whether the machine is also showing heater or temperature-related symptoms.",
-      "Check whether flushing or purge behavior changed recently.",
-      "Document when the damp condition is first noticed.",
-    ],
-    nextSteps: [
-      "Record whether the issue is paired with hardening or shooting faults.",
-      "Escalate if the damp condition repeats or affects quality.",
-      "Do not keep guessing through repeated runs if moisture-related issues continue.",
-    ],
-    likelyCauses: [
-      "Ex-flow heater not at operating temperature",
-      "Purge pressure too low",
-      "Moisture-related process condition",
-    ],
-    whenCallMaint:
-      "Call maintenance if the shooting area stays damp, if heater-related symptoms are also active, or if the condition keeps affecting production.",
-    safetyNotes: [],
-    pending: [],
-    relatedPages: [
-      { label: "Troubleshooting", route: "troubleshooting" },
-      { label: "Gassing parameters", route: "screens/gassing" },
-    ],
-  },
-  {
-    id: "shooting-area-not-flushed",
-    title: "Shooting area not flushed out",
-    priority: "medium",
-    triggers: [
-      "shooting area not flushed",
-      "shoot area not flushed",
-      "not flushed out",
-      "shooting area not clearing",
-      "shoot area not clearing",
-    ],
-    symptom:
-      "The shooting area does not flush out correctly after the cycle.",
-    firstChecks: [
-      "Check whether the issue happens every cycle or only intermittently.",
-      "Check whether final pressure timing or purge pressure was changed recently.",
-      "Check whether the machine also shows related shooting or damp-area symptoms.",
-      "Document the exact step where clearing seems incomplete.",
-    ],
-    nextSteps: [
-      "Record whether the issue began after a setting change.",
-      "Compare current behavior to the last known good run if possible.",
-      "Escalate if the shooting area repeatedly fails to clear correctly.",
-    ],
-    likelyCauses: [
-      "Time to final pressure too short",
-      "Purge pressure too high",
-      "Proportional valve condition",
-    ],
-    whenCallMaint:
-      "Call maintenance or setup if the shooting area repeatedly does not flush out, or if the condition begins affecting quality or cycle reliability.",
-    safetyNotes: [],
-    pending: [],
-    relatedPages: [
-      { label: "Troubleshooting", route: "troubleshooting" },
-      { label: "Control Screens", route: "screens" },
-    ],
-  },
-  {
-    id: "core-not-gassed",
-    title: "Core is not gassed",
-    priority: "high",
-    triggers: [
-      "core not gassed",
-      "not gassed",
-      "no gassing",
-      "core wont gas",
-      "core won't gas",
-      "gassing fault core",
-    ],
-    symptom:
-      "The core does not appear to gas correctly or the hardening step does not happen.",
-    firstChecks: [
-      "Check whether the gassing step actually ran.",
-      "Check the screen for a hardening or gassing-related message.",
-      "Check whether the correct job settings are loaded.",
-      "Check whether this happens every cycle or only sometimes.",
-    ],
-    nextSteps: [
-      "Confirm the machine reached the gassing step.",
-      "Document the exact point where the cycle fails.",
-      "Compare current settings to the correct job setup if allowed.",
-      "Retry only if the machine condition is understood and safe.",
-    ],
-    likelyCauses: [
-      "Gassing step did not run correctly",
-      "Wrong or incomplete process condition",
-      "Hardening-related machine fault",
-    ],
-    whenCallMaint:
-      "Call maintenance if the gassing step still does not happen, if the screen shows a hardening fault you cannot clear safely, or if the same condition repeats.",
-    safetyNotes: [
-      "Do not guess through repeated runs if the core is not being gassed correctly.",
-    ],
-    pending: [],
-    relatedPages: [
-      { label: "Core Reference", route: "loadbox/core-reference" },
-      { label: "Gassing parameters", route: "screens/gassing" },
-      { label: "Machine Operation", route: "basics" },
-    ],
-  },
-  {
-    id: "whistling-noise-gassing",
-    title: "Whistling noise during gassing or hardening",
-    priority: "medium",
-    triggers: [
-      "whistling noise gassing",
-      "whistling noise hardening",
-      "whistling during gassing",
-      "whistle noise machine",
-      "gas whistle noise",
-    ],
-    symptom:
-      "A whistling noise is heard during the gassing or hardening-related part of the cycle.",
-    firstChecks: [
-      "Check whether the whistling only happens during one specific step.",
-      "Check whether the issue started after a setup, line, or box change.",
-      "Check whether there are also gassing or hardening quality issues.",
-      "Document exactly when the noise starts and stops.",
-    ],
-    nextSteps: [
-      "Record whether the noise is repeatable every cycle.",
-      "Report whether the issue is tied to one box, one side, or all runs.",
-      "Escalate if the noise is repeatable or paired with quality problems.",
-    ],
-    likelyCauses: [
-      "Gas not entering correctly",
-      "Restricted gas path or ventilation condition",
-      "Leak or flow issue in the hardening process",
-    ],
-    whenCallMaint:
-      "Call maintenance if whistling repeats, if gas flow is suspected to be abnormal, or if the sound is paired with hardening issues.",
-    safetyNotes: [
-      "Treat unusual gas-process sounds seriously and follow site safety practices.",
-    ],
-    pending: [],
-    relatedPages: [
-      { label: "Gassing parameters", route: "screens/gassing" },
-      { label: "Troubleshooting", route: "troubleshooting" },
-    ],
-  },
-  {
+  },  {
     id: "operating-substance-escaping",
     title: "Operating substance escaping at blank",
     priority: "high",
@@ -938,137 +556,56 @@ export const KB_TROUBLESHOOT = [
       { label: "Gassing parameters", route: "screens/gassing" },
       { label: "Troubleshooting", route: "troubleshooting" },
     ],
-  },
-  {
-    id: "core-does-not-harden",
-    title: "Core does not harden",
-    priority: "high",
-    triggers: [
-      "core does not harden",
-      "core not hard",
-      "soft core",
-      "won't harden",
-      "wont harden",
-      "hardening fault",
-      "soft after gassing",
-      "core wont harden",
-      "core won't harden",
-    ],
-    symptom:
-      "The core stays soft or does not harden correctly after the process.",
-    firstChecks: [
-      "Check whether the gassing step ran correctly.",
-      "Check whether the issue started after a setup or setting change.",
-      "Check whether the problem affects every cycle or only some parts.",
-      "Compare current conditions to the last known good run if possible.",
-    ],
-    nextSteps: [
-      "Confirm the correct job settings are loaded.",
-      "Check whether the problem is tied to startup, cold condition, or repeated cycles.",
-      "Document what changed before the issue started.",
-      "Escalate if acceptable cores cannot be produced.",
-    ],
-    likelyCauses: [
-      "Hardening step not completing correctly",
-      "Gassing-related process issue",
-      "Wrong setting or process condition",
-      "Material or process condition out of normal range",
-    ],
-    whenCallMaint:
-      "Call maintenance or setup if the core continues to stay soft, if acceptable cores cannot be produced, or if the hardening issue repeats after basic checks.",
-    safetyNotes: [],
-    pending: [],
-    relatedPages: [
-      { label: "Core Reference", route: "loadbox/core-reference" },
-      { label: "Gassing parameters", route: "screens/gassing" },
-      { label: "Machine Operation", route: "basics" },
-    ],
-  },
-  {
+  },  {
     id: "dosing-pump-not-running",
+    entryType: "v2",
+    category: "Gassing / Hardening",
     title: "Dosing pump not running",
     priority: "high",
+    allMaintenance: true,
     triggers: [
       "dosing pump not running",
       "pump not running hardening",
       "dosing pump fault",
       "hardening pump fault",
       "dosing fault pump",
+      "catalyst pump not running",
+      "dosing pump stopped",
     ],
-    symptom:
-      "The hardening process shows a dosing pump problem or the pump does not appear to run.",
-    firstChecks: [
-      "Check the screen for the exact dosing pump or hardening-related message.",
-      "Check whether the fault happens every cycle or only once.",
-      "Check whether the machine reached the hardening step.",
-      "Check whether another related hardening fault is also active.",
+    symptom: "The dosing pump isn't running.",
+    checks: [
+      {
+        cause: "Shut-off valve closed",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Catalyst dosing — supply shut-off valve",
+          check: "Check whether the shut-off valve on the dosing pump's supply line is closed. Open it if so — simplest possible cause, check this first.",
+          likelyPart: "None (just open the valve), unless the valve itself is faulty",
+          note: "Easiest cause first: a closed supply shut-off valve starves the pump. Check this before anything else.",
+        },
+      },
+      {
+        cause: "Dosing pump defective",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Catalyst dosing pump",
+          check: "If the supply valve is open and there's still no dosing, test the pump for power and function. Check pneumatic supply to the pump (if air-driven) and that it's getting its run signal.",
+          likelyPart: "Dosing pump (repair or replace)",
+          note: "With supply confirmed open, the pump itself isn't running — check its air/power supply and run signal before condemning it.",
+        },
+      },
+      {
+        cause: "Leakage in pneumatic lines",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Pneumatic lines feeding the dosing pump",
+          check: "If the pump is air-driven and weak/not running, check the pneumatic lines to it for leaks and loose fittings.",
+          likelyPart: "Pneumatic line / fitting",
+          note: "An air-driven dosing pump won't run right if its air lines are leaking. Check fittings along the run.",
+        },
+      },
     ],
-    nextSteps: [
-      "Record the exact fault message and when it happens in the cycle.",
-      "Retry only if the machine condition is understood and site procedure allows it.",
-      "If the fault returns immediately, stop repeated retries.",
-      "Document whether the problem started after a change, reset, or restart.",
-    ],
-    likelyCauses: [
-      "Dosing pump did not run correctly",
-      "Hardening system fault",
-      "Related control or supply issue",
-    ],
-    whenCallMaint:
-      "Call maintenance if the dosing pump fault repeats, if the hardening step cannot run, or if the core quality is affected and the cause is not obvious.",
-    safetyNotes: [
-      "Do not keep cycling the machine if the hardening system is not working correctly.",
-    ],
-    pending: [],
-    relatedPages: [
-      { label: "Core Reference", route: "loadbox/core-reference" },
-      { label: "Gassing parameters", route: "screens/gassing" },
-      { label: "Machine Operation", route: "basics" },
-    ],
-  },
-  {
-    id: "no-medium-at-ex-flow-heater",
-    title: "No medium at ex-flow heater",
-    priority: "high",
-    triggers: [
-      "no medium at ex flow heater",
-      "no medium at ex-flow heater",
-      "ex flow heater no medium",
-      "heater medium fault",
-      "hardening heater fault",
-    ],
-    symptom:
-      "The machine shows a no-medium or heater-related hardening fault.",
-    firstChecks: [
-      "Check the exact fault text on the screen.",
-      "Check whether the hardening step is failing every cycle.",
-      "Check whether another heater or hardening-related fault is active at the same time.",
-      "Document where in the cycle the fault appears.",
-    ],
-    nextSteps: [
-      "Do not keep restarting the cycle without understanding the fault.",
-      "Record the exact message and whether the problem is repeatable.",
-      "Compare the current condition to the last known good run if allowed.",
-      "Escalate with the fault text and cycle step information.",
-    ],
-    likelyCauses: [
-      "Heater-related medium or supply condition is not being met",
-      "Hardening system fault",
-      "Related control or process issue",
-    ],
-    whenCallMaint:
-      "Call maintenance if the fault repeats, if the hardening step cannot complete, or if heater-related faults remain active.",
-    safetyNotes: [
-      "Do not guess through repeated runs when a heater or hardening supply fault is active.",
-    ],
-    pending: [],
-    relatedPages: [
-      { label: "Core Reference", route: "loadbox/core-reference" },
-      { label: "Gassing parameters", route: "screens/gassing" },
-      { label: "Machine Operation", route: "basics" },
-    ],
-  },
-  {
+  },  {
     id: "temperature-limiter-tripped",
     title: "Temperature limiter tripped",
     priority: "high",
@@ -1108,53 +645,7 @@ export const KB_TROUBLESHOOT = [
       { label: "Emergency & Safety", route: "safety" },
       { label: "Troubleshooting", route: "troubleshooting" },
     ],
-  },
-  {
-    id: "pneumatic-fault",
-    title: "Pneumatic fault / air system issue",
-    priority: "high",
-    triggers: [
-      "pneumatic fault",
-      "air system issue",
-      "air fault",
-      "pneumatic issue",
-      "air pressure problem machine",
-      "pneu fault",
-    ],
-    symptom:
-      "The machine shows a pneumatic fault or air-related functions do not respond correctly.",
-    firstChecks: [
-      "Check the screen for the exact pneumatic fault text.",
-      "Confirm plant air supply is present and stable.",
-      "Check whether the problem is tied to one motion or function.",
-      "Check for obvious loose airlines or audible leaks if safe.",
-      "Check whether Reset Air is appropriate and allowed for the stopped condition.",
-    ],
-    nextSteps: [
-      "If safe and allowed, perform the normal reset practice once.",
-      "Check whether the same pneumatic fault returns at the same step.",
-      "Record the exact message, machine step, and any gauge condition.",
-      "Stop repeated resets if the same fault keeps coming back.",
-    ],
-    likelyCauses: [
-      "Air supply condition is not stable",
-      "Pneumatic valve or actuator issue",
-      "Air leak or line problem",
-      "Required air-driven condition is not being made",
-    ],
-    whenCallMaint:
-      "Call maintenance if the pneumatic fault repeats after a normal reset, if air supply looks unstable, if a leak is obvious, or if a motion will not make correctly.",
-    safetyNotes: [
-      "Do not keep forcing cycles through repeated resets when the air system is not making correctly.",
-    ],
-    pending: [],
-    relatedPages: [
-      { label: "Control Screens", route: "screens" },
-      { label: "Machine Operation", route: "basics" },
-      { label: "Troubleshooting", route: "troubleshooting" },
-    ],
-  },
-  {
+  },  {
     id: "electrical-fault",
     title: "Electrical fault / control power issue",
     priority: "high",
@@ -1198,133 +689,7 @@ export const KB_TROUBLESHOOT = [
       { label: "Machine Operation", route: "basics" },
       { label: "Troubleshooting", route: "troubleshooting" },
     ],
-  },
-  {
-    id: "voltage-supply-24v-missing",
-    title: "Voltage supply 24V missing",
-    priority: "high",
-    triggers: [
-      "24v missing",
-      "voltage supply 24v missing",
-      "24v supply missing",
-      "missing 24v",
-      "24v fault machine",
-    ],
-    symptom:
-      "The machine shows a 24V supply problem or related control supply fault.",
-    firstChecks: [
-      "Check the exact message on the screen.",
-      "Check whether other control-related functions are also affected.",
-      "Check whether the fault appeared during startup or mid-cycle.",
-      "Document whether the message returns immediately after reset.",
-    ],
-    nextSteps: [
-      "Stop repeated resets if the 24V fault returns right away.",
-      "Record which machine functions were lost or affected.",
-      "Escalate with the exact message and machine state.",
-    ],
-    likelyCauses: [
-      "24V supply missing",
-      "Control-side voltage problem",
-      "Electrical supply or fuse-related issue",
-    ],
-    whenCallMaint:
-      "Call maintenance immediately if 24V supply is missing or if control functions are lost.",
-    safetyNotes: [
-      "Do not open electrical areas unless authorized and following procedure.",
-    ],
-    pending: [],
-    relatedPages: [
-      { label: "Control Screens", route: "screens" },
-      { label: "Troubleshooting", route: "troubleshooting" },
-    ],
-  },
-  {
-    id: "cpu-error-machine",
-    title: "CPU error",
-    priority: "high",
-    triggers: [
-      "cpu error",
-      "machine cpu error",
-      "controller cpu fault",
-      "system cpu error",
-      "plc cpu error",
-    ],
-    symptom:
-      "The machine shows a CPU or controller error and normal operation is blocked.",
-    firstChecks: [
-      "Check the exact fault text on the screen.",
-      "Check whether the machine lost only one function or the whole control response.",
-      "Check whether the issue happened during startup or during operation.",
-      "Document whether the error clears or returns immediately.",
-    ],
-    nextSteps: [
-      "Stop repeated retries if the CPU error comes back right away.",
-      "Record the exact wording of the message and what the machine was doing.",
-      "Escalate as a control-side fault.",
-    ],
-    likelyCauses: [
-      "System or controller error",
-      "Control-side hardware or logic issue",
-      "CPU fault affecting normal operation",
-    ],
-    whenCallMaint:
-      "Call maintenance immediately if a CPU error is active or returns immediately after reset.",
-    safetyNotes: [
-      "Do not guess through repeated restarts with a controller fault active.",
-    ],
-    pending: [],
-    relatedPages: [
-      { label: "Control Screens", route: "screens" },
-      { label: "Troubleshooting", route: "troubleshooting" },
-    ],
-  },
-  {
-    id: "excessive-noise-vibration",
-    title: "Excessive noise / vibration",
-    priority: "high",
-    triggers: [
-      "excessive noise",
-      "excessive vibration",
-      "machine shaking",
-      "loud machine",
-      "machine rattling",
-      "vibrating machine",
-      "abnormal vibration",
-    ],
-    symptom:
-      "The machine makes unusual noise, rattles, or vibrates more than normal during operation.",
-    firstChecks: [
-      "Check whether the noise happens at the same step every cycle.",
-      "Check whether the vibration started after a setup, box change, or restart.",
-      "Check for obvious loose material, loose parts, or abnormal movement if safe to observe.",
-      "Check whether the noise is coming from one area only or the whole machine.",
-    ],
-    nextSteps: [
-      "Stop and observe which motion or step causes the noise.",
-      "Do not keep cycling the machine just to see if it gets better.",
-      "Document the step, area, and whether the sound is constant or only during one motion.",
-      "Escalate with the exact cycle point where the vibration starts.",
-    ],
-    likelyCauses: [
-      "Abnormal machine movement",
-      "Loose or unstable component",
-      "Hydraulic or mechanical issue",
-      "Problem tied to one motion or load condition",
-    ],
-    whenCallMaint:
-      "Call maintenance if the noise or vibration is new, severe, getting worse, or tied to a repeated machine motion.",
-    safetyNotes: [
-      "Do not continue running a machine that is vibrating abnormally or sounds unsafe.",
-    ],
-    pending: [],
-    relatedPages: [
-      { label: "Machine Operation", route: "basics" },
-      { label: "Control Screens", route: "screens" },
-      { label: "Troubleshooting", route: "troubleshooting" },
-    ],
-  },
-  {
+  },  {
     id: "jerky-movement-oscillation",
     title: "Jerky movement / oscillation",
     priority: "high",
@@ -1408,50 +773,7 @@ export const KB_TROUBLESHOOT = [
       { label: "Control Screens", route: "screens" },
       { label: "Machine Operation", route: "basics" },
     ],
-  },
-  {
-    id: "hydraulic-oil-level-low",
-    title: "Hydraulic oil level too low",
-    priority: "high",
-    triggers: [
-      "hydraulic oil level low",
-      "oil level too low hydraulic",
-      "low hydraulic oil",
-      "hydraulic oil low",
-      "hydraulic reservoir low",
-    ],
-    symptom:
-      "The machine shows a low hydraulic oil condition or related hydraulic warning.",
-    firstChecks: [
-      "Check the exact fault or warning text on the screen.",
-      "Check whether the machine also shows noise, motion, or pressure issues.",
-      "Check whether the condition is constant or only appears during operation.",
-      "Document whether the issue appeared after recent maintenance or leakage.",
-    ],
-    nextSteps: [
-      "Stop repeated operation if hydraulic warnings keep returning.",
-      "Record the exact message and related machine behavior.",
-      "Escalate if any leak or repeated low-oil condition is suspected.",
-    ],
-    likelyCauses: [
-      "Hydraulic oil level too low",
-      "Leak in the hydraulic circuit",
-      "Hydraulic supply condition out of range",
-    ],
-    whenCallMaint:
-      "Call maintenance immediately if low hydraulic oil is indicated, if a leak is suspected, or if other hydraulic symptoms are present.",
-    safetyNotes: [
-      "Hydraulic systems can be hazardous under pressure.",
-      "Do not open or loosen hydraulic components unless authorized.",
-    ],
-    pending: [],
-    relatedPages: [
-      { label: "Troubleshooting", route: "troubleshooting" },
-      { label: "Emergency & Safety", route: "safety" },
-      { label: "Control Screens", route: "screens" },
-    ],
-  },
-  {
+  },  {
     id: "return-flow-filter-soiled",
     title: "Return flow filter soiled",
     priority: "medium",
@@ -1531,49 +853,6 @@ export const KB_TROUBLESHOOT = [
       { label: "Control Screens", route: "screens" },
     ],
   },
-  {
-    id: "oil-temperature-too-high",
-    title: "Oil temperature too high",
-    priority: "high",
-    triggers: [
-      "oil temperature too high",
-      "oil too hot",
-      "hydraulic oil hot",
-      "high oil temperature",
-      "oil temp high",
-      "overheating oil",
-    ],
-    symptom:
-      "The machine shows signs of high oil temperature or an oil-temperature-related fault.",
-    firstChecks: [
-      "Check the screen for the exact temperature or hydraulic-related message.",
-      "Check whether the machine is also showing noise, vibration, or unstable movement.",
-      "Check whether the issue gets worse the longer the machine runs.",
-      "Record when the temperature-related issue appears in the shift or run.",
-    ],
-    nextSteps: [
-      "Stop repeated running if the machine appears to be overheating.",
-      "Document the exact message and related machine behavior.",
-      "Report whether the issue is tied to longer runtime, repeated cycling, or other hydraulic symptoms.",
-    ],
-    likelyCauses: [
-      "Hydraulic oil temperature out of normal range",
-      "Related hydraulic system condition",
-      "Heat-related performance issue in the hydraulic system",
-    ],
-    whenCallMaint:
-      "Call maintenance if oil temperature is too high, if the fault repeats, or if the machine shows related hydraulic performance problems.",
-    safetyNotes: [
-      "Do not continue pushing the machine if overheating is suspected.",
-    ],
-    pending: [],
-    relatedPages: [
-      { label: "Control Screens", route: "screens" },
-      { label: "Machine Operation", route: "basics" },
-      { label: "Troubleshooting", route: "troubleshooting" },
-    ],
-  },
-
   {
     id: "mixer-wont-start",
     title: "Mixer won’t start",
@@ -2568,6 +1847,1109 @@ export const KB_TROUBLESHOOT = [
       { label: "Control Screens", route: "screens" },
     ],
   },
+  // ── v2 entries — Laempe LFB25 manual fault tables (sections 10.6–10.9) ──
+
+  {
+    id: "shoot-not-shot-out",
+    entryType: "v2",
+    category: "Shooting",
+    title: "Core box empty or partially filled after shot",
+    priority: "high",
+    triggers: [
+      "core not shot out",
+      "core box empty after shot",
+      "core not filled",
+      "shot not filling core",
+      "incomplete fill",
+      "shooting filter dirty",
+      "vent nozzles dirty",
+    ],
+    symptom: "The core box is empty or only partially filled after the shot.",
+    checks: [
+      { cause: "Shooting pressure too low", action: "Increase the shooting pressure", tag: "operator" },
+      { cause: "Shooting time too short", action: "Increase the shooting time", tag: "operator" },
+      { cause: "Too little sand-binder mix in the shoot tube", action: "Increase the filled sand-binder quantity", tag: "operator" },
+      { cause: "Shooting filter dirty", action: "Clean the shooting filter", tag: "operator" },
+      { cause: "Poor core box ventilation", action: "Clean the vent nozzles", tag: "operator" },
+      { cause: "Shoot plate holes/nozzles dirty", action: "Clean the shoot plate, including the holes and extended nozzles", tag: "operator" },
+    ],
+  },
+
+  {
+    id: "shoot-mix-escapes",
+    entryType: "v2",
+    category: "Shooting",
+    title: "Sand binder mixture escapes between shoot head and shoot tube",
+    priority: "high",
+    triggers: [
+      "mix escaping shoot head",
+      "sand leaking shoot head",
+      "binder leaking shoot tube",
+      "mix leak shoot head tube",
+      "sand escaping shoot",
+      "sealing ring shoot head",
+    ],
+    symptom: "Sand-binder mix leaks out where the shoot head meets the shoot tube during the shot.",
+    checks: [
+      {
+        cause: "Sealing surface dirty",
+        action: "Clean the sealing surface; check the hydraulic oil fill level and refill if needed",
+        tag: "operator",
+      },
+      {
+        cause: "Sealing ring defective",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Shoot head / shoot tube interface (shooting unit)",
+          check: "Inspect the sealing ring between the shoot head and shoot tube for wear, cracking, or flattening. Also check the press-on ratio and clamping force — if the clamp isn't pressing the head down hard enough, a good seal will still leak.",
+          likelyPart: "Shoot head/tube sealing ring (consumable wear part); possibly a clamping cylinder adjustment",
+          note: "Most likely a worn-out seal. If the seal looks fine, the clamping force holding the shoot head against the tube is too low.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "shoot-reduced-pressure",
+    entryType: "v2",
+    category: "Shooting",
+    title: "Reduced shooting pressure",
+    priority: "medium",
+    triggers: [
+      "reduced shooting pressure",
+      "low shooting pressure",
+      "shooting pressure low",
+      "shoot pressure low",
+      "shoot exhaust valve dirty",
+      "exhaust valve not closing shoot",
+    ],
+    symptom: "Shooting pressure is lower than it should be.",
+    checks: [
+      { cause: "Shoot exhaust valve does not close", action: "Clean the shoot exhaust valve", tag: "operator" },
+      {
+        cause: "Shoot exhaust valve seal worn",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Shooting unit — shoot exhaust valve",
+          check: "If cleaning the exhaust valve didn't fix it, the valve seal/membrane is leaking and letting shot pressure bleed off. Inspect the exhaust valve seal/membrane for wear or tears.",
+          likelyPart: "Shoot exhaust valve seal / membrane (wear part)",
+          note: "Pressure is escaping through a valve that won't seal. Cleaning is the operator step; if that fails, the seal is shot.",
+        },
+      },
+      {
+        cause: "Pressure regulator defective",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Pneumatic supply — shooting pressure regulator",
+          check: "Verify set pressure vs. actual delivered pressure at the shooting regulator. If actual is below setpoint and the supply is good, the regulator isn't holding pressure.",
+          likelyPart: "Pressure regulator for shooting air",
+          note: "The regulator that sets shot pressure isn't delivering. Check supply pressure first to rule out an upstream cause before condemning the regulator.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "shoot-mix-emerges-after-shot",
+    entryType: "v2",
+    category: "Shooting",
+    title: "Sand binder mixture emerges from the shoot head after the shot",
+    priority: "medium",
+    triggers: [
+      "mix comes out after shot",
+      "sand after shot",
+      "mix dripping after shot",
+      "binder drip after shot",
+      "mix emerges shoot head",
+      "silencer soiled",
+      "shot bleeding time short",
+    ],
+    symptom: "Mix comes out of the shoot head after the shot is finished.",
+    checks: [
+      { cause: "Shot bleeding time too short", action: "Increase the shot bleeding time", tag: "operator" },
+      { cause: "Silencer soiled", action: "Clean the silencer", tag: "operator" },
+      {
+        cause: "Shooting valve does not close quickly enough",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Shooting unit — main shooting valve",
+          check: "The shooting valve is closing too slowly, so mix keeps coming after the shot should be done. Inspect the shooting valve sealing ring for wear and check the valve return spring for fatigue/breakage.",
+          likelyPart: "Shooting valve sealing ring and/or return spring",
+          note: "A slow-closing shot valve is usually a tired return spring or a worn seal. Replace the seal, check the spring.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "shoot-no-shot-or-delay",
+    entryType: "v2",
+    category: "Shooting",
+    title: "No shot, or shot is delayed",
+    priority: "high",
+    triggers: [
+      "no shot",
+      "shot delayed",
+      "delayed shot",
+      "machine won't shoot",
+      "machine wont shoot",
+      "no shooting",
+      "shot not happening",
+      "shot parameters faulty",
+    ],
+    symptom: "The machine doesn't shoot, or there's a noticeable delay before the shot.",
+    checks: [
+      {
+        cause: "Core box data or shot parameters faulty",
+        action: "Check the programming/shot settings and change if required",
+        tag: "operator",
+      },
+      {
+        cause: "Loss of pressure in hoses, valves, cylinders or seals",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Pneumatic / shooting pressure circuit",
+          check: "After ruling out settings, there's a pressure leak somewhere in the shot circuit. Walk the line from the shooting air reservoir through the hoses, valves, and shot cylinder seals listening/feeling for leaks; check fittings.",
+          likelyPart: "Depends on where the leak is — hose, valve seal, or cylinder seal",
+          note: "Operator already confirmed settings are fine, so this is a physical pressure loss. Start at the reservoir and work toward the shot head.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "harden-too-little-purge",
+    entryType: "v2",
+    category: "Gassing / Hardening",
+    title: "Too little purge pressure",
+    priority: "medium",
+    triggers: [
+      "purge pressure low",
+      "too little purge",
+      "purge pressure too low",
+      "low purge pressure",
+      "purge insufficient",
+    ],
+    symptom: "Purge pressure is lower than required.",
+    checks: [
+      { cause: "System pressure too low", action: "Check the system pressure on the gauge", tag: "operator" },
+      {
+        cause: "Pressure regulator defective",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Gassing/purge pneumatic circuit — purge pressure regulator",
+          check: "Operator confirmed system pressure is OK but purge pressure is still low, so the purge regulator isn't holding setpoint. Compare set vs. actual purge pressure at the regulator.",
+          likelyPart: "Purge pressure regulator",
+          note: "The regulator controlling purge pressure isn't delivering. Supply is already confirmed good by the operator.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "harden-shooting-area-damp",
+    entryType: "v2",
+    category: "Gassing / Hardening",
+    title: "Shooting area on core is damp",
+    priority: "medium",
+    triggers: [
+      "shooting area damp",
+      "core comes out damp",
+      "damp core shooting area",
+      "ex flow heater temperature low",
+      "partial pressure ex flow heater",
+      "dosing quantity adjust damp",
+    ],
+    symptom: "The shooting area of the core comes out damp.",
+    checks: [
+      {
+        cause: "Purge pressure too low",
+        action: "Increase the purge pressure",
+        tag: "operator",
+      },
+      {
+        cause: "Ex-flow heater not at operating temperature",
+        action: "Check the ex-flow heater temperature setting and adjust if required",
+        tag: "operator",
+      },
+      {
+        cause: "Partial pressure at ex-flow heater too great; medium is liquid again",
+        action: "Check the dosing quantity and adjust; check the ex-flow heater temperature setting",
+        tag: "operator",
+      },
+    ],
+  },
+
+  {
+    id: "harden-area-flushed-out",
+    entryType: "v2",
+    category: "Gassing / Hardening",
+    title: "Shooting area is flushed out",
+    priority: "medium",
+    triggers: [
+      "shooting area flushed out",
+      "core washed out",
+      "shooting area eroded",
+      "time to final pressure too short",
+      "purge pressure too high",
+      "proportional valve defective",
+    ],
+    symptom: "The shooting area on the core looks washed out / eroded.",
+    checks: [
+      { cause: "Time to final pressure too short", action: "Increase the time to final pressure", tag: "operator" },
+      { cause: "Purge pressure too high", action: "Reduce the purge pressure", tag: "operator" },
+      {
+        cause: "Proportional valve defective",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Gassing pressure control — proportional valve",
+          check: "If settings are correct and it still flushes out, the proportional valve that ramps gassing pressure isn't controlling smoothly. Test the proportional valve's response against its control signal.",
+          likelyPart: "Proportional (pressure ramp) valve for gassing",
+          note: "The valve that should ramp pressure gently is dumping it too fast/uneven, eroding the core. Operator already adjusted the timing/pressure settings.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "harden-whistling",
+    entryType: "v2",
+    category: "Gassing / Hardening",
+    title: "Whistling noises during gassing",
+    priority: "medium",
+    triggers: [
+      "whistling gassing",
+      "whistle noise gassing",
+      "whistling during gassing",
+      "gas whistle noise",
+      "sand between seals gassing",
+      "gassing plate not airtight",
+    ],
+    symptom: "A whistling noise is heard while gassing.",
+    checks: [
+      {
+        cause: "Sand between the seals",
+        action: "Remove sand from between the gassing intermediate plate / core box seals",
+        tag: "operator",
+      },
+      {
+        cause: "Gassing intermediate plate or core box not airtight (after cleaning)",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Gassing carriage — intermediate plate / core box sealing",
+          check: "Operator already removed sand from between the seals. If it still whistles, the seal itself is worn or the intermediate plate isn't seating flat. Inspect seals and plate flatness.",
+          likelyPart: "Gassing intermediate plate seal(s)",
+          note: "Whistling = gas escaping a bad seal. Operator cleared sand already, so the seal needs replacing or the plate needs reseating.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "harden-core-not-gassed",
+    entryType: "v2",
+    category: "Gassing / Hardening",
+    title: "Core is not gassed",
+    priority: "high",
+    triggers: [
+      "core not gassed",
+      "core not gassing",
+      "gassing not happening",
+      "gassing unit fault",
+      "carriage not reaching end position",
+      "end position gassing carriage",
+    ],
+    symptom: "The core doesn't get gassed at all.",
+    checks: [
+      {
+        cause: "Gassing unit does not have approval to run the process",
+        action: "Check error notifications on the HMI and clear faults if required",
+        tag: "operator",
+      },
+      {
+        cause: "End position of the gassing carriage not reached",
+        action: "Check the core box setup is correct",
+        tag: "operator",
+      },
+      {
+        cause: "Gassing carriage still won't reach end position after setup check",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Gassing carriage drive (pneumatic) + position sensing",
+          check: "Operator confirmed core box setup is right but the carriage still won't reach its end position, so it's not getting an end-position signal. Check the carriage's pneumatic drive for full travel and the end-position sensor/proximity switch.",
+          likelyPart: "Carriage end-position sensor / proximity switch, or pneumatic drive component",
+          note: "Without an end-position signal the machine won't allow gassing. Either the carriage isn't physically traveling all the way, or the sensor that confirms it isn't reading.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "harden-core-not-harden",
+    entryType: "v2",
+    category: "Gassing / Hardening",
+    title: "Core does not harden",
+    priority: "high",
+    triggers: [
+      "core not hardening",
+      "core does not harden",
+      "soft core after gassing",
+      "core crumbly",
+      "core weak after gassing",
+      "gassing time too short",
+      "dosing quantity low",
+      "catalyst empty canister",
+      "catalyst feed line defective",
+    ],
+    symptom: "The core comes out soft, weak, or crumbly.",
+    checks: [
+      { cause: "Gassing time too short", action: "Increase the gassing time", tag: "operator" },
+      { cause: "Dosing quantity too low", action: "Increase the dosing quantity", tag: "operator" },
+      { cause: "Purge pressure too low", action: "Increase the purge pressure", tag: "operator" },
+      { cause: "Time to final pressure too long", action: "Reduce the time to final pressure", tag: "operator" },
+      { cause: "Poor core box ventilation", action: "Clean the vent nozzles", tag: "operator" },
+      {
+        cause: "Too little or no catalyst",
+        action: "Check the catalyst fill level; replace the empty canister if needed",
+        tag: "operator",
+      },
+      {
+        cause: "Catalyst feed line defective",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Catalyst (amine) dosing — feed line",
+          check: "Operator confirmed there's catalyst in the canister, but it's not reaching the process. Inspect the catalyst feed line from the canister to the gassing carriage for kinks, blockage, cracks, or disconnection.",
+          likelyPart: "Catalyst feed line / tubing",
+          note: "Catalyst is present but not getting through. The line between canister and carriage is blocked or leaking.",
+        },
+      },
+      {
+        cause: "Leakage in the pipe/gas line to the gassing carriage",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Gassing gas line to the carriage",
+          check: "Gas isn't reaching the core in full. Pressure-check / leak-check the gas piping run to the gassing carriage; check fittings and connections along the line.",
+          likelyPart: "Gas line fitting, hose, or connection",
+          note: "A leak in the gas delivery line means the core never gets enough gas to cure. Walk the line to the carriage.",
+        },
+      },
+      {
+        cause: "Heat insulation defective",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Ex-flow heater / heated gas path — insulation",
+          check: "If the gas is cooling before it reaches the core, the heat insulation on the heated path is damaged. Inspect insulation around the ex-flow heater and heated lines for damage or gaps.",
+          likelyPart: "Heat insulation (heated gas path)",
+          note: "Damaged insulation lets the heated medium cool down, so it won't cure properly. Repair the insulation.",
+        },
+      },
+      {
+        cause: "Valves do not work",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Gassing circuit valves",
+          check: "Run a functional test on the gassing circuit valves — confirm each opens/closes on command. A stuck valve can block gas flow.",
+          likelyPart: "Whichever gassing valve fails the functional test",
+          note: "One of the gassing valves may not be actuating. Functional-test them to find the stuck one.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "harden-odor",
+    entryType: "v2",
+    category: "Gassing / Hardening",
+    title: "Odor of operating substance",
+    priority: "high",
+    triggers: [
+      "gas smell",
+      "odor operating substance",
+      "amine smell",
+      "gas odor",
+      "smell gassing",
+      "operating substance smell",
+      "extraction not working",
+      "gassing hose defective",
+      "screw fitting leak gassing",
+    ],
+    symptom: "You can smell the operating substance / gassing medium.",
+    checks: [
+      {
+        cause: "Extraction system not working",
+        action: "Check the extraction (exhaust) function is switched on and running",
+        tag: "operator",
+      },
+      {
+        cause: "Gas Exhaust Time too short",
+        action: "Increase the Gas Exhaust Time slightly — only if the process procedure allows adjustment",
+        tag: "operator",
+      },
+      {
+        cause: "Operating substance escaping at screw fittings",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Gassing/medium piping — screw fittings",
+          check: "Operator confirmed extraction is running but you can still smell it, so there's a leak. Leak-check the screw fittings along the medium and gas lines.",
+          likelyPart: "Fitting seal / re-torque fittings",
+          note: "Smell with extraction running = an actual leak at a fitting. Tighten/reseal the leaking connection.",
+        },
+      },
+      {
+        cause: "Gassing hose defective",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Gassing hose",
+          check: "Inspect the gassing hose for cracks, splits, or perishing, and confirm it can move freely without chafing. Replace if damaged.",
+          likelyPart: "Gassing hose",
+          note: "A cracked or chafed gassing hose leaks medium. Replace it and make sure the new one isn't rubbing on anything.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "harden-no-heat-exflow",
+    entryType: "v2",
+    category: "Gassing / Hardening",
+    title: "No heat at the ex-flow heater",
+    priority: "high",
+    triggers: [
+      "no heat ex flow heater",
+      "ex-flow heater not heating",
+      "heater not heating",
+      "ex flow heater cold",
+      "temperature limiter triggered heater",
+      "heater no voltage",
+    ],
+    symptom: "The ex-flow heater isn't heating.",
+    checks: [
+      {
+        cause: "Temperature limiter triggered",
+        action: "Check the ex-flow heater temperature setting, adjust if needed, and acknowledge the overtemperature on the HMI",
+        tag: "operator",
+      },
+      {
+        cause: "No voltage",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Ex-flow heater — electrical supply",
+          check: "Operator already tried acknowledging the overtemperature. If still no heat, the heater isn't getting power. Check electrical connections to the ex-flow heater, its supply fuse/breaker, and the temperature limiter/cutout that may have latched off.",
+          likelyPart: "Fuse/breaker, heater connection, or temperature limiter",
+          note: "No heat after the operator acknowledged the fault = an electrical supply problem to the heater. Start at the supply and the temperature limiter.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "harden-no-medium",
+    entryType: "v2",
+    category: "Gassing / Hardening",
+    title: "No medium",
+    priority: "high",
+    allMaintenance: true,
+    triggers: [
+      "no medium",
+      "no gassing medium",
+      "medium not reaching process",
+      "no operating medium",
+      "medium supply fault",
+      "shut-off valves closed medium",
+    ],
+    symptom: "No gassing medium is reaching the process. If another ex-flow heater fault is active at the same time, check and resolve that first — it may be the root cause.",
+    checks: [
+      {
+        cause: "Shut-off valves closed",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Medium supply — shut-off valves",
+          check: "Check whether the shut-off valves in the medium supply line are closed, and open them. Check this first — it's the simplest cause.",
+          likelyPart: "None (open the valves), unless a valve is faulty",
+          note: "Easiest cause first: closed supply valves mean no medium can flow. Verify these before going deeper.",
+        },
+      },
+      {
+        cause: "Dosing pump not functioning",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Medium dosing pump",
+          check: "If the supply valves are open and there's still no medium, check the dosing pump — power/air supply, run signal, and function. (See also the 'Dosing pump not running' scenario.)",
+          likelyPart: "Dosing pump (repair or replace)",
+          note: "With valves open and still no medium, the pump isn't moving it. Check its supply and run signal first.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "machine-wont-start",
+    entryType: "v2",
+    category: "Machine",
+    title: "Main switch on, but the system does not start up",
+    priority: "high",
+    allMaintenance: true,
+    triggers: [
+      "main switch on nothing starts",
+      "machine completely dead",
+      "machine dead after main switch",
+      "system does not start up",
+      "machine not powering on",
+      "voltage supply missing startup",
+    ],
+    symptom: "You turned the main switch on but nothing powers up.",
+    checks: [
+      {
+        cause: "Voltage supply missing",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Main electrical supply / control cabinet",
+          check: "Nothing powers up at all, so the machine isn't getting supply voltage. Check the incoming supply to the control cabinet, the main disconnect, and the main fuses/breakers in the cabinet.",
+          likelyPart: "Main fuse/breaker or supply connection",
+          note: "Dead machine on main-switch-on = no incoming power reaching the controls. Check the supply and cabinet main fuses before anything else.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "machine-cannot-switch-on",
+    entryType: "v2",
+    category: "Machine",
+    title: "Machine cannot be switched on",
+    priority: "high",
+    triggers: [
+      "machine cannot switch on",
+      "machine won't switch on",
+      "machine wont switch on",
+      "emergency stop actuated",
+      "maintenance door open machine",
+      "compressed air too low machine",
+      "cpu error machine startup",
+      "compressed air switch defective",
+    ],
+    symptom: "The machine won't switch on (but has power).",
+    checks: [
+      { cause: "Emergency stop button actuated", action: "Unlock the emergency stop button", tag: "operator" },
+      { cause: "Maintenance door open", action: "Close the maintenance door", tag: "operator" },
+      {
+        cause: "Compressed air too low",
+        action: "Check compressed air; adjust at the pressure regulator if required",
+        tag: "operator",
+      },
+      {
+        cause: "Evaluation module on maintenance door defective",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Safety circuit — maintenance door evaluation module",
+          check: "Operator confirmed the door is actually closed but the machine still thinks it's open. Test/initialize the safety evaluation module for the maintenance door, and check the door switch wiring.",
+          likelyPart: "Door safety evaluation module or door switch",
+          note: "Door is closed but the safety module isn't registering it. Test the module and the door switch.",
+        },
+      },
+      {
+        cause: "CPU error",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Control cabinet — PLC/CPU",
+          check: "Check the fuses in the control cabinet feeding the CPU/PLC, and look for a CPU fault indication. Refer to the control documentation for the specific error.",
+          likelyPart: "Control cabinet fuse, or CPU fault needing control docs",
+          note: "A CPU error usually traces to a blown control fuse or a PLC fault. Check cabinet fuses first, then the control documentation.",
+        },
+      },
+      {
+        cause: "Compressed air switch defective",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Pneumatic supply — compressed air pressure switch",
+          check: "Operator confirmed compressed air is actually present, but the machine won't enable. Test the compressed-air pressure switch — it may not be closing even though pressure is good.",
+          likelyPart: "Compressed air pressure switch",
+          note: "Air is present but the switch that confirms it isn't signaling. Test/replace the pressure switch.",
+        },
+      },
+      {
+        cause: "Signal for compressed air not available (wiring)",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Wiring from compressed-air switch to control",
+          check: "If the air switch tests good but its signal isn't reaching the controller, check the wiring/terminals between the pressure switch and the control input.",
+          likelyPart: "Wiring / terminal connection",
+          note: "Switch is fine but its signal isn't getting to the PLC. Check the wire run and terminals.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "machine-vacuum-low",
+    entryType: "v2",
+    category: "Machine",
+    title: "Vacuum pressure too low",
+    priority: "medium",
+    triggers: [
+      "vacuum pressure too low",
+      "vacuum low machine",
+      "suction too low",
+      "vacuum insufficient",
+      "suction surfaces dirty",
+      "vacuum system leak machine",
+    ],
+    symptom: "Vacuum pressure is below where it should be.",
+    checks: [
+      { cause: "Related positions not fully made before the vacuum step", action: "Confirm the machine positions that should be made before the vacuum step are all showing correctly on the HMI screen", tag: "operator" },
+      { cause: "Active fault or message tied to the vacuum condition", action: "Check the HMI for any active fault or message tied to the vacuum condition — resolve that before proceeding", tag: "operator" },
+      { cause: "Suction surfaces dirty", action: "Clean the suction surfaces", tag: "operator" },
+      {
+        cause: "Leakage in vacuum system",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Vacuum system",
+          check: "Operator already cleaned the suction surfaces. If vacuum is still low, there's a leak in the vacuum system. Check vacuum hoses, fittings, and the vacuum pump/filter.",
+          likelyPart: "Vacuum hose/fitting, or vacuum filter/pump component",
+          note: "Surfaces are clean but vacuum is still weak = an air leak in the vacuum circuit. Walk the hoses and check the filter.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "machine-light-curtain",
+    entryType: "v2",
+    category: "Machine",
+    title: "Light curtain interrupted",
+    priority: "high",
+    triggers: [
+      "light curtain interrupted",
+      "light curtain blocked",
+      "safety curtain fault",
+      "light curtain fault",
+      "deflecting mirror soiled",
+      "sender receiver dirty curtain",
+    ],
+    symptom: "The machine stops with a light curtain fault.",
+    checks: [
+      {
+        cause: "Object or person within the light curtain area",
+        action: "Clear the area, then acknowledge the light curtain on the HMI",
+        tag: "operator",
+      },
+      {
+        cause: "Sender, receiver, or deflecting mirror soiled",
+        action: "Clean the sender, receiver, and deflecting mirror",
+        tag: "operator",
+      },
+      {
+        cause: "Light curtain status not shown correctly on screen after clearing",
+        action: "Check that the machine's safety curtain condition shows correctly on the HMI after the zone is clear and the components are clean — if it still shows interrupted, report for sensor or alignment check",
+        tag: "operator",
+      },
+    ],
+  },
+
+  {
+    id: "machine-excessive-heating",
+    entryType: "v2",
+    category: "Machine",
+    title: "Excessive heating development",
+    priority: "high",
+    triggers: [
+      "excessive heating development",
+      "motor hot",
+      "component overheating",
+      "motor running hot",
+      "machine heating up",
+      "grease shortage guide",
+      "bearing dirty corroded",
+      "linear guide damaged",
+    ],
+    symptom: "A motor or component is running hot.",
+    checks: [
+      {
+        cause: "Restricted flow of air to the motor",
+        action: "Clear obstructions and make sure airflow to the motor isn't blocked",
+        tag: "operator",
+      },
+      {
+        cause: "Shortage of grease or wear on the machine guide",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Machine guide (linear guide / ways)",
+          check: "Check the machine guide for adequate lubrication and inspect for wear. A dry or worn guide creates friction and heat.",
+          likelyPart: "Grease/lubricant; guide may need replacing if worn",
+          note: "Operator confirmed airflow is clear, so heat is mechanical. A dry or worn guide is the usual cause — lubricate, check for wear.",
+        },
+      },
+      {
+        cause: "Bearings dirty, corroded, or damaged",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Bearings on the affected component",
+          check: "Inspect the relevant bearings for dirt, corrosion, or mechanical damage. A failing bearing runs hot.",
+          likelyPart: "Bearing(s)",
+          note: "Localized heat at a rotating part usually means a bad bearing. Clean/replace as found.",
+        },
+      },
+      {
+        cause: "Linear guide damaged",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Linear guide",
+          check: "If the linear guide is mechanically damaged it binds and heats. Inspect for damage; replace if needed.",
+          likelyPart: "Linear guide",
+          note: "A damaged linear guide binds and generates heat. Replace it.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "machine-excessive-noise",
+    entryType: "v2",
+    category: "Machine",
+    title: "Excessive noise generation",
+    priority: "high",
+    triggers: [
+      "excessive noise machine",
+      "machine loud",
+      "abnormal noise machine",
+      "noise generation machine",
+      "banging machine",
+      "bearing noise",
+      "guide noise machine",
+      "collision noise machine",
+    ],
+    symptom: "The machine is making more noise than normal.",
+    checks: [
+      {
+        cause: "Noise starts at the same cycle step, or started after a setup or box change",
+        action: "Note which cycle step the noise starts at and whether it began after a setup, box change, or restart — report this to maintenance to help narrow the cause",
+        tag: "operator",
+      },
+      {
+        cause: "Loose components",
+        action: "Check accessible components for dirt and clean; fasten any loose components you can safely reach",
+        tag: "operator",
+      },
+      {
+        cause: "Dirty or worn bearing",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Bearings",
+          check: "Inspect bearings for dirt and wear; clean and lubricate, replace if worn. A dry/worn bearing is a common noise source.",
+          likelyPart: "Bearing(s); grease",
+          note: "Grinding or whining noise usually traces to a dirty or worn bearing.",
+        },
+      },
+      {
+        cause: "Wear or grease shortage on machine guide",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Machine guide",
+          check: "Check the machine guide for lubrication and wear — a dry guide squeals/grinds.",
+          likelyPart: "Lubricant; guide if worn",
+          note: "A dry or worn guide makes noise. Lubricate and check for wear.",
+        },
+      },
+      {
+        cause: "Collision impacts from powered components",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Moving component stroke / damping / limit stops",
+          check: "Something is banging at end of travel. Check stroke settings and damping elements, verify position of brake initiators and limit stops, and check the hydraulic/electrical/electronic switching components — correct/adjust as needed.",
+          likelyPart: "Damping element, limit stop adjustment, or switching component",
+          note: "Banging/knocking = a component slamming at the end of its stroke. Check damping, limit stops, and the switches that should slow it down.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "machine-excessive-vibration",
+    entryType: "v2",
+    category: "Machine",
+    title: "Excessive levels of vibration",
+    priority: "high",
+    triggers: [
+      "excessive vibration machine",
+      "machine vibrating excessively",
+      "vibration levels high",
+      "machine shaking",
+      "motor fan imbalance",
+      "bearing imbalance",
+      "foundation mounting loose",
+    ],
+    symptom: "The machine is vibrating more than usual.",
+    checks: [
+      {
+        cause: "Vibration starts at the same cycle step, or started after a setup or box change",
+        action: "Note which cycle step the vibration starts at and whether it began after a setup, box change, or restart — report this to maintenance to help narrow the cause",
+        tag: "operator",
+      },
+      {
+        cause: "Loose machine components",
+        action: "Check accessible machine components for firm seating where you can safely reach",
+        tag: "operator",
+      },
+      {
+        cause: "Imbalance in motor fan or bearings",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Motor / fan / bearings",
+          check: "Check the motor fan and bearings for imbalance and wear; replace components as needed. An unbalanced fan or failing bearing vibrates.",
+          likelyPart: "Motor fan or bearing(s)",
+          note: "Operator confirmed nothing's loose, so it's rotating-mass imbalance — usually fan or bearing.",
+        },
+      },
+      {
+        cause: "Resonance from foundation mounting",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Machine foundation mounting",
+          check: "Check that the machine is properly mounted and bolted to its foundation; tighten the mounting if loose. Loose mounting lets the machine resonate.",
+          likelyPart: "Foundation bolts / anchors",
+          note: "If the machine isn't firmly anchored it resonates. Check and tighten the foundation mounting.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "hydraulic-general",
+    entryType: "v2",
+    category: "Hydraulic",
+    title: "Hydraulic system fault",
+    priority: "high",
+    triggers: [
+      "hydraulic fault",
+      "hydraulic noise",
+      "hydraulic pressure low",
+      "hydraulic oscillation",
+      "hydraulic jerky movement",
+      "foaming hydraulic oil",
+      "hydraulic overheating",
+      "hydraulic problem",
+      "jerky actuator hydraulic",
+      "hydraulic feed rate low",
+    ],
+    symptom:
+      "Any hydraulic problem: excessive noise, low or fluctuating pressure, poor feed rates, oscillations, jerky actuator movement, foaming oil, or oil running too hot.",
+    checks: [
+      {
+        cause: "Low oil level (operator can read the sight glass)",
+        action: "Check the hydraulic oil level on the sight glass. If it's low, report it — but topping up hydraulic oil is a maintenance task unless you're specifically trained and authorized.",
+        tag: "operator",
+      },
+      {
+        cause: "Any internal hydraulic fault — pump, valves, seals, cylinders, filters, cooler, pressure settings",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Hydraulic power unit and circuit",
+          check: "Identify which symptom it is and work from there: NOISE → check oil level, suction-side leaks, air in oil, pump/bearings. LOW/FLUCTUATING PRESSURE → check pump wear, relief/pressure valve settings, internal leakage. POOR FEED RATE → check pump output, throttle/flow valves, internal leakage. JERKY/OSCILLATING → check for air in the system, valve sticking, damping. FOAMING → check oil level, suction-side air leak, wrong/contaminated oil. OVERHEATING → check cooler/heat exchanger, oil level, relief valve set too high.",
+          likelyPart: "Depends on symptom — commonly: hydraulic oil, return/pressure filter, valve seals, or cooler cleaning",
+          note: "The operator can only confirm oil level. Everything else in the hydraulic system is maintenance. Use the symptom to narrow it: noise and foaming usually start with oil level and suction-side air; overheating usually starts with the cooler and oil level.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "hydraulic-oil-temp-high",
+    entryType: "v2",
+    category: "Hydraulic",
+    title: "Hydraulic oil temperature too high (machine switch-off)",
+    priority: "high",
+    allMaintenance: true,
+    triggers: [
+      "hydraulic oil temperature high shutoff",
+      "oil temp too high machine shutoff",
+      "hydraulic overtemp shutoff",
+      "machine shutdown oil temperature",
+      "hydraulic oil hot shutoff",
+      "heat exchanger dirty hydraulic",
+      "cooling circuit fault hydraulic",
+    ],
+    symptom: "The machine shuts off with a high hydraulic oil temperature fault.",
+    checks: [
+      {
+        cause: "Oil-air / oil-water heat exchanger dirty, or coolant circuit issue",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Hydraulic cooling — heat exchanger and coolant circuit",
+          check: "Check the oil-air or oil-water heat exchanger for dirt/blockage and clean it. Check the coolant circuit for flow, leaks, and faults. A blocked or starved cooler is the #1 cause of overheating shutdown.",
+          likelyPart: "Clean heat exchanger; check coolant supply",
+          note: "Overheat shutdown almost always starts at the cooler. Clean the heat exchanger and confirm coolant is actually flowing.",
+        },
+      },
+      {
+        cause: "Filter element for water cooling dirty",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Water cooling circuit — filter element",
+          check: "If the cooler is clean but oil still overheats, the water-cooling filter element may be clogged, starving the cooler of coolant flow. Clean/replace the filter element.",
+          likelyPart: "Water cooling filter element",
+          note: "A clogged cooling-water filter starves the cooler. Clean it if cleaning the exchanger didn't fix the overheat.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "hydraulic-oil-low-shutoff",
+    entryType: "v2",
+    category: "Hydraulic",
+    title: "Hydraulic oil fill level too low (machine switch-off)",
+    priority: "high",
+    allMaintenance: true,
+    triggers: [
+      "hydraulic oil level too low shutoff",
+      "low hydraulic oil shutoff",
+      "hydraulic oil low warning shutoff",
+      "oil level low machine shutdown",
+      "hydraulic oil fill level low",
+      "hydraulic leak oil level",
+    ],
+    symptom: "The machine shuts off, or gives an advance warning, for low hydraulic oil level. Before calling maintenance: note whether the level is constantly low or only drops during operation, and whether this started after recent maintenance or suspected leakage.",
+    checks: [
+      {
+        cause: "Leakage in the hydraulic circuit",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Hydraulic circuit",
+          check: "Oil level dropped below the warning threshold, which means it's leaking out somewhere. Inspect the hydraulic circuit for leaks — hoses, fittings, cylinder seals, the power unit — find and fix the leak, then refill to the correct level.",
+          likelyPart: "Depends on leak location — hose, fitting, or cylinder seal; plus hydraulic oil to refill",
+          note: "Note whether the level is constant or only drops during operation, and whether it appeared after recent maintenance. Find and fix the leak before refilling — don't just top up or it'll come back. Then refill to spec.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "pneumatic-general",
+    entryType: "v2",
+    category: "Pneumatic",
+    title: "Pneumatic system fault",
+    priority: "medium",
+    triggers: [
+      "pneumatic system fault",
+      "air system problem",
+      "pneumatic noise",
+      "air pressure low pneumatic",
+      "pneumatic oscillation",
+      "jerky pneumatic actuator",
+      "air cylinder jerky",
+      "valve seal pneumatic",
+    ],
+    symptom:
+      "Any pneumatic problem: excessive noise, insufficient or fluctuating pressure, poor feed rates, oscillations, or jerky actuator movement.",
+    checks: [
+      {
+        cause: "Latched pneumatic stop that Reset Air can clear",
+        action: "Perform Reset Air once if it is appropriate and allowed for the stopped condition — stop if the same fault returns immediately",
+        tag: "operator",
+      },
+      {
+        cause: "Compressed air too low / pressure set too low",
+        action: "Check compressed air and adjust at the pressure regulator if required",
+        tag: "operator",
+      },
+      { cause: "Air filter clogged (accessible)", action: "Clean the accessible air filter, or report it", tag: "operator" },
+      {
+        cause: "Any internal pneumatic fault — valves, seals, cylinders, piping",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Pneumatic system",
+          check: "After confirming supply pressure and a clean filter: NOISE → loose cylinder fastening, leaking fittings, fluttering/dirty valves. LOW/FLUCTUATING PRESSURE → regulator, valve seating, leaks. JERKY/OSCILLATING → air in line, sticking valve, insufficient damping. Check valves, cylinder seals, and piping/fittings accordingly.",
+          likelyPart: "Valve seal, cylinder seal, fitting, or regulator",
+          note: "Operator already checked supply pressure and the filter. Remaining causes are valves, seals, cylinders, and piping — narrow it by symptom.",
+        },
+      },
+    ],
+  },
+
+  {
+    id: "pneumatic-shooting-reservoir-low",
+    entryType: "v2",
+    category: "Pneumatic",
+    title: "Shooting air reservoir pressure too low",
+    priority: "medium",
+    triggers: [
+      "shooting air reservoir low",
+      "shooting reservoir pressure low",
+      "shoot air reservoir",
+      "air reservoir pressure low",
+      "fill pressure too low reservoir",
+      "air filter clogged shoot reservoir",
+    ],
+    symptom: "Fill pressure in the shooting air reservoir is too low.",
+    checks: [
+      { cause: "Fill pressure too low", action: "Check the air supply", tag: "operator" },
+      { cause: "Air filter clogged", action: "Clean the air filter", tag: "operator" },
+    ],
+  },
+
+  {
+    id: "electrical-general",
+    entryType: "v2",
+    category: "Electrical",
+    title: "Electrical fault",
+    priority: "high",
+    allMaintenance: true,
+    triggers: [
+      "electrical fault",
+      "motor protection switch tripped",
+      "cpu error electrical",
+      "24v supply missing",
+      "limit switch error",
+      "electrical system fault",
+      "motor protection tripped",
+      "signal generator error",
+    ],
+    symptom:
+      "Any electrical fault message: motor protection switch tripped, CPU error, 24V supply issue, or limit switch error.",
+    checks: [
+      {
+        cause: "Motor protection switch tripped",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Motor circuit — motor protection switch",
+          check: "A tripped motor protection switch means motor overload or short-circuit. Check the motor and the pump it drives for binding/overload; check supply lines for a short. Don't just reset it without finding why it tripped.",
+          likelyPart: "Investigate motor/pump; reset only after cause found",
+          note: "The protection switch tripped for a reason — overload or short. Find the cause (binding motor/pump or a short) before resetting.",
+        },
+      },
+      {
+        cause: "CPU error",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Control — PLC/CPU",
+          check: "A CPU/system error — refer to the control documentation for the specific code. Check control-cabinet fuses feeding the CPU.",
+          likelyPart: "Per control documentation; possibly a control fuse",
+          note: "CPU errors need the control documentation to decode. Check cabinet control fuses as a first move.",
+        },
+      },
+      {
+        cause: "24V voltage supply missing",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "24V control supply",
+          check: "Check the 24V supply: blown fuse, tripped supply, overload, or short-circuit on a 24V consumer. Check the fuse, then check consumers and supply lines for shorts/overload.",
+          likelyPart: "24V fuse; investigate shorted/overloaded consumer",
+          note: "No 24V usually means a blown control fuse, often caused by a shorted or overloaded device downstream. Check the fuse and what it feeds.",
+        },
+      },
+      {
+        cause: "Limit switch / signal generator error",
+        tag: "maintenance",
+        forMaintenance: {
+          system: "Position sensing — limit switch / signal generator",
+          check: "Check the limit switch / signal generator setting and position — it may be misadjusted, dirty, or failed so it's not giving the expected signal.",
+          likelyPart: "Limit switch / proximity sensor",
+          note: "A limit switch error is usually a misadjusted, dirty, or dead position sensor. Check its setting and signal.",
+        },
+      },
+    ],
+  },
+
   {
     id: "vacuum-wont-make-during-load-search",
     entryType: "recovery-bridge",
