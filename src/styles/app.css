@@ -394,6 +394,11 @@ button.card:active{
   background:linear-gradient(180deg,rgba(59,130,246,.072),rgba(255,255,255,.024));
 }
 
+.card--amber{
+  border-left:2px solid rgba(245,158,11,.65);
+  background:linear-gradient(180deg,rgba(245,158,11,.065),rgba(255,255,255,.024));
+}
+
 .card ul{
   margin:10px 0 0;
   padding-left:18px;
@@ -972,6 +977,88 @@ mark{
   color:rgba(255,255,255,0.82);
   background:rgba(255,255,255,0.04);
   border-color:rgba(255,255,255,0.10);
+}
+
+.statusChip--maint{
+  color:#FDE68A;
+  background:rgba(245,158,11,0.12);
+  border-color:rgba(245,158,11,0.22);
+}
+
+/* ── v2 scenario detail components ── */
+.checksTable{
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+
+.checkRow{
+  padding:9px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.checkRow:last-child{
+  padding-bottom:0;
+  border-bottom:none;
+}
+
+.checkRow__cause{
+  font-size:13px;
+  font-weight:600;
+  color:var(--text);
+  line-height:1.4;
+}
+
+.checkRow__action{
+  margin-top:3px;
+  font-size:12px;
+  color:var(--muted-soft);
+  line-height:1.5;
+}
+
+.maintCheck__header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.maintCheck__cause{
+  font-size:13px;
+  font-weight:600;
+  color:var(--text);
+  line-height:1.4;
+  flex:1;
+}
+
+.maintBriefing{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  padding-top:10px;
+  border-top:1px solid rgba(245,158,11,.20);
+}
+
+.maintBriefing__row{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.maintBriefing__label{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:rgba(251,191,36,.65);
+}
+
+.maintBriefing__value{
+  font-size:12px;
+  color:rgba(255,255,255,.80);
+  line-height:1.55;
 }
 
 /* core detail polish */

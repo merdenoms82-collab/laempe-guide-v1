@@ -1,4 +1,10 @@
+import TroubleshootingIssueV2 from "./TroubleshootingIssueV2";
+
 export default function TroubleshootingIssue({ issue }) {
+  if (issue.entryType === "v2") {
+    return <TroubleshootingIssueV2 issue={issue} />;
+  }
+
   return (
     <div className="stack">
       <div className="card">

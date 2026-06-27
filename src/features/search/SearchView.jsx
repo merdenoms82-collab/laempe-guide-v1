@@ -81,8 +81,10 @@ function scoreIssueEntry(query, entry) {
   const title = normalizeText(entry.title);
   const symptom = normalizeText(entry.symptom);
   const triggers = (entry.triggers || []).map(normalizeText);
-  const causes = normalizeText((entry.likelyCauses || []).join(" "));
-  const checks = normalizeText((entry.firstChecks || []).join(" "));
+  const v2Causes = (entry.checks || []).map((c) => c.cause).join(" ");
+  const v2Actions = (entry.checks || []).filter((c) => c.tag === "operator").map((c) => c.action).join(" ");
+  const causes = normalizeText((entry.likelyCauses || []).join(" ") + " " + v2Causes);
+  const checks = normalizeText((entry.firstChecks || []).join(" ") + " " + v2Actions);
   const relatedLabels = normalizeText(
     (entry.relatedPages || []).map((page) => page.label).join(" ")
   );
@@ -276,13 +278,23 @@ function buildQuickHelper({ topChoice, query }) {
     const match = topChoice.value;
     const issue = match.entry;
 
+    const v2OperatorChecks = (issue.checks || [])
+      .filter((c) => c.tag === "operator")
+      .map((c) => `${c.cause}: ${c.action}`);
+    const firstChecks = issue.entryType === "v2"
+      ? v2OperatorChecks.slice(0, 4)
+      : (issue.firstChecks || []).slice(0, 4);
+    const escalate = issue.entryType === "v2"
+      ? (issue.allMaintenance
+          ? "This fault has no operator action — call maintenance directly."
+          : "Call maintenance for any cause marked as a maintenance item.")
+      : (issue.whenCallMaint || "Call maintenance if the condition repeats or cannot be cleared safely.");
+
     return {
       title: issue.title,
       summary: issue.symptom || "Best troubleshooting match found.",
-      firstChecks: (issue.firstChecks || []).slice(0, 4),
-      escalate:
-        issue.whenCallMaint ||
-        "Call maintenance if the condition repeats or cannot be cleared safely.",
+      firstChecks,
+      escalate,
       type: "issue",
       isRecovery: match.isRecovery,
     };
